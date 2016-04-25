@@ -9,6 +9,7 @@ type Props = {
   increment: Function
 }
 
+
 export const Counter = (props: Props) => (
   <div>
     <h2 className={classes.counterContainer}>
