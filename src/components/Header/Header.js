@@ -4,7 +4,21 @@ import NavBar from '../NavBar'
 import classes from './Header.scss'
 import logoImg from '../../static/images/logo.png'
 import arrowIco from '../../static/images/arrowIco.png'
+import { Menu, Dropdown, Icon } from 'antd';
 
+const menu = (
+  <Menu>
+    <Menu.Item key="0">
+      <a >English</a>
+    </Menu.Item>
+    <Menu.Item key="1">
+      <a >简体中文</a>
+    </Menu.Item>
+    <Menu.Divider />
+  </Menu>
+);
+
+    			// <a href="#"><img src={arrowIco} className={classes.arrowIco} /></a>
 export const Header = () => (
 
   <div>
@@ -16,7 +30,11 @@ export const Header = () => (
         </div>
     		<div className={classes.language}>
     			<span>中文简体<em>|</em></span>
-    			<a href="#"><img src={arrowIco} className={classes.arrowIco} /></a>
+          <Dropdown overlay={menu} trigger={['click']}>
+            <a className="ant-dropdown-link" href="#">
+              <img src={arrowIco} className={classes.arrowIco} />
+            </a>
+          </Dropdown>
     		</div>
     		<div className={classes.oline}>
     			<strong></strong>
