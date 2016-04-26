@@ -1,4 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router'
+import { Menu, Dropdown , Icon} from 'antd'
 import classes from './NavBar.scss'
 import navIco2 from '../../static/images/navIco2.png'
 import navIco3 from '../../static/images/navIco3.png'
@@ -8,9 +10,30 @@ import navIco1 from '../../static/images/navIco1.png'
 
 import btcIco from '../../static/images/btcIco.png'
 import moneyIco from '../../static/images/moneyIco.png'
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" href="http://www.baidu.com/">go to baidu</a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" href="http://www.baidu.com/">go to baidu</a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" href="http://www.baidu.com/">go to baidu</a>
+    </Menu.Item>
+  </Menu>
+);
+
 type Props = {
 
 };
+  // <Link to='/account' activeClassName={classes.activeRoute}>
+  //   账户
+  // </Link>
+  // <Link to='/' activeClassName={classes.activeRoute}>
+  //   抽奖
+  // </Link>
 export class NavBar extends React.Component {
   props: Props;
 
@@ -18,11 +41,39 @@ export class NavBar extends React.Component {
     return (
       <div className={classes.nav}>
       	<ul>
-      		<li className={classes.navCur}><a href="#"><img src={navIco1} /><span>抽奖</span></a></li>
-      		<li><a href="#"><img src={navIco1} /><span>视频</span></a></li>
-      		<li><a href="#"><img src={navIco1} /><span>历史</span></a></li>
-      		<li><a href="#"><img src={navIco1} /><span>下线</span></a></li>
-      		<li><a href="#"><img src={navIco1} /><span>账户</span></a></li>
+      		<li className={classes.navCur}>
+            <Link to='/' activeClassName={classes.activeRoute}>
+              <img src={navIco1} />
+              抽奖
+            </Link>
+          </li>
+      		<li>
+            <Link to='/account' activeClassName={classes.activeRoute}>
+              <img src={navIco1} />
+              账户
+            </Link>
+          </li>
+      		<li>
+            <Link to='/history' activeClassName={classes.activeRoute}>
+              <img src={navIco1} />
+              历史
+            </Link>
+          </li>
+      		<li>
+            <Link to='/offline' activeClassName={classes.activeRoute}>
+              <img src={navIco1} />
+              下线
+            </Link>
+          </li>
+      		<li>
+            <Dropdown overlay={menu}>
+              <a className="ant-dropdown-link" href="#">
+                <img src={navIco1} />
+                其它 <Icon type="down" />
+              </a>
+            </Dropdown>
+          </li>
+
       	</ul>
       	<div className={classes.clear}></div>
       	<p>As long as you have over 0.001BTC, the system will pay to your BTC address automatically at 0:00(UTC) every day.</p>
@@ -41,5 +92,14 @@ export class NavBar extends React.Component {
     )
   }
 }
-
+// <li>
+//   <img src={navIco1} />
+//   <a><span>其它</span></a>
+//   <Dropdown overlay={menu}>
+//     <a className="ant-dropdown-link" href="#">
+//       其它 <Icon type="down" />
+//     </a>
+//   </Dropdown>
+//   <a><span>其它</span></a>
+// </li>
 export default NavBar
