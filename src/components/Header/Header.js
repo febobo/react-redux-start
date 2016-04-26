@@ -21,8 +21,6 @@ const menu = (
 export class Header extends React.Component {
 
   render (){
-    console.log(this)
-
     return (
       <div>
         <div className={classes.topBg}>

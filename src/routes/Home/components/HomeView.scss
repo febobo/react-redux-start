@@ -18,13 +18,13 @@
 .luckBtn2 span{display:block;margin-top:66px;margin-left:90px}
 
 .mainBlock{height:605px;border-bottom:1px solid #efefef;}
-.dynamic{width:659px;float:left;}
+.dynamic{width:659px; float:left;}
 .dynamicTitle{height:46px;border-bottom:1px solid #eaeaea;}
 .dynamicTitle img{float:left;margin-top:18px;margin-left:13px;margin-right:8px;}
 .dynamicTitle span{float:left;font-size:16px;color:#414141;margin-top:15px;}
-.dynamicTab{width:613px;margin:0 auto;}
+.dynamicTab{width:613px;margin:0 auto; overflow: hidden}
 .dynamicTab p{width:200px;height:35px;margin-top:10px;text-align:center;color:#414141;font-size:15px;float:left;}
-.dynamicList{width:613px;margin:0 auto;}
+.dynamicList{width:613px;margin:0 auto; height : 535px; overflow: hidden; }
 .dynamicList ul li {line-height:35px;height:35px;}
 .dynamicList ul li p{width:200px;text-align:center;color:#414141;font-size:13px;float:left;}
 .dynamicBg{background:#fafafa;}

@@ -28,7 +28,7 @@ const menu = (
 type Props = {
 
 };
-  // <Link to='/account' activeClassName={classes.activeRoute}>
+  // <Link to='/account' activeClassName={classes.navCur}>
   //   账户
   // </Link>
   // <Link to='/' activeClassName={classes.activeRoute}>
@@ -41,26 +41,26 @@ export class NavBar extends React.Component {
     return (
       <div className={classes.nav}>
       	<ul>
-      		<li className={classes.navCur}>
-            <Link to='/' activeClassName={classes.activeRoute}>
+      		<li>
+            <Link to='/' activeClassName={classes.navCur}>
               <img src={navIco1} />
               抽奖
             </Link>
           </li>
       		<li>
-            <Link to='/account' activeClassName={classes.activeRoute}>
+            <Link to='/account' activeClassName={classes.navCur}>
               <img src={navIco1} />
               账户
             </Link>
           </li>
       		<li>
-            <Link to='/history' activeClassName={classes.activeRoute}>
+            <Link to='/history' activeClassName={classes.navCur}>
               <img src={navIco1} />
               历史
             </Link>
           </li>
       		<li>
-            <Link to='/offline' activeClassName={classes.activeRoute}>
+            <Link to='/offline' activeClassName={classes.navCur}>
               <img src={navIco1} />
               下线
             </Link>
