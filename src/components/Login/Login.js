@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Login.scss'
+import Strength from '../Strength'
 import dynamicIco from '../../static/images/dynamicIco.png'
 import aboutIco from '../../static/images/aboutIco.png'
 type Props = {
@@ -9,7 +10,26 @@ export class Login extends React.Component {
   props: Props;
 
   render () {
+    console.log(this)
     return (
+    <div>
+      <div className={classes.login}>
+      	<div className={classes.reg}>
+      		<div className={classes.regTitle}>
+      			<ul>
+      				<li>注册</li>
+      				<li className={classes.regCur}>登陆</li>
+      			</ul>
+      		</div>
+      		<div className={classes.clear}></div>
+      		<div className={classes.regForm}>
+      			<form>
+      				<input name="" className={classes.loginEmail} placeholder="请输入邮箱" />
+      				<input type="submit" name="" className={classes.regBtn} placeholder="登陆" />
+      			</form>
+      		</div>
+      	</div>
+      </div>
       <div className={classes.main}>
       	<div className={classes.mainBlock}>
       		<div className={classes.dynamic}>
@@ -107,6 +127,8 @@ export class Login extends React.Component {
       		</div>
       	</div>
       </div>
+      <Strength />
+  </div>
     )
   }
 }

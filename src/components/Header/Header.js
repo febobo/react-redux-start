@@ -18,34 +18,39 @@ const menu = (
   </Menu>
 );
 
-    			// <a href="#"><img src={arrowIco} className={classes.arrowIco} /></a>
-export const Header = () => (
+export class Header extends React.Component {
 
-  <div>
-    <div className={classes.topBg}>
-    	<div className={classes.top}>
-    		<div className={classes.logo}>
+  render (){
+    console.log(this)
 
-          <a href="/"><img src={logoImg} /></a>
+    return (
+      <div>
+        <div className={classes.topBg}>
+        	<div className={classes.top}>
+        		<div className={classes.logo}>
+              <a href="/"><img src={logoImg} /></a>
+            </div>
+        		<div className={classes.language}>
+        			<span>中文简体<em>|</em></span>
+              <Dropdown overlay={menu} trigger={['click']}>
+                <a className="ant-dropdown-link" href="#">
+                  <img src={arrowIco} className={classes.arrowIco} />
+                </a>
+              </Dropdown>
+        		</div>
+        		<div className={classes.oline}>
+        			<strong></strong>
+        			<span>Oline：<em>1357</em><span>
+        		</span></span></div>
+        	</div>
+
         </div>
-    		<div className={classes.language}>
-    			<span>中文简体<em>|</em></span>
-          <Dropdown overlay={menu} trigger={['click']}>
-            <a className="ant-dropdown-link" href="#">
-              <img src={arrowIco} className={classes.arrowIco} />
-            </a>
-          </Dropdown>
-    		</div>
-    		<div className={classes.oline}>
-    			<strong></strong>
-    			<span>Oline：<em>1357</em><span>
-    		</span></span></div>
-    	</div>
 
-    </div>
-    <NavBar />
-  </div>
-)
+        <NavBar />
+      </div>
+  )}
+}
+
 
 export default Header
 

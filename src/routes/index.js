@@ -18,6 +18,8 @@ export const createRoutes = (store) => {
           require('./Counter').default(store),
           require('./Account').default(store),
           require('./Login').default(store),
+          require('./Register').default(store),
+          require('./Offline').default(store),
           require('./History').default,
           require('./NotFound').default
         ])
