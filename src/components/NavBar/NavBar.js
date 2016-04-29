@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import { Menu, Dropdown , Icon} from 'antd'
+import store from 'store';
 import classes from './NavBar.scss'
 import navIco2 from '../../static/images/navIco2.png'
 import navIco3 from '../../static/images/navIco3.png'
@@ -28,16 +29,17 @@ const menu = (
 type Props = {
 
 };
-  // <Link to='/account' activeClassName={classes.navCur}>
-  //   账户
-  // </Link>
-  // <Link to='/' activeClassName={classes.activeRoute}>
-  //   抽奖
-  // </Link>
+
 export class NavBar extends React.Component {
   props: Props;
 
+  componentWillMount (){
+    let user = store.get('user');
+
+    console.log(user)
+  }
   render () {
+    const { data } = this.props;
     return (
       <div className={classes.nav}>
       	<ul>
@@ -80,13 +82,21 @@ export class NavBar extends React.Component {
       	<div className={classes.btc}>
       		<img src={btcIco} />
       		<strong>BTC Adress：</strong>
-      		<span>YILANGXIAOLONGSHIHAORENOI1234567</span>
+          {
+            data && data.address ?
+            <span>{data.address}</span> :
+            null
+          }
       		<em>（已认证）</em>
       	</div>
       	<div className={classes.ibtcIco}>
       		<img src={moneyIco} />
       		<strong>余额：</strong>
-      		<span>100000000Bits</span>
+          {
+            data && data.balance ?
+            <span>{data.balance}Bits</span> :
+            0
+          }
       	</div>
       </div>
     )

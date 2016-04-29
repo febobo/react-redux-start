@@ -10,7 +10,7 @@ export class Login extends React.Component {
   props: Props;
 
   render () {
-    console.log(this)
+    console.log(this.props)
     return (
     <div>
       <div className={classes.login}>

@@ -33,6 +33,7 @@ export function increment (value: number = 1): Action {
 
 export const doubleAsync = (): Function => {
   return (dispatch: Function, getState: Function): Promise => {
+    console.log(getState())
     return new Promise((resolve: Function): void => {
       setTimeout(() => {
         dispatch(increment(getState().counter))

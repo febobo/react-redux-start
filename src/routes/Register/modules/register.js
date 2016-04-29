@@ -3,6 +3,7 @@
 // Constants
 // ------------------------------------
 import Fetch from '../../../util/Fetch'
+import store from 'store';
 export const USER_REGISTER = 'USER_REGISTER'
 // ------------------------------------
 // Actions
@@ -45,6 +46,7 @@ export function userRegister(url , obj , data){
      }
    }
   Fetch(url,obj).then( (res) => {
+    store.set('user' , res)
     return dispatch(register(res))
   })
  }
