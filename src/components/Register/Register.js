@@ -3,13 +3,34 @@ import classes from './Register.scss'
 import Strength from '../Strength'
 import dynamicIco from '../../static/images/dynamicIco.png'
 import aboutIco from '../../static/images/aboutIco.png'
+import { Alert } from 'antd'
 type Props = {
 
 };
 export class Register extends React.Component {
   props: Props;
 
+  componentDidMount (){
+      this.refs.email.focus();
+      console.log(this);
+  }
+
+  _userRegister (){
+    const { userRegister , history} = this.props;
+    let email = this.refs.email.value;
+    let address = this.refs.address.value;
+    let query = {
+      "email": email,
+      "address": address,
+      "referer_id": 0
+    }
+    userRegister('/users' , {'method' : 'POST' , body:JSON.stringify(query) });
+    history.pushState(null, '/login')
+  }
+
   render () {
+    const {data , userRegister} = this.props;
+
     return (
     <div>
     <div className={classes.login}>
@@ -22,12 +43,26 @@ export class Register extends React.Component {
     		</div>
     		<div className={classes.clear}></div>
     		<div className={classes.regForm}>
-    			<form>
-    				<input name="" className={classes.regEmail} placeholder="请输入邮箱" />
-    				<input name="" className={classes.regBtc} placeholder="请输入BTC地址" />
-    				<input type="submit" name="" className={classes.regBtn} value="注册" />
+    			<form style={{overflow : 'hidden'}}>
+    				<input name="" className={classes.regEmail} placeholder="请输入邮箱" ref="email"/>
+    				<input name="" className={classes.regBtc} placeholder="请输入BTC地址" ref="address" />
+    				<input type="button" name="" className={classes.regBtn} value="注册"
+            onClick={ () => this._userRegister() }
+            />
     			</form>
     		</div>
+        {
+          data && data.code == -110 ?
+          <div style={{padding : "10px 20px"}}>
+          <Alert
+            message="温馨提示"
+            description={data.message}
+            type="error"
+            showIcon
+          />
+          </div> :
+          null
+        }
     	</div>
     </div>
       <div className={classes.main}>

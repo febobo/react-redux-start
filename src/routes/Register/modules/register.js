@@ -2,8 +2,8 @@
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-
+import Fetch from '../../../util/Fetch'
+export const USER_REGISTER = 'USER_REGISTER'
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -21,6 +21,33 @@ export function increment (value: number = 1): Action {
     type: COUNTER_INCREMENT,
     payload: value
   }
+}
+
+export function register (res){
+  return {
+    type : USER_REGISTER,
+    res : res
+  }
+}
+// 用户注册
+export function userRegister(url , obj , data){
+
+ return (dispatch , getstate ) => {
+
+   if(!obj.body || !JSON.parse(obj.body).email || !JSON.parse(obj.body).address){
+     return dispatch(register({code : -110 , message : '请填写完整信息'}))
+   }
+   let param =  JSON.parse(obj.body);
+   // 验证邮箱
+   if(param && param.email){
+     if(!/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(param.email)){
+       return dispatch(register({code : -110 , message : '请输入正确的邮箱'}))
+     }
+   }
+  Fetch(url,obj).then( (res) => {
+    return dispatch(register(res))
+  })
+ }
 }
 
 /*  This is a thunk, meaning it is a function that immediately
@@ -44,22 +71,24 @@ export const doubleAsync = (): Function => {
 
 export const actions = {
   increment,
-  doubleAsync
+  doubleAsync,
+  userRegister
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state: number, action: {payload: number}): number => state + action.payload
+  [USER_REGISTER] : (state , action) => {
+    return Object.assign({} , state , { data :action.res})
+  }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = {};
 export default function counterReducer (state: number = initialState, action: Action): number {
   const handler = ACTION_HANDLERS[action.type]
-
   return handler ? handler(state, action) : state
 }
