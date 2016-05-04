@@ -2,57 +2,82 @@
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
+import Fetch from '../../../util/Fetch'
+import store from 'store';
+
+export const USER_LOGIN = 'USER_LOGIN'
+export const GET_USER = 'GET_USER'
+export const GET_REWARDS = 'GET_REWARDS'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 
-/*  NOTE: "Action" is a Flow interface defined in https://github.com/TechnologyAdvice/flow-interfaces
-    If you're unfamiliar with Flow, you are completely welcome to avoid
-    annotating your code, but if you'd like to learn more you can
-    check out: flowtype.org.
+export function rewardList (res){
+  type : GET_REWARDS,
+  res
+}
 
-    NOTE: There is currently a bug with babel-eslint where a `space-infix-ops`
-    error is incorrectly thrown when using arrow functions, hence the oddity.  */
-
-export function increment (value: number = 1): Action {
+// 用户注册
+export function getRewards(url , obj , cb){
+ return (dispatch , getstate ) => {
+  Fetch(url,obj).then( (res) => {
+    if(!res.code){
+      cb && cb();
+      store.set('user' , res)
+    }
+    return dispatch(login(res))
+  })
+ }
+}
+export function login (res){
   return {
-    type: COUNTER_INCREMENT,
-    payload: value
+    type : USER_LOGIN,
+    res : res
   }
 }
 
-/*  This is a thunk, meaning it is a function that immediately
-    returns a function for lazy evaluation. It is incredibly useful for
-    creating async actions, especially when combined with redux-thunk!
+// 用户注册
+export function userLogin(url , obj , cb){
+ return (dispatch , getstate ) => {
 
-    NOTE: This is solely for demonstration purposes. In a real application,
-    you'd probably want to dispatch an action of COUNTER_DOUBLE and let the
-    reducer take care of this logic.  */
-
-export const doubleAsync = (): Function => {
-  return (dispatch: Function, getState: Function): Promise => {
-    console.log(getState())
-    return new Promise((resolve: Function): void => {
-      setTimeout(() => {
-        dispatch(increment(getState().counter))
-        resolve()
-      }, 200)
-    })
-  }
+   if(!JSON.parse(obj.body).email){
+     return dispatch(login({code : -110 , message : '请填写完整信息'}))
+   }
+   let param =  JSON.parse(obj.body);
+   // 验证邮箱
+   if(param && param.email){
+     if(!/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(param.email)){
+       return dispatch(login({code : -110 , message : '请输入正确的邮箱'}))
+     }
+   }
+  Fetch(url,obj).then( (res) => {
+    console.log(res)
+    if(!res.code){
+      store.set('auth_token' , res)
+      cb && cb();
+    }
+    return dispatch(login(res))
+  })
+ }
 }
+
 
 export const actions = {
-  increment,
-  doubleAsync
+  userLogin,
+  getRewards
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state: number, action: {payload: number}): number => state + action.payload
+  [USER_LOGIN] : (state , action) => {
+    return Object.assign({} , state , { data :action.res})
+  },
+  [GET_REWARDS] : (state , action) => {
+    return Object.assign({} , state , { rewardList :action.res})
+  }
 }
 
 // ------------------------------------

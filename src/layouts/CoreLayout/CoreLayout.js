@@ -9,7 +9,6 @@ import { userRegister } from '../../routes/Register/modules/register'
 export class CoreLayout extends React.Component {
   render (){
     const { children } = this.props;
-    console.log(this)
     return (
       <div className=''>
         <Header {...this.props}/>

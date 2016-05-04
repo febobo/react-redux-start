@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { increment, doubleAsync , userRegister } from '../modules/register'
+import { userRegister } from '../modules/register'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,8 +13,6 @@ import Register from 'components/Register'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapActionCreators = {
-  increment: () => increment(10),
-  doubleAsync,
   userRegister
 }
 

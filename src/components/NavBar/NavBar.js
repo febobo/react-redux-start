@@ -34,9 +34,11 @@ export class NavBar extends React.Component {
   props: Props;
 
   componentWillMount (){
+    const { history } = this.props;
     let user = store.get('user');
-
-    console.log(user)
+    if(!user){
+      history.pushState(null, '/login');
+    }
   }
   render () {
     const { data } = this.props;

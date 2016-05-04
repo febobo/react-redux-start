@@ -1,49 +1,102 @@
 import React from 'react'
+import {Link} from 'react-router'
 import classes from './Login.scss'
 import Strength from '../Strength'
 import dynamicIco from '../../static/images/dynamicIco.png'
 import aboutIco from '../../static/images/aboutIco.png'
+import { Alert } from 'antd'
+import store from 'store'
 type Props = {
 
 };
 export class Login extends React.Component {
   props: Props;
 
-  _userRegister (){
-    const { userRegister , history} = this.props;
+  _userLogin (){
+    const { userLogin , history , getRewards} = this.props;
     let email = this.refs.email.value;
-    let address = this.refs.address.value;
     let query = {
       "email": email,
-      "address": address,
-      "referer_id": 0
     }
-    userRegister('/users' , {'method' : 'POST' , body:JSON.stringify(query) });
-    history.pushState(null, '/login')
+    console.log(this)
+    userLogin(
+      '/auth_tokens' ,
+      {
+        'method' : 'POST' ,
+         body:JSON.stringify(query)
+      }
+    );
+    // history.pushState(null, '/')
+  }
+
+  componentDidMount (){
+    const { userLogin , history , getRewards} = this.props;
+    // console.log(store.get('auth_token'))
+    let limit = 15;
+    let until = new Date().getTime();
+
+      // 'Auth-Token' : store.get('auth_token')
+    let headers = new Headers();
+    headers.set("Auth-Token", store.get('auth_token').auth_token);
+    // console.log(headers.get('Auth-Token'))
+    getRewards(
+      '/incomes/rewards?until=' + until + '&limit=15' ,
+      {
+        headers : {
+	        'Auth-Token': "d5f3a1f9-1ee0-473c-a8c2-5f0b203722c7"
+	      }
+      }
+    )
+
+
   }
 
   render () {
     console.log(this.props)
+    const { data } = this.props;
     return (
     <div>
       <div className={classes.login}>
       	<div className={classes.reg}>
       		<div className={classes.regTitle}>
       			<ul>
-      				<li>注册</li>
-      				<li className={classes.regCur}>登陆</li>
+            <li className={classes.regCur}>
+              <Link to='/register' activeClassName={classes.regCur}>
+                注册
+              </Link>
+            </li>
+    				<li>
+              <Link to='/login' activeClassName={classes.regCur}>
+                登陆
+              </Link>
+            </li>
       			</ul>
       		</div>
       		<div className={classes.clear}></div>
       		<div className={classes.regForm}>
       			<form>
-      				<input name="" className={classes.loginEmail} placeholder="请输入邮箱" />
-      				<input type="button" name="" className={classes.regBtn}
-                placeholder="登陆"
+      				<input name="" className={classes.loginEmail}
+                placeholder="请输入邮箱"
                 ref="email"
+              />
+      				<input type="button" name="" className={classes.regBtn}
+                value="登陆"
+                onClick={ () => this._userLogin() }
               />
       			</form>
       		</div>
+          {
+            data && data.code == -110 ?
+            <div style={{padding : "10px 20px"}}>
+            <Alert
+              message="温馨提示"
+              description={data.message}
+              type="error"
+              showIcon
+            />
+            </div> :
+            null
+          }
       	</div>
       </div>
       <div className={classes.main}>

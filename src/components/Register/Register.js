@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router'
 import classes from './Register.scss'
 import Strength from '../Strength'
 import dynamicIco from '../../static/images/dynamicIco.png'
@@ -12,7 +13,6 @@ export class Register extends React.Component {
 
   componentDidMount (){
       this.refs.email.focus();
-      console.log(this);
   }
 
   _userRegister (){
@@ -24,8 +24,12 @@ export class Register extends React.Component {
       "address": address,
       "referer_id": 0
     }
-    userRegister('/users' , {'method' : 'POST' , body:JSON.stringify(query) });
-    history.pushState(null, '/login')
+    userRegister('/users' , {'method' : 'POST' , body:JSON.stringify(query) },
+      () => {
+        history.pushState(null, '/login')
+      }
+    );
+
   }
 
   render () {
@@ -37,8 +41,16 @@ export class Register extends React.Component {
     	<div className={classes.reg}>
     		<div className={classes.regTitle}>
     			<ul>
-    				<li className={classes.regCur}>注册</li>
-    				<li>登陆</li>
+    				<li className={classes.regCur}>
+              <Link to='/register' activeClassName={classes.regCur}>
+                注册
+              </Link>
+            </li>
+    				<li>
+              <Link to='/login' activeClassName={classes.regCur}>
+                登陆
+              </Link>
+            </li>
     			</ul>
     		</div>
     		<div className={classes.clear}></div>
