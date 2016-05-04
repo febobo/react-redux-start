@@ -9,6 +9,19 @@ type Props = {
 export class Login extends React.Component {
   props: Props;
 
+  _userRegister (){
+    const { userRegister , history} = this.props;
+    let email = this.refs.email.value;
+    let address = this.refs.address.value;
+    let query = {
+      "email": email,
+      "address": address,
+      "referer_id": 0
+    }
+    userRegister('/users' , {'method' : 'POST' , body:JSON.stringify(query) });
+    history.pushState(null, '/login')
+  }
+
   render () {
     console.log(this.props)
     return (
@@ -25,7 +38,10 @@ export class Login extends React.Component {
       		<div className={classes.regForm}>
       			<form>
       				<input name="" className={classes.loginEmail} placeholder="请输入邮箱" />
-      				<input type="submit" name="" className={classes.regBtn} placeholder="登陆" />
+      				<input type="button" name="" className={classes.regBtn}
+                placeholder="登陆"
+                ref="email"
+              />
       			</form>
       		</div>
       	</div>
