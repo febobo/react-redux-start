@@ -5,6 +5,9 @@
 import Fetch from '../../../util/Fetch'
 import store from 'store';
 export const USER_REGISTER = 'USER_REGISTER'
+export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
+
+
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -15,6 +18,15 @@ export function register (res){
     res : res
   }
 }
+
+export function changeLanguage(language) {
+  store.set('language', language);
+  return {
+    type: LANGUAGE_CHANGED,
+    language
+  };
+}
+
 // 用户注册
 export function userRegister(url , obj , cb){
  return (dispatch , getstate ) => {
@@ -50,13 +62,18 @@ export const actions = {
 const ACTION_HANDLERS = {
   [USER_REGISTER] : (state , action) => {
     return Object.assign({} , state , { data :action.res})
+  },
+  [LANGUAGE_CHANGED] : (state , action) => {
+    return Object.assign({} , state , { language :action.language})
   }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = {};
+const initialState = {
+  language : store.get('language') || 'en'
+};
 export default function counterReducer (state: number = initialState, action: Action): number {
   const handler = ACTION_HANDLERS[action.type]
   return handler ? handler(state, action) : state

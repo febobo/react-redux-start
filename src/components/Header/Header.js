@@ -5,6 +5,7 @@ import classes from './Header.scss'
 import logoImg from '../../static/images/logo.png'
 import arrowIco from '../../static/images/arrowIco.png'
 import { Menu, Dropdown, Icon } from 'antd';
+import {i18n} from '../../util/i18n'
 
 // function handleMenuClick(e) {
 //   console.log('click', e);
@@ -13,13 +14,18 @@ import { Menu, Dropdown, Icon } from 'antd';
 
 export class Header extends React.Component {
 
+  constructor (props){
+    super(props);
+    this.changeLanguage = this.props.changeLanguage.bind(this);
+  }
   _changeLanguage(evt) {
     // reload the whole page
     // as dispatch(changeLanguage($lang)) do not caused re-render
-    // let lang = evt.target.getAttribute('lang');
-    // changeLanguage(lang);
-    // window.location.reload();
-    console.log(evt.item.props.child)
+    //  evt.target.getAttribute('lang');
+
+    let lang = evt.item.props.lang;
+    this.changeLanguage(lang);
+    window.location.reload();
   };
 
   render (){
@@ -47,7 +53,7 @@ export class Header extends React.Component {
               <a href="/"><img src={logoImg} /></a>
             </div>
         		<div className={classes.language}>
-        			<span>中文简体<em>|</em></span>
+        			<span>{i18n.t('language.language')}<em>|</em></span>
               <Dropdown overlay={menu} trigger={['click']}>
                 <a className="ant-dropdown-link" href="#">
                   <img src={arrowIco} className={classes.arrowIco} />

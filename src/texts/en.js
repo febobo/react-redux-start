@@ -1,4 +1,7 @@
 export const text = {
+  "language" : {
+    "language" : "English"
+  },
   "navbar": {
     "online": "Online",
     "bitcoin_price": "Bitcoin Price",
@@ -32,5 +35,20 @@ export const text = {
   },
   "404": {
     "go_home": "Go back to home"
+  },
+  "about" : {
+    "about" : "        Solebtc focus on the exchange of digital currency, commonly referred to as COINS that we currently service more than 20 kinds of different types of digital currency can be directly with the yuan trading currency without a centralized issuers",
+    "title" : "About Us"
+  },
+  "common" : {
+    "btcAddress" : "BTC Address",
+    "amount" : "Amount",
+    "time" : "Time",
+    "dynamic" : "Lottery Dynamic",
+    "lottery" : "Lottery",
+    "account" : "Account",
+    "history" : "History",
+    "offline" : "Offline",
+    "other" : "Other"
   }
 }

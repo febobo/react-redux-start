@@ -1,6 +1,7 @@
 import React from 'react'
 import DuckImage from '../assets/Duck.jpg'
 import classes from './HomeView.scss'
+import {i18n} from '../../../util/i18n'
 import Adv from '../../../components/Adv'
 import code from '../../../static/images/code.jpg'
 import ad1 from '../../../static/images/ad1.jpg'
@@ -24,18 +25,18 @@ export class HomeView extends React.Component {
   <div>
     <div className={classes.luck}>
     	<div className={classes.luckCode}><img src={code} /></div>
-    	<div className={classes.luckBtn}><a href="#"><span>抽 奖</span></a></div>
+    	<div className={classes.luckBtn}><a href="#"><span>{i18n.t('common.lottery')}</span></a></div>
     </div>
     <Adv />
     <div className={classes.luckMain}>
     	<div className={classes.mainBlock}>
-    		<div className={classes.dynamicTitle}><img src="images/dynamicIco.png" /><span><b>抽奖动态</b></span>
+    		<div className={classes.dynamicTitle}><img src="images/dynamicIco.png" /><span><b>{i18n.t('common.dynamic')}</b></span>
         </div>
     		<div className={classes.dynamic} >
     			<div className={classes.dynamicTab}>
-    				<p>BTC地址</p>
-    				<p>金额(satoshi)</p>
-    				<p>时间</p>
+    				<p>{i18n.t('common.btcAddress')}</p>
+    				<p>{i18n.t('common.amount')}</p>
+    				<p>{i18n.t('common.time')}</p>
     			</div>
     			<div className={classes.clear}></div>
     			<div className={classes.dynamicList} id="listScroll" >

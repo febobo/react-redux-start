@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {i18n} from '../../util/i18n'
 import classes from './Strength.scss'
 import ourIco from '../../static/images/ourIco.png'
 import ourImg from '../../static/images/ourImg.png'
@@ -14,15 +14,15 @@ export class Strength extends React.Component {
     return (
       <div className={classes.ourBg}>
       	<div className={classes.ourAdvantages}>
-      		<div className={classes.aboutTitle}><img src={ourIco} /><span><b>我们的优势：</b></span></div>
+      		<div className={classes.aboutTitle}><img src={ourIco} /><span><b>{i18n.t('advantage.header')}：</b></span></div>
       		<div className={classes.clear}></div>
       		<div className={classes.ourImg}><img src={ourImg} /></div>
       		<div className={classes.ourList}>
       			<ul>
-      				<li>Get a huge Bitcoin bonus <br>< /br>every 15 minutes</li>
-      				<li>.Allowed to register as many<br>< /br> accounts as you want</li>
-      				<li>Auto-payouts every day</li>
-      				<li>Do simple tasks to get<br>< /br>more Bitcoins</li>
+      				<li>{i18n.t('advantage.first_adv')}</li>
+      				<li>{i18n.t('advantage.second_adv')}</li>
+      				<li>{i18n.t('advantage.third_adv')}</li>
+      				<li>{i18n.t('advantage.fourth_adv')}</li>
       			</ul>
       		</div>
       	</div>

@@ -6,6 +6,7 @@ import dynamicIco from '../../static/images/dynamicIco.png'
 import aboutIco from '../../static/images/aboutIco.png'
 import { Alert } from 'antd'
 import store from 'store'
+import {i18n} from '../../util/i18n'
 type Props = {
 
 };
@@ -62,12 +63,12 @@ export class Login extends React.Component {
       			<ul>
             <li className={classes.regCur}>
               <Link to='/register' activeClassName={classes.regCur}>
-                注册
+                {i18n.t('register.register')}
               </Link>
             </li>
     				<li>
               <Link to='/login' activeClassName={classes.regCur}>
-                登陆
+                {i18n.t('login.login')}
               </Link>
             </li>
       			</ul>
@@ -76,11 +77,11 @@ export class Login extends React.Component {
       		<div className={classes.regForm}>
       			<form>
       				<input name="" className={classes.loginEmail}
-                placeholder="请输入邮箱"
+                placeholder={i18n.t('login.email')}
                 ref="email"
               />
       				<input type="button" name="" className={classes.regBtn}
-                value="登陆"
+                value={i18n.t('login.login')}
                 onClick={ () => this._userLogin() }
               />
       			</form>
@@ -186,11 +187,11 @@ export class Login extends React.Component {
       			</div>
       		</div>
       		<div className={classes.aboutUs}>
-      			<div className={classes.aboutTitle}><img src={aboutIco.png} /><span><b>关于我们</b></span></div>
+      			<div className={classes.aboutTitle}><img src={aboutIco.png} /><span><b>{i18n.t('about.title')}</b></span></div>
       			<div className={classes.clear}></div>
       			<div className={classes.aboutText}>
       				<p>
-      					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solebtc专注于交换数字货币,通常被称为“比特币”我们目前服务超过20种不同类型的数字货币可以直接与人民币交易比特币没有一个集中的发行方。
+                {i18n.t('about.about')}
       				</p>
       			</div>
       		</div>

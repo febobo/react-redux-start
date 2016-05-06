@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import { Menu, Dropdown , Icon} from 'antd'
 import store from 'store';
+import {i18n} from '../../util/i18n'
 import classes from './NavBar.scss'
 import navIco2 from '../../static/images/navIco2.png'
 import navIco3 from '../../static/images/navIco3.png'
@@ -40,6 +41,8 @@ export class NavBar extends React.Component {
       history.pushState(null, '/login');
     }
   }
+
+
   render () {
     const { data } = this.props;
     return (
@@ -48,32 +51,33 @@ export class NavBar extends React.Component {
       		<li>
             <Link to='/' activeClassName={classes.navCur}>
               <img src={navIco1} />
-              抽奖
+              {i18n.t('common.lottery')}
             </Link>
           </li>
       		<li>
             <Link to='/account' activeClassName={classes.navCur}>
               <img src={navIco1} />
-              账户
+              {i18n.t('common.account')}
             </Link>
           </li>
       		<li>
             <Link to='/history' activeClassName={classes.navCur}>
               <img src={navIco1} />
-              历史
+              {i18n.t('common.history')}
             </Link>
           </li>
       		<li>
             <Link to='/offline' activeClassName={classes.navCur}>
               <img src={navIco1} />
-              下线
+              {i18n.t('common.offline')}
             </Link>
           </li>
       		<li>
             <Dropdown overlay={menu}>
               <a className="ant-dropdown-link" href="#">
                 <img src={navIco1} />
-                其它 <Icon type="down" />
+                {i18n.t('common.other')}
+                <Icon type="down" />
               </a>
             </Dropdown>
           </li>
@@ -83,17 +87,17 @@ export class NavBar extends React.Component {
       	<p>As long as you have over 0.001BTC, the system will pay to your BTC address automatically at 0:00(UTC) every day.</p>
       	<div className={classes.btc}>
       		<img src={btcIco} />
-      		<strong>BTC Adress：</strong>
+      		<strong>{i18n.t('common.btcAddress')}：</strong>
           {
             data && data.address ?
             <span>{data.address}</span> :
             null
           }
-      		<em>（已认证）</em>
+      		<em>（{i18n.t('navbar.unverified')}）</em>
       	</div>
       	<div className={classes.ibtcIco}>
       		<img src={moneyIco} />
-      		<strong>余额：</strong>
+      		<strong>{i18n.t('navbar.balance')}：</strong>
           {
             data && data.balance ?
             <span>{data.balance}Bits</span> :

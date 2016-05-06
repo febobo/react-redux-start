@@ -1,4 +1,7 @@
 export const text = {
+  "language" : {
+    "language" : "简体中文"
+  },
   "navbar": {
     "online": "在线人数",
     "bitcoin_price": "比特币价格",
@@ -32,5 +35,20 @@ export const text = {
   },
   "404": {
     "go_home": "返回首页"
+  },
+  "about" : {
+    "about" : "        Solebtc专注于交换数字货币,通常被称为“比特币”我们目前服务超过20种不同类型的数字货币可以直接与人民币交易比特币没有一个集中的发行方。",
+    "title" : "关于我们"
+  },
+  "common" : {
+    "btcAddress" : "BTC地址",
+    "amount" : "金额",
+    "time" : "时间",
+    "dynamic" : "抽奖动态",
+    "lottery" : "抽奖",
+    "account" : "账户",
+    "history" : "历史",
+    "offline" : "下线",
+    "other" : "其它"
   }
 }

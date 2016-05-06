@@ -17,7 +17,8 @@ const mapActionCreators = {
 }
 
 const mapStateToProps = (state) => ({
-  data : state.register.data
+  data : state.register.data,
+  language : state.register.language
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
