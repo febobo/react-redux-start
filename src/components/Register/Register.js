@@ -5,6 +5,9 @@ import Strength from '../Strength'
 import dynamicIco from '../../static/images/dynamicIco.png'
 import aboutIco from '../../static/images/aboutIco.png'
 import { Alert } from 'antd'
+import {i18n} from '../../util/i18n'
+import Lottery from '../Lottery'
+import About from '../About'
 type Props = {
 
 };
@@ -41,14 +44,14 @@ export class Register extends React.Component {
     	<div className={classes.reg}>
     		<div className={classes.regTitle}>
     			<ul>
-    				<li className={classes.regCur}>
+            <li className={classes.regCur}>
               <Link to='/register' activeClassName={classes.regCur}>
-                注册
+                {i18n.t('register.register')}
               </Link>
             </li>
-    				<li>
+            <li>
               <Link to='/login' activeClassName={classes.regCur}>
-                登陆
+                {i18n.t('login.login')}
               </Link>
             </li>
     			</ul>
@@ -56,9 +59,9 @@ export class Register extends React.Component {
     		<div className={classes.clear}></div>
     		<div className={classes.regForm}>
     			<form style={{overflow : 'hidden'}}>
-    				<input name="" className={classes.regEmail} placeholder="请输入邮箱" ref="email"/>
-    				<input name="" className={classes.regBtc} placeholder="请输入BTC地址" ref="address" />
-    				<input type="button" name="" className={classes.regBtn} value="注册"
+    				<input name="" className={classes.regEmail} placeholder={i18n.t('register.email')} ref="email"/>
+    				<input name="" className={classes.regBtc} placeholder={i18n.t('register.bitcoin_address')} ref="address" />
+    				<input type="button" name="" className={classes.regBtn} value={i18n.t('register.register')}
             onClick={ () => this._userRegister() }
             />
     			</form>
@@ -79,99 +82,8 @@ export class Register extends React.Component {
     </div>
       <div className={classes.main}>
       	<div className={classes.mainBlock}>
-      		<div className={classes.dynamic}>
-      			<div className={classes.dynamicTitle}><img src={dynamicIco.png} /><span><b>抽奖动态</b></span></div>
-      			<div className={classes.dynamicTab}>
-      				<p>BTC地址</p>
-      				<p>金额</p>
-      				<p>时间</p>
-      			</div>
-      			<div className={classes.clear}></div>
-      			<div className={classes.dynamicList}>
-      				<ul>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-
-      				</ul>
-      			</div>
-      		</div>
-      		<div className={classes.aboutUs}>
-      			<div className={classes.aboutTitle}><img src={aboutIco.png} /><span><b>关于我们</b></span></div>
-      			<div className={classes.clear}></div>
-      			<div className={classes.aboutText}>
-      				<p>
-      					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solebtc专注于交换数字货币,通常被称为“比特币”我们目前服务超过20种不同类型的数字货币可以直接与人民币交易比特币没有一个集中的发行方。
-      				</p>
-      			</div>
-      		</div>
+        <Lottery />
+        <About />
       	</div>
       </div>
       <Strength />

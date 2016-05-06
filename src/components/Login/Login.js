@@ -7,6 +7,8 @@ import aboutIco from '../../static/images/aboutIco.png'
 import { Alert } from 'antd'
 import store from 'store'
 import {i18n} from '../../util/i18n'
+import Lottery from '../Lottery'
+import About from '../About'
 type Props = {
 
 };
@@ -102,99 +104,8 @@ export class Login extends React.Component {
       </div>
       <div className={classes.main}>
       	<div className={classes.mainBlock}>
-      		<div className={classes.dynamic}>
-      			<div className={classes.dynamicTitle}><img src={dynamicIco.png} /><span><b>抽奖动态</b></span></div>
-      			<div className={classes.dynamicTab}>
-      				<p>BTC地址</p>
-      				<p>金额</p>
-      				<p>时间</p>
-      			</div>
-      			<div className={classes.clear}></div>
-      			<div className={classes.dynamicList}>
-      				<ul>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li className={classes.dynamicBg}>
-      						<p>12454545112@qq.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-      					<li>
-      						<p>lishimin912264@163.com</p>
-      						<p><font color="#509c1d">0.005btc</font></p>
-      						<p><font color="#bbbaba">2015-02-15 05:26:34</font></p>
-      					</li>
-
-      				</ul>
-      			</div>
-      		</div>
-      		<div className={classes.aboutUs}>
-      			<div className={classes.aboutTitle}><img src={aboutIco.png} /><span><b>{i18n.t('about.title')}</b></span></div>
-      			<div className={classes.clear}></div>
-      			<div className={classes.aboutText}>
-      				<p>
-                {i18n.t('about.about')}
-      				</p>
-      			</div>
-      		</div>
+          <Lottery />
+          <About />
       	</div>
       </div>
       <Strength />
