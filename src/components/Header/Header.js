@@ -6,21 +6,39 @@ import logoImg from '../../static/images/logo.png'
 import arrowIco from '../../static/images/arrowIco.png'
 import { Menu, Dropdown, Icon } from 'antd';
 
-const menu = (
-  <Menu>
-    <Menu.Item key="0">
-      <a >English</a>
-    </Menu.Item>
-    <Menu.Item key="1">
-      <a >简体中文</a>
-    </Menu.Item>
-    <Menu.Divider />
-  </Menu>
-);
+// function handleMenuClick(e) {
+//   console.log('click', e);
+// }
+
 
 export class Header extends React.Component {
 
+  _changeLanguage(evt) {
+    // reload the whole page
+    // as dispatch(changeLanguage($lang)) do not caused re-render
+    // let lang = evt.target.getAttribute('lang');
+    // changeLanguage(lang);
+    // window.location.reload();
+    console.log(evt.item.props.child)
+  };
+
   render (){
+    const langs = {
+      'en': 'English',
+      'cn': '中文'
+    };
+
+    const menu = (
+      <Menu onClick={::this._changeLanguage} >
+        {['en', 'cn'].map((lang, i) => {
+          return (
+              <Menu.Item key={i} lang={`${lang}`} >
+                {langs[lang]}
+              </Menu.Item>
+          );
+        })}
+      </Menu>
+    );
     return (
       <div>
         <div className={classes.topBg}>
