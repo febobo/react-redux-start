@@ -1,14 +1,14 @@
 import React from 'react'
-import DuckImage from '../assets/Duck.jpg'
+import DuckImage from '../../static/images/Duck.jpg'
 import classes from './History.scss'
-import Adv from '../../../components/Adv'
+import Adv from '../Adv'
 
 export const History = () => (
   <div className={classes.history}>
   	<div className={classes.tableTitle}>
   		<ul>
   			<li>交易号</li>
-  			<li>类型</li>
+  			<li>类型111</li>
   			<li>金额（satoshi)</li>
   			<li className={classes.noBorder}>交易号</li>
   		</ul>

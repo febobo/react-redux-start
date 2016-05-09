@@ -1,5 +1,5 @@
 import { injectReducer } from '../../store/reducers'
-
+import localstore from 'store';
 export default (store) => ({
   path: 'offline',
   getComponent (nextState, next) {
@@ -16,5 +16,11 @@ export default (store) => ({
 
       next(null, Offline)
     })
+  },
+  onEnter (nextState, replace){
+    let user = localstore.get('user');
+    if(!user || user && !user.id){
+      replace(null, '/login')
+    }
   }
 })

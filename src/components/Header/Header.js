@@ -25,13 +25,6 @@ export class Header extends React.Component {
     window.location.reload();
   };
 
-  componentWillMount (){
-    const { history} = this.props;
-    let user = store.get('user');
-    if(!user.id){
-      history.pushState(null, '/login')
-    }
-  }
   render (){
     const langs = {
       'en': 'English',

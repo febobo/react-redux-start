@@ -40,7 +40,7 @@ export class Login extends React.Component {
 
       // 'Auth-Token' : store.get('auth_token')
     let headers = new Headers();
-    headers.set("Auth-Token", store.get('auth_token').auth_token);
+    headers.set("Auth-Token", store.get('auth_token') && store.get('auth_token').auth_token);
     // console.log(headers.get('Auth-Token'))
     getRewards(
       '/incomes/rewards?until=' + until + '&limit=15' ,

@@ -21,7 +21,7 @@ export const createRoutes = (store) => {
           require('./Login').default(store),
           require('./Register').default(store),
           require('./Offline').default(store),
-          require('./History').default,
+          require('./History').default(store),,
           require('./NotFound').default
         ])
       })
