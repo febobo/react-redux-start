@@ -19,10 +19,11 @@ export class Lottery extends React.Component {
     getBtcWebsocket()
     // // btcWebsocket({name : 1})
   }
-  
+
   render () {
 
     const { users_online , latest_incomes } = this.props.lottery;
+    const { isDynamic } = this.props;
 
     const list = latest_incomes && latest_incomes.length && latest_incomes.map( (v, k) => {
         return (
@@ -37,7 +38,11 @@ export class Lottery extends React.Component {
     console.log(list)
     return (
       <div className={classes.dynamic}>
-        <div className={classes.dynamicTitle}><img src={dynamicIco.png} /><span><b>{i18n.t('common.dynamic')}</b></span></div>
+        {
+          isDynamic ?
+          null :
+          <div className={classes.dynamicTitle}><img src={dynamicIco.png} /><span><b>{i18n.t('common.dynamic')}</b></span></div>
+        }
         <div className={classes.dynamicTab}>
           <p>{i18n.t('common.btcAddress')}</p>
           <p>{i18n.t('common.amount')}</p>
