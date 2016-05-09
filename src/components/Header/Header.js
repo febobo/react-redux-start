@@ -6,7 +6,7 @@ import logoImg from '../../static/images/logo.png'
 import arrowIco from '../../static/images/arrowIco.png'
 import { Menu, Dropdown, Icon } from 'antd';
 import {i18n} from '../../util/i18n'
-
+import store from 'store'
 // function handleMenuClick(e) {
 //   console.log('click', e);
 // }
@@ -18,16 +18,20 @@ export class Header extends React.Component {
     super(props);
     this.changeLanguage = this.props.changeLanguage.bind(this);
   }
-  _changeLanguage(evt) {
-    // reload the whole page
-    // as dispatch(changeLanguage($lang)) do not caused re-render
-    //  evt.target.getAttribute('lang');
 
+  _changeLanguage(evt) {
     let lang = evt.item.props.lang;
     this.changeLanguage(lang);
     window.location.reload();
   };
 
+  componentWillMount (){
+    const { history} = this.props;
+    let user = store.get('user');
+    if(!user.id){
+      history.pushState(null, '/login')
+    }
+  }
   render (){
     const langs = {
       'en': 'English',

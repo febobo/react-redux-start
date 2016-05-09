@@ -23,7 +23,7 @@ export class HomeView extends React.Component {
   render (){
     return (
 
-  <div>
+  <div onEnter={console.log('onEnter')}>
     <div className={classes.luck}>
     	<div className={classes.luckCode}><img src={code} /></div>
     	<div className={classes.luckBtn}><a href="#"><span>{i18n.t('common.lottery')}</span></a></div>

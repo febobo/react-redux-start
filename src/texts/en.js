@@ -50,5 +50,10 @@ export const text = {
     "history" : "History",
     "offline" : "Offline",
     "other" : "Other"
+  },
+  "message" : {
+    "tips" : "Warm prompt",
+    "invalidEamil" : "Please enter the correct email",
+    "accountRepeated" : "Account has been registered",
   }
 }

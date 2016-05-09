@@ -24,6 +24,7 @@ const history = syncHistoryWithStore(browserHistory, store, {
 
 let render = (key = null) => {
   const routes = require('./routes/index').default(store)
+  console.log(routes)
   const App = (
     <Provider store={store}>
       <div style={{ height: '100%' }}>

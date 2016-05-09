@@ -50,5 +50,10 @@ export const text = {
     "history" : "历史",
     "offline" : "下线",
     "other" : "其它"
+  },
+  "message" : {
+    "tips" : "温馨提示",
+    "invalidEamil" : "请输入正确的邮箱",
+    "accountRepeated" : "账号已被注册",
   }
 }

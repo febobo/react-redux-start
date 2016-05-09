@@ -70,7 +70,7 @@ export class Register extends React.Component {
           data && data.code == -110 ?
           <div style={{padding : "10px 20px"}}>
           <Alert
-            message="温馨提示"
+            message={i18n.t('message.tips')}
             description={data.message}
             type="error"
             showIcon

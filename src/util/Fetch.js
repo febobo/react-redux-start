@@ -13,7 +13,7 @@ function Fetch(url  , obj , cb , header ){
   if(typeof obj === 'object'){
     Object.assign(defaultObj , obj)
   }
-  console.log(defaultObj)
+  // console.log(defaultObj)
   const promise = new Promise( (resolve , reject) => {
     fetch(remoteApi + url , defaultObj).then( (res)=> {
       switch (res.status) {
