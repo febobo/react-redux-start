@@ -7,11 +7,24 @@ import { Pagination ,  Alert} from 'antd';
 // export const History = () => (
 export class History extends React.Component {
   componentWillMount(){
+    this._getData()
+  }
 
+  _getData (lastUntil){
     const { getHistoryList } = this.props;
-    let param = '?until=' + new Date().getTime() + '&limit=2'
+    let until = lastUntil || Math.floor(new Date().getTime()/1000)
+    let param = '?until=' + until + '&limit=2'
     getHistoryList(param)
   }
+
+  _changePage (page){
+    if(page==1) return;
+    const { historyData } = this.props;
+    let lastTime = historyData.rewardList[historyData.rewardList.length-1].created_at;
+    let lastUntil = Math.floor(new Date(lastTime).getTime()/1000)
+    this._getData(lastUntil)
+  }
+
   render (){
     console.log(this)
     const { historyData } = this.props;
@@ -58,6 +71,7 @@ export class History extends React.Component {
               defaultCurrent={1}
               total={historyData.rewardList.length}
               pageSize={1}
+              onChange={ (page)=> this._changePage(page)}
             />
           </div> :
           null
