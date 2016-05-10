@@ -4,13 +4,16 @@ import classes from './Register.scss'
 import Strength from '../Strength'
 import dynamicIco from '../../static/images/dynamicIco.png'
 import aboutIco from '../../static/images/aboutIco.png'
-import { Alert } from 'antd'
+import { Alert , Button } from 'antd'
 import {i18n} from '../../util/i18n'
 import Lottery from '../Lottery'
 import About from '../About'
 type Props = {
 
 };
+// <input type="button" name="" className={classes.regBtn} value={i18n.t('register.register')}
+// onClick={ () => this._userRegister() }
+// />
 export class Register extends React.Component {
   props: Props;
 
@@ -36,7 +39,8 @@ export class Register extends React.Component {
   }
 
   render () {
-    const {data , userRegister} = this.props;
+    console.log(this.props)
+    const {data , userRegister , isLoading } = this.props;
 
     return (
     <div>
@@ -61,9 +65,9 @@ export class Register extends React.Component {
     			<form style={{overflow : 'hidden'}}>
     				<input name="" className={classes.regEmail} placeholder={i18n.t('register.email')} ref="email"/>
     				<input name="" className={classes.regBtc} placeholder={i18n.t('register.bitcoin_address')} ref="address" />
-    				<input type="button" name="" className={classes.regBtn} value={i18n.t('register.register')}
-            onClick={ () => this._userRegister() }
-            />
+            <Button type="primary" loading={isLoading} className={classes.regBtn} onClick={ () => this._userRegister() }>
+              {i18n.t('register.register')}
+            </Button>
     			</form>
     		</div>
         {

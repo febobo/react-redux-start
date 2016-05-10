@@ -24,6 +24,7 @@ export function getRewards(url , obj , cb){
   Fetch(url,obj).then( (res) => {
     if(!res.code){
       cb && cb();
+      console.log(res , 222)
       store.set('user' , res)
     }
     return dispatch(login(res))
@@ -52,9 +53,9 @@ export function userLogin(url , obj , cb){
      }
    }
   Fetch(url,obj).then( (res) => {
-    console.log(res)
+    console.log(res , 33333)
     if(!res.code){
-      store.set('auth_token' , res)
+      store.set('auth_token' , res.auth_token)
       cb && cb();
     }
     return dispatch(login(res))

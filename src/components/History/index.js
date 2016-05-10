@@ -1,2 +1,2 @@
-import Offline from './History'
+import History from './History'
 export default History

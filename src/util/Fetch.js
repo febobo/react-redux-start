@@ -32,15 +32,15 @@ function Fetch(url  , obj , cb , header ){
         case 404:
           resolve({code : -110 , message : '查询条件下没有结果'})
           break;
-        // case 200:
-        //   res.json().then( (res)=> {
-        //       resolve(res);
-        //   });
-        // case 201:
-        //   res.json().then( (res)=> {
-        //       resolve(res);
-        //   });
-        //   break;
+        case 200:
+          res.json().then( (res)=> {
+              resolve(res);
+          });
+        case 201:
+          res.json().then( (res)=> {
+              resolve(res);
+          });
+          break;
         default:
         resolve(res);
       }

@@ -19,7 +19,8 @@ export default (store) => ({
   },
   onEnter (nextState, replace){
     let user = localstore.get('user');
-    if(!user || user && !user.id){
+    // console.log()
+    if(!user || user && user.id){
       replace(null, '/login')
     }
   }

@@ -6,6 +6,7 @@ import Fetch from '../../../util/Fetch'
 import store from 'store';
 export const USER_REGISTER = 'USER_REGISTER'
 export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
+export const IS_BOOLEAN = 'IS_BOOLEAN';
 
 
 // ------------------------------------
@@ -15,7 +16,14 @@ export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
 export function register (res){
   return {
     type : USER_REGISTER,
-    res : res
+    res : res,
+  }
+}
+
+export function isBoolean (boolean){
+  return {
+    type : IS_BOOLEAN,
+    isBoolean : boolean,
   }
 }
 
@@ -31,6 +39,7 @@ export function changeLanguage(language) {
 export function userRegister(url , obj , cb){
  return (dispatch , getstate ) => {
 
+   console.log(obj)
    if(!obj.body || !JSON.parse(obj.body).email || !JSON.parse(obj.body).address){
      return dispatch(register({code : -110 , message : '请填写完整信息'}))
    }
@@ -53,7 +62,8 @@ export function userRegister(url , obj , cb){
 
 
 export const actions = {
-  userRegister
+  userRegister,
+  isBoolean
 }
 
 // ------------------------------------
@@ -65,6 +75,9 @@ const ACTION_HANDLERS = {
   },
   [LANGUAGE_CHANGED] : (state , action) => {
     return Object.assign({} , state , { language :action.language})
+  },
+  [IS_BOOLEAN] : (state , action) => {
+    return Object.assign({} , state , { isBoolean :action.isBoolean})
   }
 }
 

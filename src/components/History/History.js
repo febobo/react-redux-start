@@ -2,88 +2,73 @@ import React from 'react'
 import DuckImage from '../../static/images/Duck.jpg'
 import classes from './History.scss'
 import Adv from '../Adv'
+import { Pagination ,  Alert} from 'antd';
 
-export const History = () => (
-  <div className={classes.history}>
-  	<div className={classes.tableTitle}>
-  		<ul>
-  			<li>交易号</li>
-  			<li>类型111</li>
-  			<li>金额（satoshi)</li>
-  			<li className={classes.noBorder}>交易号</li>
-  		</ul>
-  	</div>
-  	<div className={classes.clear}></div>
-  	<div className={classes.tableList}>
-  		<ul>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul className={classes.tableBg}>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul className={classes.tableBg}>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul className={classes.tableBg}>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul className={classes.tableBg}>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#d16700">待定</font></li>
-  		</ul>
-  		<ul className={classes.tableBg}>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  		<ul>
-  			<li>No2016022901261452</li>
-  			<li>抽奖</li>
-  			<li><font color="#509c1d">+3000</font></li>
-  			<li className={classes.noBorder}><font color="#0a6ba3">完成</font></li>
-  		</ul>
-  	</div>
-  </div>
-)
+// export const History = () => (
+export class History extends React.Component {
+  componentWillMount(){
+
+    const { getHistoryList } = this.props;
+    let param = '?until=' + new Date().getTime()
+    getHistoryList(param)
+  }
+  render (){
+    console.log(this)
+    const { historyData } = this.props;
+    const list = historyData && historyData.rewardList && historyData.rewardList.map( (v, k) => {
+        return (
+          <ul key={'historyList' + k}>
+      			<li>{v.created_at}</li>
+      			<li>{v.type}</li>
+      			<li><font color="#509c1d">{v.income}</font></li>
+      			<li className={classes.noBorder}><font color="#0a6ba3">{v.referer_income}</font></li>
+      		</ul>
+        )
+      })
+    return (
+      <div>
+        <div className={classes.history}>
+        	<div className={classes.tableTitle}>
+        		<ul>
+        			<li>时间</li>
+        			<li>类型</li>
+        			<li>金额</li>
+        			<li className={classes.noBorder}>credited（已奖励）</li>
+        		</ul>
+        	</div>
+        	<div className={classes.clear}></div>
+        	<div className={classes.tableList}>
+          {
+            list ? list :
+            <div>
+              <Alert
+                message=""
+                description="暂未历史记录"
+                type="error"
+                showIcon
+              />
+            </div>
+          }
+        	</div>
+        </div>
+        {
+          historyData.rewardList ?
+          <div className={classes.pagination}>
+            <Pagination
+              defaultCurrent={1}
+              total={historyData.rewardList.length}
+              pageSize={1}
+            />
+          </div> :
+          null
+        }
+
+      </div>
+    )
+  }
+
+// )
+}
 
 export default History;
 

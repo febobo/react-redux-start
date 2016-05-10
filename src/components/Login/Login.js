@@ -33,23 +33,23 @@ export class Login extends React.Component {
   }
 
   componentDidMount (){
-    const { userLogin , history , getRewards} = this.props;
-    // console.log(store.get('auth_token'))
-    let limit = 15;
-    let until = new Date().getTime();
-
-      // 'Auth-Token' : store.get('auth_token')
-    let headers = new Headers();
-    headers.set("Auth-Token", store.get('auth_token') && store.get('auth_token').auth_token);
-    // console.log(headers.get('Auth-Token'))
-    getRewards(
-      '/incomes/rewards?until=' + until + '&limit=15' ,
-      {
-        headers : {
-	        'Auth-Token': "d5f3a1f9-1ee0-473c-a8c2-5f0b203722c7"
-	      }
-      }
-    )
+    // const { userLogin , history , getRewards} = this.props;
+    // // console.log(store.get('auth_token'))
+    // let limit = 15;
+    // let until = new Date().getTime();
+    //
+    //   // 'Auth-Token' : store.get('auth_token')
+    // let headers = new Headers();
+    // headers.set("Auth-Token", store.get('auth_token') && store.get('auth_token').auth_token);
+    // // console.log(headers.get('Auth-Token'))
+    // getRewards(
+    //   '/incomes/rewards?until=' + until + '&limit=15' ,
+    //   {
+    //     headers : {
+	  //       'Auth-Token': "d5f3a1f9-1ee0-473c-a8c2-5f0b203722c7"
+	  //     }
+    //   }
+    // )
 
 
   }

@@ -16,7 +16,7 @@ export class Lottery extends React.Component {
   componentWillMount (){
     // this._stream()
     const { getBtcWebsocket , btcWebsocket } = this.props;
-    getBtcWebsocket()
+    // getBtcWebsocket()
     // // btcWebsocket({name : 1})
   }
 
