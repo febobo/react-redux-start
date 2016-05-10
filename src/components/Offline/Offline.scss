@@ -2,7 +2,7 @@
 .offlineTitle ul li{height:45px;background:#f6f6f6;float:left;width:499px;text-align:center;line-height:45px;border-bottom:1px solid #eaeaea;border-right:1px solid #eaeaea;color:#414141;}
 .noBorder{border-right:0 !important;}
 .offlineList ul li{text-align:center;width:499px;height:32px;float:left;border-right:1px solid #eaeaea;color:#414141;line-height:32px;font-size:13px;}
-.offlineTitle{width:1000px;margin:0 auto;}
+.offlineTitle{width:1000px;margin:0 auto; overflow: hidden}
 .tableBg{background:#fafafa !important;}
 .offlineList{width:1000px;margin:0 auto;}
 .offlineList ul{clear:both;background:#fff;height:32px;}

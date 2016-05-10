@@ -9,7 +9,7 @@ export class History extends React.Component {
   componentWillMount(){
 
     const { getHistoryList } = this.props;
-    let param = '?until=' + new Date().getTime()
+    let param = '?until=' + new Date().getTime() + '&limit=2'
     getHistoryList(param)
   }
   render (){

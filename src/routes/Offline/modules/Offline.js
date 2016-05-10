@@ -1,9 +1,8 @@
-/* @flow */
-// ------------------------------------
-// Constants
-// ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-
+import request from 'superagent';
+import store from 'store';
+import URI from 'urijs';
+export const GET_OFFLINE_LIST = 'GET_OFFLINE_LIST'
+const v1 = 'https://staging.solebtc.com/api/v1';
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -16,42 +15,42 @@ export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
     NOTE: There is currently a bug with babel-eslint where a `space-infix-ops`
     error is incorrectly thrown when using arrow functions, hence the oddity.  */
 
-export function increment (value: number = 1): Action {
+export function offlineList(res){
   return {
-    type: COUNTER_INCREMENT,
-    payload: value
+    type : GET_OFFLINE_LIST ,
+    res
   }
 }
 
-/*  This is a thunk, meaning it is a function that immediately
-    returns a function for lazy evaluation. It is incredibly useful for
-    creating async actions, especially when combined with redux-thunk!
-
-    NOTE: This is solely for demonstration purposes. In a real application,
-    you'd probably want to dispatch an action of COUNTER_DOUBLE and let the
-    reducer take care of this logic.  */
-
-export const doubleAsync = (): Function => {
-  return (dispatch: Function, getState: Function): Promise => {
-    return new Promise((resolve: Function): void => {
-      setTimeout(() => {
-        dispatch(increment(getState().counter))
-        resolve()
-      }, 200)
-    })
-  }
+export function getOfflineList(param) {
+  return (dispatch) => {
+    let url = new URI(v1 + '/users/referees' + param);
+    request
+      .get(url.toString())
+      .set('Auth-Token', store.get('auth_token'))
+      .end((err, res) => {
+        switch (res.statusCode) {
+          case 200:
+            let res = JSON.parse(res.text);
+            dispatch(offlineList(res));
+        }
+      });
+  };
 }
+
+
 
 export const actions = {
-  increment,
-  doubleAsync
+  getOfflineList
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state: number, action: {payload: number}): number => state + action.payload
+  [GET_OFFLINE_LIST] : (state , action) => {
+    return Object.assign({} , state , { offlineList :action.res})
+  }
 }
 
 // ------------------------------------

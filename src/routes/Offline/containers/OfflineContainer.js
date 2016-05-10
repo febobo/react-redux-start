@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { increment, doubleAsync } from '../modules/offline'
+import { getOfflineList } from '../modules/offline'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,12 +13,11 @@ import Offline from 'components/Offline'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapActionCreators = {
-  increment: () => increment(1),
-  doubleAsync
+  getOfflineList
 }
 
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  offlineData: state.offline
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
