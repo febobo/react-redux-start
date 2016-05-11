@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import { Menu, Dropdown , Icon} from 'antd'
+import { Menu, Dropdown , Icon , Input ,Modal, Button , Form} from 'antd'
 import store from 'store';
 import {i18n} from '../../util/i18n'
 import classes from './NavBar.scss'
@@ -12,6 +12,8 @@ import navIco1 from '../../static/images/navIco1.png'
 
 import btcIco from '../../static/images/btcIco.png'
 import moneyIco from '../../static/images/moneyIco.png'
+const FormItem = Form.Item;
+
 
 const menu = (
   <Menu>
@@ -34,17 +36,44 @@ type Props = {
 export class NavBar extends React.Component {
   props: Props;
 
-  componentWillMount (){
-    const { history } = this.props;
-    let user = store.get('user');
-    if(!user){
-      history.pushState(null, '/login');
-    }
+  state = {
+      ModalText: '对话框的内容',
+      visible: false,
+  }
+  showModal() {
+    this.setState({
+      visible: true,
+    });
+  }
+  handleOk() {
+    this.setState({
+      ModalText: '对话框将在两秒后关闭',
+      confirmLoading: true,
+    });
+    setTimeout(() => {
+      this.setState({
+        visible: false,
+        confirmLoading: false,
+      });
+    }, 2000);
+  }
+  handleCancel() {
+    console.log('点击了取消');
+    this.setState({
+      visible: false,
+    });
   }
 
-
   render () {
-    const { data } = this.props;
+    const { data , isBoolean , isLoading } = this.props;
+    // setInterval( ()=> {
+    //
+    //   console.log(this)
+    // },1000)
+    const formItemLayout = {
+      labelCol: { span: 4 },
+      wrapperCol: { span: 20 },
+    };
     return (
       <div className={classes.nav}>
       	<ul>
@@ -93,9 +122,23 @@ export class NavBar extends React.Component {
             <span>{data.address}</span> :
             null
           }
-      		<em>（{i18n.t('navbar.unverified')}）</em>
+      		<em style={{cousor:"pointer"}} onClick={ ()=> { isBoolean(true) }}>（{i18n.t('navbar.unverified')}）</em>
+          <Modal title="邮箱认证"
+            visible={isLoading}
+            onOk={ ()=> {isBoolean(false)} }
+            <Form horizontal form={this.props.form}>
+              <FormItem
+                {...formItemLayout}
+                validateStatus="error"
+                help="请输入正确的邮箱"
+                hasFeedback
+                label="邮箱：">
+                <Input  type="text" autoComplete="off" />
+              </FormItem>
+            </Form>
+          </Modal>
       	</div>
-      	<div className={classes.ibtcIco}>
+      	<div className={classes.btc} style={{width:"auto"}}>
       		<img src={moneyIco} />
       		<strong>{i18n.t('navbar.balance')}：</strong>
           {

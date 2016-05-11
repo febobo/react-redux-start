@@ -21,6 +21,7 @@ export function register (res){
 }
 
 export function isBoolean (boolean){
+  console.log(1)
   return {
     type : IS_BOOLEAN,
     isBoolean : boolean,
@@ -39,14 +40,15 @@ export function changeLanguage(language) {
 export function userRegister(url , obj , cb){
  return (dispatch , getstate ) => {
 
-   console.log(obj)
    if(!obj.body || !JSON.parse(obj.body).email || !JSON.parse(obj.body).address){
+     dispatch(isBoolean(false))
      return dispatch(register({code : -110 , message : '请填写完整信息'}))
    }
    let param =  JSON.parse(obj.body);
    // 验证邮箱
    if(param && param.email){
      if(!/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(param.email)){
+       dispatch(isBoolean(false))
        return dispatch(register({code : -110 , message : '请输入正确的邮箱'}))
      }
    }
@@ -55,6 +57,7 @@ export function userRegister(url , obj , cb){
       cb && cb();
       store.set('user' , res)
     }
+    dispatch(isBoolean(false))
     return dispatch(register(res))
   })
  }
@@ -77,6 +80,7 @@ const ACTION_HANDLERS = {
     return Object.assign({} , state , { language :action.language})
   },
   [IS_BOOLEAN] : (state , action) => {
+    console.log(action)
     return Object.assign({} , state , { isBoolean :action.isBoolean})
   }
 }

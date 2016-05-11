@@ -4,7 +4,11 @@ import Footer from '../../components/Footer'
 import classes from './CoreLayout.scss'
 import '../../styles/core.scss'
 import { connect } from 'react-redux'
-import { userRegister , changeLanguage} from '../../routes/Register/modules/register'
+import { userRegister ,
+         changeLanguage,
+         isBoolean,
+         isLoading
+       } from '../../routes/Register/modules/register'
 import {i18n} from '../../util/i18n'
 import store from 'store';
 
@@ -40,12 +44,15 @@ export default CoreLayout
 
 const mapActionCreators = {
   userRegister,
-  changeLanguage
+  changeLanguage,
+  isBoolean,
+  isLoading
 }
 
 const mapStateToProps = (state) => ({
   data : state.register && state.register.data,
-  language : store.get('language') || 'en'
+  language : store.get('language') || 'en',
+  isLoading : state.register.isBoolean || false
 })
 
 export default connect(mapStateToProps, mapActionCreators)(CoreLayout)

@@ -9,6 +9,9 @@
   html {
     box-sizing: border-box;
   }
+  .ant-modal {
+    z-index: 99999
+  }
 
   html,
   body {
