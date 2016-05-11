@@ -29,7 +29,7 @@ export function historyList(res){
 
 export function getHistoryList(param) {
   return (dispatch) => {
-    let url = new URI(v1 + '/incomes/rewards' + param);
+    let url = new URI(v1 + '/withdrawals' + param);
     request
       .get(url.toString())
       .set('Auth-Token', store.get('auth_token'))

@@ -108,14 +108,5 @@ export class NavBar extends React.Component {
     )
   }
 }
-// <li>
-//   <img src={navIco1} />
-//   <a><span>其它</span></a>
-//   <Dropdown overlay={menu}>
-//     <a className="ant-dropdown-link" href="#">
-//       其它 <Icon type="down" />
-//     </a>
-//   </Dropdown>
-//   <a><span>其它</span></a>
-// </li>
+
 export default NavBar
