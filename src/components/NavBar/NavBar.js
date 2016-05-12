@@ -125,7 +125,7 @@ export class NavBar extends React.Component {
       		<em style={{cousor:"pointer"}} onClick={ ()=> { isBoolean(true) }}>（{i18n.t('navbar.unverified')}）</em>
           <Modal title="邮箱认证"
             visible={isLoading}
-            onOk={ ()=> {isBoolean(false)} }
+            onOk={ ()=> {isBoolean(false)} } >
             <Form horizontal form={this.props.form}>
               <FormItem
                 {...formItemLayout}

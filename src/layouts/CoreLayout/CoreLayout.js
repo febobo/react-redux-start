@@ -7,8 +7,9 @@ import { connect } from 'react-redux'
 import { userRegister ,
          changeLanguage,
          isBoolean,
-         isLoading
+         isloadding
        } from '../../routes/Register/modules/register'
+       console.log(userRegister , isBoolean , isloadding)
 import {i18n} from '../../util/i18n'
 import store from 'store';
 
@@ -45,14 +46,13 @@ export default CoreLayout
 const mapActionCreators = {
   userRegister,
   changeLanguage,
-  isBoolean,
-  isLoading
+  isBoolean
 }
 
 const mapStateToProps = (state) => ({
   data : state.register && state.register.data,
   language : store.get('language') || 'en',
-  isLoading : state.register.isBoolean || false
+  isLoading : state.register && state.register.isBoolean || false
 })
 
 export default connect(mapStateToProps, mapActionCreators)(CoreLayout)
