@@ -19,14 +19,17 @@ export class Account extends React.Component {
   }
 
   componentWillMount (){
-    console.log(this.props.counter)
   }
   render () {
+    const { user } = this.props;
     return (
       <div className={classes.account}>
       	<div className={classes.accountList}>
       		<p className={classes.accountImg}><img src={accountIco1} /></p>
-      		<p className={classes.accountTitle}>总额：<span>100000000Bits</span></p>
+      		<p className={classes.accountTitle}>
+            总额：<span>{user && user.balance}Bits</span> &nbsp;&nbsp;&nbsp;
+            总佣金：<span>{user && user.referer_total_income}Bits</span>
+          </p>
       		<div className={classes.clear}></div>
 
       		<p className={classes.accountImg}><img src={accountIco2} /></p>

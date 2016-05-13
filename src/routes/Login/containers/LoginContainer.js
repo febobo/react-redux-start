@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { increment, doubleAsync } from '../modules/login'
-import { userLogin , getRewards } from '../../Login/modules/login'
+import { userLogin , getRewards , getUser} from '../../Login/modules/login'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -15,12 +15,14 @@ import Login from 'components/Login'
 
 const mapActionCreators = {
   userLogin,
-  getRewards
+  getRewards,
+  getUser
 }
 
 const mapStateToProps = (state) => ({
   data : state.login && state.login.data,
-  rewardList : state.login && state.login.rewardList
+  rewardList : state.login && state.login.rewardList,
+  user : state.login && state.login.user
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

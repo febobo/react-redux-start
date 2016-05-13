@@ -6,10 +6,11 @@ import '../../styles/core.scss'
 import { connect } from 'react-redux'
 import { userRegister ,
          changeLanguage,
-         isBoolean,
-         isloadding
        } from '../../routes/Register/modules/register'
-       console.log(userRegister , isBoolean , isloadding)
+import { isBoolean } from '../../actions/Nav'
+import { getBtcWebsocket } from '../../actions/Websocket'
+
+       console.log(isBoolean)
 import {i18n} from '../../util/i18n'
 import store from 'store';
 
@@ -46,13 +47,15 @@ export default CoreLayout
 const mapActionCreators = {
   userRegister,
   changeLanguage,
-  isBoolean
+  isBoolean,
+  getBtcWebsocket
 }
 
 const mapStateToProps = (state) => ({
-  data : state.register && state.register.data,
+  data : state.register && state.register.user || store.get('user'),
   language : store.get('language') || 'en',
-  isLoading : state.register && state.register.isBoolean || false
+  isloading : state.nav && state.nav.isloading || false,
+  users_online : state.Websocket && state.Websocket.users_online || 0
 })
 
 export default connect(mapStateToProps, mapActionCreators)(CoreLayout)

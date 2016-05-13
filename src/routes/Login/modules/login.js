@@ -4,10 +4,14 @@
 // ------------------------------------
 import Fetch from '../../../util/Fetch'
 import store from 'store';
+import request from 'superagent';
+import URI from 'urijs';
+const v1 = 'https://staging.solebtc.com/api/v1';
 
 export const USER_LOGIN = 'USER_LOGIN'
 export const GET_USER = 'GET_USER'
 export const GET_REWARDS = 'GET_REWARDS'
+export const SET_USER = 'SET_USER'
 
 // ------------------------------------
 // Actions
@@ -24,7 +28,6 @@ export function getRewards(url , obj , cb){
   Fetch(url,obj).then( (res) => {
     if(!res.code){
       cb && cb();
-      console.log(res , 222)
       store.set('user' , res)
     }
     return dispatch(login(res))
@@ -63,10 +66,36 @@ export function userLogin(url , obj , cb){
  }
 }
 
+/* User operation */
+export function getUser() {
+  return (dispatch) => {
+    let url = new URI(v1 + '/users');
+
+    request
+      .get(url.toString())
+      .set('Auth-Token', store.get('auth_token'))
+      .end((err, res) => {
+        switch (res.statusCode) {
+          case 200:
+            let user = JSON.parse(res.text);
+            dispatch(setUser(user));
+        }
+      });
+  };
+}
+
+function setUser(user) {
+  store.set('user', user);
+  return {
+    type: SET_USER,
+    user
+  };
+}
 
 export const actions = {
   userLogin,
-  getRewards
+  getRewards,
+  getUser
 }
 
 // ------------------------------------
@@ -78,6 +107,9 @@ const ACTION_HANDLERS = {
   },
   [GET_REWARDS] : (state , action) => {
     return Object.assign({} , state , { rewardList :action.res})
+  },
+  [SET_USER] : (state , action) => {
+    return Object.assign({} , state , { user :action.user})
   }
 }
 

@@ -16,8 +16,8 @@ export class Lottery extends React.Component {
   componentWillMount (){
     // this._stream()
     const { getBtcWebsocket , btcWebsocket } = this.props;
-    // getBtcWebsocket()
-    // // btcWebsocket({name : 1})
+    getBtcWebsocket()
+    // btcWebsocket({name : 1})
   }
 
   render () {
@@ -35,7 +35,6 @@ export class Lottery extends React.Component {
         )
       })
 
-    console.log(list)
     return (
       <div className={classes.dynamic}>
         {

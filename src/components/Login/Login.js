@@ -16,46 +16,24 @@ export class Login extends React.Component {
   props: Props;
 
   _userLogin (){
-    const { userLogin , history , getRewards} = this.props;
+    const { userLogin , history , getRewards , getUser } = this.props;
     let email = this.refs.email.value;
     let query = {
       "email": email,
     }
-    console.log(this)
     userLogin(
       '/auth_tokens' ,
       {
         'method' : 'POST' ,
          body:JSON.stringify(query)
+      }, () => {
+        getUser();
+        history.pushState(null, '/')
       }
     );
-    // history.pushState(null, '/')
-  }
-
-  componentDidMount (){
-    // const { userLogin , history , getRewards} = this.props;
-    // // console.log(store.get('auth_token'))
-    // let limit = 15;
-    // let until = new Date().getTime();
-    //
-    //   // 'Auth-Token' : store.get('auth_token')
-    // let headers = new Headers();
-    // headers.set("Auth-Token", store.get('auth_token') && store.get('auth_token').auth_token);
-    // // console.log(headers.get('Auth-Token'))
-    // getRewards(
-    //   '/incomes/rewards?until=' + until + '&limit=15' ,
-    //   {
-    //     headers : {
-	  //       'Auth-Token': "d5f3a1f9-1ee0-473c-a8c2-5f0b203722c7"
-	  //     }
-    //   }
-    // )
-
-
   }
 
   render () {
-    console.log(this.props)
     const { data } = this.props;
     return (
     <div>

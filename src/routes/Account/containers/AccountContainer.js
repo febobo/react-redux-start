@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { increment, doubleAsync } from '../modules/account'
+import store from 'store'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -18,7 +19,8 @@ const mapActionCreators = {
 }
 
 const mapStateToProps = (state) => ({
-  counter: state.account
+  counter: state.account,
+  user : store.get('user') || null
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

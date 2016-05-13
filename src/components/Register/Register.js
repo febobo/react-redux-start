@@ -40,7 +40,6 @@ export class Register extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     const {data , userRegister , isLoading } = this.props;
 
     return (

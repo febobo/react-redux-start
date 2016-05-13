@@ -19,7 +19,7 @@ export function getBtcWebsocket(socketData) {
     ws.onclose = (evt) => console.log('websocket close ', evt);
     ws.onmessage = (evt) => {
       let data = JSON.parse(evt.data);
-      // console.log('websocket message ', data);
+      console.log('websocket message ', data);
       dispatch(btcWebsocket(data , getState))
     };
   }

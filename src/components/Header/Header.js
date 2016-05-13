@@ -42,6 +42,8 @@ export class Header extends React.Component {
         })}
       </Menu>
     );
+
+    const {users_online} = this.props;
     return (
       <div>
         <div className={classes.topBg}>
@@ -59,7 +61,7 @@ export class Header extends React.Component {
         		</div>
         		<div className={classes.oline}>
         			<strong></strong>
-        			<span>Oline：<em>1357</em><span>
+        			<span>Oline：<em>{users_online}</em><span>
         		</span></span></div>
         	</div>
 

@@ -58,18 +58,13 @@ export class NavBar extends React.Component {
     }, 2000);
   }
   handleCancel() {
-    console.log('点击了取消');
     this.setState({
       visible: false,
     });
   }
 
   render () {
-    const { data , isBoolean , isLoading } = this.props;
-    // setInterval( ()=> {
-    //
-    //   console.log(this)
-    // },1000)
+    const { data , isBoolean , isloading } = this.props;
     const formItemLayout = {
       labelCol: { span: 4 },
       wrapperCol: { span: 20 },
@@ -124,7 +119,7 @@ export class NavBar extends React.Component {
           }
       		<em style={{cousor:"pointer"}} onClick={ ()=> { isBoolean(true) }}>（{i18n.t('navbar.unverified')}）</em>
           <Modal title="邮箱认证"
-            visible={isLoading}
+            visible={false}
             onOk={ ()=> {isBoolean(false)} } >
             <Form horizontal form={this.props.form}>
               <FormItem
