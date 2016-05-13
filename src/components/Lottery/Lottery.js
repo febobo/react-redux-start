@@ -5,7 +5,7 @@ import classes from '../Login/Login.scss'
 import {i18n} from '../../util/i18n'
 import { getBtcWebsocket , btcWebsocket } from '../../actions/Websocket'
 import { connect } from 'react-redux'
-import { Alert } from 'antd'
+import { Alert , Table } from 'antd'
 
 type Props = {
 

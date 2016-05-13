@@ -10,25 +10,24 @@ export class History extends React.Component {
     this._getData()
   }
 
-  _getData (lastUntil , limit){
+  _getData (page , limit){
     const { getHistoryList } = this.props;
-    let until = lastUntil || Math.floor(new Date().getTime()/1000);
-    let pageSize = limit || 2
-    let param = '?until=' + until + '&limit=' + pageSize
+    let offset = page || 0;
+    let pageSize = limit || 10
+    let param = '?offset=' + offset + '&limit=' + pageSize
     getHistoryList(param)
   }
 
   _changePage (page , limit){
     // if(page==1) return;
     const { historyData } = this.props;
-    let lastTime = historyData.rewardList[historyData.rewardList.length-1].created_at;
-    let lastUntil = Math.floor(new Date(lastTime).getTime()/1000)
-    this._getData(lastUntil , limit)
+    this._getData(page , limit)
   }
 
   render (){
     // console.log(this._getData)
     const { historyData } = this.props;
+    console.log(historyData)
 
       const columns = [{
         title: '时间',
@@ -71,15 +70,14 @@ export class History extends React.Component {
 
       const that = this;
       const pagination = {
-        total: historyData && historyData.rewardList &&
-        historyData.rewardList.length,
-        defaultPageSize : 2,
+        total: historyData && historyData.count,
+        pageSize : 10,
         showSizeChanger: true,
         onShowSizeChange(current, pageSize){
-          that._changePage(current,pageSize);
+          that._changePage(current -1 ,pageSize);
         },
         onChange(current) {
-          that._changePage(current);
+          that._changePage(current -1 );
         },
       };
 

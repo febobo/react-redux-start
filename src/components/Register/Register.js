@@ -22,7 +22,7 @@ export class Register extends React.Component {
   }
 
   _userRegister (){
-    const { userRegister , history ,isBoolean} = this.props;
+    const { userRegister , history ,isBoolean , sendUserEmail} = this.props;
     let email = this.refs.email.value;
     let address = this.refs.address.value;
     let query = {
@@ -33,7 +33,8 @@ export class Register extends React.Component {
     isBoolean(true)
     userRegister('/users' , {'method' : 'POST' , body:JSON.stringify(query) },
       () => {
-        history.pushState(null, '/login')
+        history.pushState(null, '/login');
+        sendUserEmail()
       }
     );
 

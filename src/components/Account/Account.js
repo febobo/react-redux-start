@@ -21,7 +21,8 @@ export class Account extends React.Component {
   componentWillMount (){
   }
   render () {
-    const { user } = this.props;
+    const { user , host} = this.props;
+    console.log(this)
     return (
       <div className={classes.account}>
       	<div className={classes.accountList}>
@@ -35,8 +36,7 @@ export class Account extends React.Component {
       		<p className={classes.accountImg}><img src={accountIco2} /></p>
       		<div className={classes.accountRight}>
       			<p className={classes.accountTitle}>Affiliate Link：</p><br></br>
-      			<span>http://image.baidu.com/search/index?tn=baiduimage&amp;ipn=r&amp;ct=201326592&amp;cl=2&amp;lm=-1&amp;st=-1&amp;fm=index&amp;fr=&amp;sf=1&amp;fmq=&amp;pv=&amp;ic=0&amp;
-      	&amp;se=1&amp;showtab=0&amp;fb=0&amp;width=&amp;height=&amp;face=0&amp;istype=2&amp;ie=utf-8&amp;word=Bits&amp;oq=Bits&amp;rsp=-1</span>
+      			<span><a href="{host}">{host}</a></span>
       		</div>
 
       		<div className={classes.clear}></div>

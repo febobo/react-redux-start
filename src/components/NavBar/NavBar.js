@@ -36,35 +36,21 @@ type Props = {
 export class NavBar extends React.Component {
   props: Props;
 
-  state = {
-      ModalText: '对话框的内容',
-      visible: false,
+  _sendEmail (){
+    const { sendUserEmail , isBoolean } = this.props;
+    sendUserEmail();
+    isBoolean(false);
   }
-  showModal() {
-    this.setState({
-      visible: true,
-    });
-  }
-  handleOk() {
-    this.setState({
-      ModalText: '对话框将在两秒后关闭',
-      confirmLoading: true,
-    });
-    setTimeout(() => {
-      this.setState({
-        visible: false,
-        confirmLoading: false,
-      });
-    }, 2000);
-  }
-  handleCancel() {
-    this.setState({
-      visible: false,
-    });
+
+  _logout (){
+    const { logout , history} = this.props;
+    logout();
+    history.pushState(null, '/login');
   }
 
   render () {
-    const { data , isBoolean , isloading } = this.props;
+    console.log(this)
+    const { data , isBoolean , isloading ,sendUserEmail } = this.props;
     const formItemLayout = {
       labelCol: { span: 4 },
       wrapperCol: { span: 20 },
@@ -117,21 +103,36 @@ export class NavBar extends React.Component {
             <span>{data.address}</span> :
             null
           }
-      		<em style={{cousor:"pointer"}} onClick={ ()=> { isBoolean(true) }}>（{i18n.t('navbar.unverified')}）</em>
-          <Modal title="邮箱认证"
-            visible={false}
-            onOk={ ()=> {isBoolean(false)} } >
-            <Form horizontal form={this.props.form}>
-              <FormItem
-                {...formItemLayout}
-                validateStatus="error"
-                help="请输入正确的邮箱"
-                hasFeedback
-                label="邮箱：">
-                <Input  type="text" autoComplete="off" />
-              </FormItem>
-            </Form>
-          </Modal>
+          {
+            data && data.status == 'unverified' ?
+      		  <em style={{cursor:"pointer",color : 'red'}} onClick={ ()=> { isBoolean(true) }}>（{i18n.t('navbar.unverified')}）</em>
+            : null
+          }
+          {
+            data && data.status == 'verified' ?
+      		  <em onClick={ ()=> { isBoolean(true) }}>verified</em>
+            : null
+          }
+          {
+            data && data.status == 'banned' ?
+      		  <em  onClick={ ()=> { isBoolean(true) }}>banned</em>
+            : null
+          }
+            <Modal ref="modal"
+              visible={isloading}
+              title="邮箱认证"
+              onCancel={ ()=> {isBoolean(false)} }
+              footer={[
+                <Button key="back" type="ghost" size="large" onClick={ ()=> {isBoolean(false)} }>返 回</Button>,
+                <Button key="submit" type="primary" size="large" loading={false} onClick={::this._sendEmail} >
+                  提 交
+                </Button>,
+              ]}>
+              <div style={{'fontSize':'20px'}}>
+                点击提交系统将会发送验证邮件至您邮箱<br></br>请注意查收
+              </div>
+            </Modal>
+
       	</div>
       	<div className={classes.btc} style={{width:"auto"}}>
       		<img src={moneyIco} />
@@ -142,9 +143,26 @@ export class NavBar extends React.Component {
             0
           }
       	</div>
+        <div className={classes.logout} onClick={::this._logout} >
+          <Icon type="poweroff" />
+          Logout
+        </div>
       </div>
     )
   }
 }
-
+// <Modal title="邮箱认证"
+//   visible={isloading}
+//   onOk={ ()=> {isBoolean(false)} } >
+//   <Form horizontal form={this.props.form}>
+//     <FormItem
+//       {...formItemLayout}
+//       validateStatus="error"
+//       help="请输入正确的邮箱"
+//       hasFeedback
+//       label="邮箱：">
+//       <Input  type="text" autoComplete="off" />
+//     </FormItem>
+//   </Form>
+//   </Modal>
 export default NavBar

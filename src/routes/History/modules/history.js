@@ -37,8 +37,6 @@ export function getHistoryList(param) {
         switch (res.statusCode) {
           case 200:
           console.log(res)
-
-          console.log(res.header['X-Total-Count'])
             let res = JSON.parse(res.text);
             dispatch(historyList(res));
         }
@@ -57,7 +55,10 @@ export const actions = {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [GET_HISTORY_LIST] : (state , action) => {
-    return Object.assign({} , state , { rewardList :action.res})
+    return Object.assign({} , state , {
+      rewardList :action.res.data,
+      count : action.res.count
+    })
   }
 }
 

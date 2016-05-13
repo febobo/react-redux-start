@@ -6,11 +6,12 @@ import '../../styles/core.scss'
 import { connect } from 'react-redux'
 import { userRegister ,
          changeLanguage,
+         sendUserEmail,
+         logout
        } from '../../routes/Register/modules/register'
 import { isBoolean } from '../../actions/Nav'
 import { getBtcWebsocket } from '../../actions/Websocket'
 
-       console.log(isBoolean)
 import {i18n} from '../../util/i18n'
 import store from 'store';
 
@@ -20,8 +21,6 @@ export class CoreLayout extends React.Component {
     let lang = this.props.language;
     console.log(this.props)
     i18n.extend(require('../../texts/' + lang + '.js').text);
-
-    // this._stream();
   };
 
   render (){
@@ -48,14 +47,16 @@ const mapActionCreators = {
   userRegister,
   changeLanguage,
   isBoolean,
-  getBtcWebsocket
+  getBtcWebsocket,
+  sendUserEmail,
+  logout
 }
 
 const mapStateToProps = (state) => ({
   data : state.register && state.register.user || store.get('user'),
   language : store.get('language') || 'en',
   isloading : state.nav && state.nav.isloading || false,
-  users_online : state.Websocket && state.Websocket.users_online || 0
+  users_online : state.lottery && state.lottery.users_online || 0
 })
 
 export default connect(mapStateToProps, mapActionCreators)(CoreLayout)

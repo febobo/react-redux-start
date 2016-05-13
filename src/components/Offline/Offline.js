@@ -11,20 +11,18 @@ export class Offline extends React.Component {
     this._getData()
   }
 
-  _getData (lastUntil , limit){
+  _getData (page , limit){
     const { getOfflineList } = this.props;
-    let until = lastUntil || Math.floor(new Date().getTime()/1000);
-    let pageSize = limit || 2
-    let param = '?until=' + until + '&limit=' + pageSize
+    let offset = page || 0;
+    let pageSize = limit || 10
+    let param = '?offset=' + offset + '&limit=' + pageSize
     getOfflineList(param)
   }
 
   _changePage (page , limit){
     // if(page==1) return;
     const { offlineData } = this.props;
-    let lastTime = offlineData.rewardList[offlineData.rewardList.length-1].created_at;
-    let lastUntil = Math.floor(new Date(lastTime).getTime()/1000)
-    this._getData(lastUntil , limit)
+    this._getData(page , limit)
   }
 
   render () {
@@ -52,15 +50,14 @@ export class Offline extends React.Component {
 
     const that = this;
     const pagination = {
-      total: offlineData && offlineData.rewardList &&
-      offlineData.rewardList.length,
-      defaultPageSize : 2,
+      total: offlineData && offlineData.count,
+      pageSize : 10,
       showSizeChanger: true,
       onShowSizeChange(current, pageSize){
-        that._changePage(current,pageSize);
+        that._changePage(current - 1,pageSize);
       },
       onChange(current) {
-        that._changePage(current);
+        that._changePage(current -1);
       },
     };
     return (
