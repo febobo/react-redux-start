@@ -23,7 +23,7 @@ export class HomeView extends React.Component {
   render (){
     return (
 
-  <div onEnter={console.log('onEnter')}>
+  <div>
     <div className={classes.luck}>
     	<div className={classes.luckCode}><img src={code} /></div>
     	<div className={classes.luckBtn}><a href="#"><span>{i18n.t('common.lottery')}</span></a></div>
@@ -33,7 +33,7 @@ export class HomeView extends React.Component {
     	<div className={classes.mainBlock}>
     		<div className={classes.dynamicTitle}><img src="images/dynamicIco.png" /><span><b>{i18n.t('common.dynamic')}</b></span>
         </div>
-        <Lottery isDynamic={true}/>
+        <Lottery isDynamic={true} style={{marginTop:'20px'}}/>
     		<div className={classes.ad}>
     			<div className={classes.ad1}><a href="#"><img src={ad1} /></a></div>
     			<div className={classes.ad1}><a href="#"><img src={ad2} /></a></div>
