@@ -67,7 +67,12 @@ export class Header extends React.Component {
 
         </div>
 
-        <NavBar {...this.props} />
+        {
+          this.props.routes[1].path == 'register' ||
+          this.props.routes[1].path == 'login' ?
+          null :
+          <NavBar {...this.props} />
+        }
       </div>
   )}
 }

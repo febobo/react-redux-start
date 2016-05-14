@@ -50,6 +50,7 @@ export class NavBar extends React.Component {
 
   render () {
     console.log(this)
+    console.log(this.props.routes[1].path)
     const { data , isBoolean , isloading ,sendUserEmail } = this.props;
     const formItemLayout = {
       labelCol: { span: 4 },

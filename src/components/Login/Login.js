@@ -16,6 +16,7 @@ export class Login extends React.Component {
   props: Props;
 
   _userLogin (){
+
     const { userLogin , history , getRewards , getUser } = this.props;
     let email = this.refs.email.value;
     let query = {
@@ -26,9 +27,9 @@ export class Login extends React.Component {
       {
         'method' : 'POST' ,
          body:JSON.stringify(query)
-      }, () => {
-        getUser();
-        history.pushState(null, '/')
+      },  () => {
+          getUser();
+          history.push('/');
       }
     );
   }

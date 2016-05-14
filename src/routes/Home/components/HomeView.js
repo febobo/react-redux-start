@@ -1,4 +1,5 @@
 import React from 'react'
+import reactDom from 'react-dom'
 import DuckImage from '../assets/Duck.jpg'
 import classes from './HomeView.scss'
 import {i18n} from '../../../util/i18n'
@@ -7,6 +8,7 @@ import code from '../../../static/images/code.jpg'
 import ad1 from '../../../static/images/ad1.jpg'
 import ad2 from '../../../static/images/ad2.jpg'
 import Lottery from '../../../components/Lottery'
+import geetest from 'geetest-proxy';
 // export const HomeView = () => (
 export class HomeView extends React.Component {
 
@@ -19,13 +21,16 @@ export class HomeView extends React.Component {
     //     warp.scrollTop ++ ;
     //   }
     // },100)
+    let captcha = geetest(reactDom.findDOMNode(this.refs.geetest), {
+      gt: 1
+    });
   }
   render (){
     return (
 
   <div>
     <div className={classes.luck}>
-    	<div className={classes.luckCode}><img src={code} /></div>
+    	<div className={classes.luckCode} ref="geetest"><img src={code} /></div>
     	<div className={classes.luckBtn}><a href="#"><span>{i18n.t('common.lottery')}</span></a></div>
     </div>
     <Adv />
