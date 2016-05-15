@@ -67,13 +67,14 @@ export class Geetest extends React.Component {
 
   }
   componentDidMount (){
-    this.getCaptcha()
+    this.getCaptcha();
+
   }
   render () {
     return (
       <div className={classes.luck}>
-      	<div className={classes.luckBtn}>
-        <a href="#" onClick={::this.lottery}><span>{i18n.t('common.lottery')}</span></a>
+      	<div className={classes.block}>
+        <a href="#" onClick={::this.lottery} className={classes.luckBtn}><span>{i18n.t('common.lottery')}</span></a>
         <div ref="geetest"></div>
         </div>
       	<div className={classes.luckCode}  >

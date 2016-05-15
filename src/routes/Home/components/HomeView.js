@@ -21,6 +21,14 @@ export class HomeView extends React.Component {
     //   challenge : '41580e1e3343648961506f235de68cd7',
     //   product : 'float',
     // });
+    // let warp = document.getElementById('listScroll');
+    // setInterval( () =>{
+    //   if(warp.scrollTop >= 105){
+    //     warp.scrollTop =0;
+    //   }else {
+    //     warp.scrollTop ++ ;
+    //   }
+    // },100)
   }
 
   render (){
