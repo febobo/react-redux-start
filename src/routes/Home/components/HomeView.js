@@ -9,20 +9,16 @@ import ad1 from '../../../static/images/ad1.jpg'
 import ad2 from '../../../static/images/ad2.jpg'
 import Lottery from '../../../components/Lottery'
 import geetest from 'geetest-proxy';
-// export const HomeView = () => (
+import gs from './gs'
+// console.log(initGeetest)
+
 export class HomeView extends React.Component {
 
   componentDidMount (){
-    // let warp = document.getElementById('listScroll');
-    // setInterval( () =>{
-    //   if(warp.scrollTop >= 105){
-    //     warp.scrollTop =0;
-    //   }else {
-    //     warp.scrollTop ++ ;
-    //   }
-    // },100)
     let captcha = geetest(reactDom.findDOMNode(this.refs.geetest), {
-      gt: 1
+      gt: '5c17ac67511f4174d0861e0ae16e5975',
+      challenge : '41580e1e3343648961506f235de68cd7',
+      product : 'float',
     });
   }
   render (){
@@ -30,8 +26,14 @@ export class HomeView extends React.Component {
 
   <div>
     <div className={classes.luck}>
-    	<div className={classes.luckCode} ref="geetest"><img src={code} /></div>
-    	<div className={classes.luckBtn}><a href="#"><span>{i18n.t('common.lottery')}</span></a></div>
+
+    	<div className={classes.luckBtn}>
+      <a href="#"><span>{i18n.t('common.lottery')}</span></a>
+      <div ref="geetest"></div>
+      </div>
+    	<div className={classes.luckCode}  >
+
+      </div>
     </div>
     <Adv />
     <div className={classes.luckMain}>

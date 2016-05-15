@@ -26,7 +26,7 @@ const navState = {
 }
 
 export function nav ( state =navState , action = {}){
-  console.log(action)
+  // console.log(action)
   switch (action.type) {
     case IS_BOOLEAN:
       return Object.assign({} , state , { isloading :action.isBoolean})

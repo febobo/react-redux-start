@@ -19,7 +19,6 @@ export class CoreLayout extends React.Component {
 
   componentWillMount() {
     let lang = this.props.language;
-    console.log(this.props)
     i18n.extend(require('../../texts/' + lang + '.js').text);
   };
 

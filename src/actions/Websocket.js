@@ -3,10 +3,15 @@ export const BTC_WEBSOCKET = 'BTC_WEBSOCKET';
 
 export function btcWebsocket(socketData , getState) {
   const { lottery } = getState();
+  if(lottery && lottery.latest_incomes && socketData.delta_income){
+    lottery.latest_incomes.push(socketData.delta_income)
+  }else{
+    lottery.latest_incomes = socketData.latest_incomes || lottery.latest_incomes;
+  }
   return {
     type: BTC_WEBSOCKET,
     users_online : socketData.users_online || lottery.users_online,
-    latest_incomes : socketData.latest_incomes || lottery.latest_incomes,
+    latest_incomes : lottery.latest_incomes,
   };
 }
 

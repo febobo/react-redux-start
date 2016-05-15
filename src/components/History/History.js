@@ -2,6 +2,7 @@ import React from 'react'
 import DuckImage from '../../static/images/Duck.jpg'
 import classes from './History.scss'
 import Adv from '../Adv'
+import moment from 'moment'
 import { Pagination ,  Alert , Tag , Table} from 'antd';
 
 // export const History = () => (
@@ -27,7 +28,6 @@ export class History extends React.Component {
   render (){
     // console.log(this._getData)
     const { historyData } = this.props;
-    console.log(historyData)
 
       const columns = [{
         title: '时间',
@@ -51,7 +51,7 @@ export class History extends React.Component {
       historyData.rewardList.length && historyData.rewardList.map( (v, k) => {
           data.push({
             key: `${k}`,
-            updated_at: `${v.updated_at}`,
+            updated_at:moment(`${v.updated_at}`).format("YYYY-MM-DD hh:mm:ss"),
             amount:`${v.amount}`,
             tx: ( ()=>{
               return  <a href={v.tx_url}>{v.tx_url}</a>

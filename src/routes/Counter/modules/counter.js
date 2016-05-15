@@ -60,6 +60,5 @@ const ACTION_HANDLERS = {
 const initialState = 0
 export default function counterReducer (state: number = initialState, action: Action): number {
   const handler = ACTION_HANDLERS[action.type]
-  console.log(handler?handler(state, action): null)
   return handler ? handler(state, action) : state
 }

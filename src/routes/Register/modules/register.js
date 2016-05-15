@@ -134,7 +134,6 @@ const ACTION_HANDLERS = {
     return Object.assign({} , state , { language :action.language})
   },
   [IS_BOOLEAN] : (state , action) => {
-    console.log(action)
     return Object.assign({} , state , { isBoolean :action.isBoolean})
   },
   [SEND_EMAIL] : (state , action) => {

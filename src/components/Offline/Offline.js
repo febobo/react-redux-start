@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './Offline.scss'
 import { Pagination ,  Alert , Tag , Table} from 'antd';
+import moment from 'moment'
 type Props = {
 
 };
@@ -43,7 +44,7 @@ export class Offline extends React.Component {
     offlineData.rewardList.length && offlineData.rewardList.map( (v, k) => {
         data.push({
           key: `${k}`,
-          updated_at: `${v.updated_at}`,
+          updated_at: moment(`${v.updated_at}`).format("YYYY-MM-DD hh:mm:ss"),
           amount:`${v.amount}`,
         });
     })
