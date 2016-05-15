@@ -5,9 +5,10 @@ export function btcWebsocket(socketData , getState) {
   const { lottery } = getState();
   if(lottery && lottery.latest_incomes && socketData.delta_income){
     lottery.latest_incomes.unshift(socketData.delta_income)
-    lottery.latest_incomes = lottery.latest_incomes.length > 15 ? lottery.latest_incomes.slice(0,15) : lottery.latest_incomes;
+    lottery.latest_incomes = lottery.latest_incomes.length > 12 ? lottery.latest_incomes.slice(0,12) : lottery.latest_incomes;
   }else{
     lottery.latest_incomes = socketData.latest_incomes || lottery.latest_incomes;
+    lottery.latest_incomes = lottery.latest_incomes.length > 12 ? lottery.latest_incomes.slice(0,12) : lottery.latest_incomes;
   }
   return {
     type: BTC_WEBSOCKET,

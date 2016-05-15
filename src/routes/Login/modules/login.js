@@ -6,6 +6,7 @@ import Fetch from '../../../util/Fetch'
 import store from 'store';
 import request from 'superagent';
 import URI from 'urijs';
+import { message } from 'antd';
 const v1 = 'https://staging.solebtc.com/api/v1';
 
 export const USER_LOGIN = 'USER_LOGIN'
@@ -67,7 +68,7 @@ export function userLogin(url , obj , cb){
 }
 
 /* User operation */
-export function getUser() {
+export function getUser(cb) {
   return (dispatch) => {
     let url = new URI(v1 + '/users');
 
@@ -78,6 +79,9 @@ export function getUser() {
         switch (res.statusCode) {
           case 200:
             let user = JSON.parse(res.text);
+            message.success('登陆成功，系统自动为您跳转至首页', 3);
+            store.set('user', user);
+            cb && cb();
             dispatch(setUser(user));
         }
       });
@@ -85,7 +89,6 @@ export function getUser() {
 }
 
 function setUser(user) {
-  store.set('user', user);
   return {
     type: SET_USER,
     user

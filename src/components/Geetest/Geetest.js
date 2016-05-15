@@ -43,15 +43,22 @@ export class Geetest extends React.Component {
       return message.warning('请先拖动下方验证码进行验证', 3)
     }
 
+
     const { sendLottery } = this.props;
+    // console.log('ok')
     const captchaObj = this.state.captchaObj.getValidate()
+
     const headers = {
       'X-Geetest-Challenge' : captchaObj.geetest_challenge,
       'X-Geetest-Validate' : captchaObj.geetest_validate,
       'X-Geetest-Seccode' : captchaObj.geetest_seccode,
       'Auth-Token' : store.get('auth_token'),
     }
+    // captchaObj.onSuccess( () => {
+    //   alert(1)
+    // })
     sendLottery(headers);
+    this.state.captchaObj.refresh();
     // captchaObj.refresh;
   }
 
