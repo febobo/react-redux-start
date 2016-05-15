@@ -8,19 +8,21 @@ import code from '../../../static/images/code.jpg'
 import ad1 from '../../../static/images/ad1.jpg'
 import ad2 from '../../../static/images/ad2.jpg'
 import Lottery from '../../../components/Lottery'
+import Geetest from '../../../components/Geetest'
 import geetest from 'geetest-proxy';
-import gs from './gs'
+// import gs from './gs'
 // console.log(initGeetest)
 
 export class HomeView extends React.Component {
 
   componentDidMount (){
-    let captcha = geetest(reactDom.findDOMNode(this.refs.geetest), {
-      gt: '5c17ac67511f4174d0861e0ae16e5975',
-      challenge : '41580e1e3343648961506f235de68cd7',
-      product : 'float',
-    });
+    // let captcha = geetest(reactDom.findDOMNode(this.refs.geetest), {
+    //   gt: '5c17ac67511f4174d0861e0ae16e5975',
+    //   challenge : '41580e1e3343648961506f235de68cd7',
+    //   product : 'float',
+    // });
   }
+
   render (){
     return (
 
@@ -29,7 +31,8 @@ export class HomeView extends React.Component {
 
     	<div className={classes.luckBtn}>
       <a href="#"><span>{i18n.t('common.lottery')}</span></a>
-      <div ref="geetest"></div>
+      <Geetest />
+
       </div>
     	<div className={classes.luckCode}  >
 

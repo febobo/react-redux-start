@@ -1,2 +1,2 @@
-import Lottery from './Lottery'
-export default Lottery
+import Geetest from './Geetest'
+export default Geetest

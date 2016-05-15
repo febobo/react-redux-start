@@ -1,5 +1,6 @@
 import { BTC_WEBSOCKET } from '../actions/Websocket.js'
 import { IS_BOOLEAN } from '../actions/Nav.js'
+import { CAPTCHA } from '../actions/Geetest.js'
 
 
 
@@ -30,6 +31,18 @@ export function nav ( state =navState , action = {}){
   switch (action.type) {
     case IS_BOOLEAN:
       return Object.assign({} , state , { isloading :action.isBoolean})
+      break;
+    default:
+    return state
+  }
+}
+
+
+export function  geetest( state = {} , action = {}){
+  // console.log(action)
+  switch (action.type) {
+    case CAPTCHA:
+      return Object.assign({} , state , { geetest :action.res})
       break;
     default:
     return state
