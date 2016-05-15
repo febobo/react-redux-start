@@ -1,6 +1,7 @@
-export const CAPTCHA = 'CAPTCHA';
+export const SEND_LOTTERY = 'SEND_LOTTERY';
 import request from 'superagent';
 import URI from 'urijs';
+import { message } from 'antd'
 const v1 = 'https://staging.solebtc.com/api/v1';
 
 
@@ -8,23 +9,26 @@ const v1 = 'https://staging.solebtc.com/api/v1';
 // Actions
 // ------------------------------------
 
-export function captchaData (res){
+export function lotteryData (res){
   return {
-    type : CAPTCHA,
+    type : SEND_LOTTERY,
     res
   }
 }
 
-export function getCaptcha(){
+export function sendLottery(headers){
+  if(!headers) return;
   return ( dispatch , getState ) =>{
-    let url = new URI(v1 + '/captchas');
+    let url = new URI(v1 + '/incomes/rewards');
     request
-      .get(url.toString())
+      .post(url.toString())
+      .set(headers)
       .end((err, res) => {
         switch (res.statusCode) {
           case 200:
+            message.success('您已成功抽奖一次', 3);
             let res = JSON.parse(res.text);
-            dispatch(captchaData(res));
+            dispatch(lotteryData(res));
         }
       });
   }

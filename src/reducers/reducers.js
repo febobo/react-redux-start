@@ -1,6 +1,6 @@
 import { BTC_WEBSOCKET } from '../actions/Websocket.js'
 import { IS_BOOLEAN } from '../actions/Nav.js'
-import { CAPTCHA } from '../actions/Geetest.js'
+import { SEND_LOTTERY } from '../actions/Geetest.js'
 
 
 
@@ -41,7 +41,7 @@ export function nav ( state =navState , action = {}){
 export function  geetest( state = {} , action = {}){
   // console.log(action)
   switch (action.type) {
-    case CAPTCHA:
+    case SEND_LOTTERY:
       return Object.assign({} , state , { geetest :action.res})
       break;
     default:

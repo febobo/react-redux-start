@@ -1,0 +1,23 @@
+.luck{text-align:center ; overflow:hidden;height:251px;background:#fff url(../../static/images/doubleLine.png) bottom repeat-x;margin:0 auto;width:1000px;margin-top:29px}
+.luckCode{
+  display:inline-block;
+   height :170px;
+  margin-top: 28px;
+  margin-left: 20px;
+  img{
+    max-width: 100%;
+    max-height : 100%;
+  }
+}
+.luckBtn{display:inline-block; width:291px;margin-top:28px;margin-left:20px;}
+.luckBtn a{display:block;font-size:35px;overflow:hidden;text-align:center;color:#fff;  width:291px;height:170px;background:url(../../static/images/luckBtn.png) no-repeat;   background-size: contain;font-weight:bold;}
+.luckBtn span{display:block;margin-top:113px;}
+.luckAlert{width:285px;height:169px;background:#fff;margin:0 auto;margin-top:283px;background:#fff;box-shadow: 2px 4px 6px #888888;text-align:center;}
+.luckAlert span{display:block;color:#d13434;font-size:14px;margin-top:15px;width:106px;margin:0 auto;margin-top:15px}
+.luckAlert span a{display:block;width:106px;height:30px;background:#32d989;color:#fff;line-height:30px;text-align:center;}
+.luckAlert img{margin-top:15px;}
+.luckAlert p{color:#9f9f9f;font-size:25px;text-align:center;}
+.luckClose{position:absolute;margin-left:250px;margin-top:0px}
+.luckBtn2{width:291px;float:left;margin-top:28px;margin-left:20px;}
+.luckBtn2 a{display:block;font-size:35px;overflow:hidden;text-align:center;color:#fff;width:291px;height:192px;background:url(../../static/images/luckBtn2.png) no-repeat;font-weight:bold;}
+.luckBtn2 span{display:block;margin-top:66px;margin-left:90px}

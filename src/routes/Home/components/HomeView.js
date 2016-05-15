@@ -27,17 +27,8 @@ export class HomeView extends React.Component {
     return (
 
   <div>
-    <div className={classes.luck}>
 
-    	<div className={classes.luckBtn}>
-      <a href="#"><span>{i18n.t('common.lottery')}</span></a>
-      <Geetest />
-
-      </div>
-    	<div className={classes.luckCode}  >
-
-      </div>
-    </div>
+    <Geetest />
     <Adv />
     <div className={classes.luckMain}>
     	<div className={classes.mainBlock}>

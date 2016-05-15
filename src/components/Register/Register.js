@@ -11,9 +11,7 @@ import About from '../About'
 type Props = {
 
 };
-// <input type="button" name="" className={classes.regBtn} value={i18n.t('register.register')}
-// onClick={ () => this._userRegister() }
-// />
+
 export class Register extends React.Component {
   props: Props;
 
@@ -22,13 +20,14 @@ export class Register extends React.Component {
   }
 
   _userRegister (){
-    const { userRegister , history ,isBoolean , sendUserEmail} = this.props;
+    const { userRegister , history ,isBoolean , sendUserEmail , location} = this.props;
     let email = this.refs.email.value;
     let address = this.refs.address.value;
+    let referer_id = location.query.referer_id ? location.query.referer_id * 1 : null;
     let query = {
       "email": email,
       "address": address,
-      "referer_id": 0
+      "referer_id": referer_id
     }
     isBoolean(true)
     userRegister('/users' , {'method' : 'POST' , body:JSON.stringify(query) },
@@ -42,7 +41,6 @@ export class Register extends React.Component {
 
   render () {
     const {data , userRegister , isLoading } = this.props;
-
     return (
     <div>
     <div className={classes.login}>
