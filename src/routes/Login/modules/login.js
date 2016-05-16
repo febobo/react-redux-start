@@ -79,7 +79,6 @@ export function getUser(cb) {
         switch (res.statusCode) {
           case 200:
             let user = JSON.parse(res.text);
-            message.success('登陆成功，系统自动为您跳转至首页', 3);
             store.set('user', user);
             cb && cb();
             dispatch(setUser(user));

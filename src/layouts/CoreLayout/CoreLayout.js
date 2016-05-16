@@ -7,8 +7,9 @@ import { connect } from 'react-redux'
 import { userRegister ,
          changeLanguage,
          sendUserEmail,
-         logout
+         logout,
        } from '../../routes/Register/modules/register'
+import { getUser } from '../../routes/Login/modules/login'
 import { isBoolean } from '../../actions/Nav'
 import { getBtcWebsocket } from '../../actions/Websocket'
 
@@ -18,8 +19,9 @@ import store from 'store';
 export class CoreLayout extends React.Component {
 
   componentWillMount() {
-    let lang = this.props.language;
-    i18n.extend(require('../../texts/' + lang + '.js').text);
+    let {language , getUser}  = this.props;
+    getUser();
+    i18n.extend(require('../../texts/' + language + '.js').text);
   };
 
   render (){
@@ -48,11 +50,12 @@ const mapActionCreators = {
   isBoolean,
   getBtcWebsocket,
   sendUserEmail,
-  logout
+  logout,
+  getUser
 }
 
 const mapStateToProps = (state) => ({
-  data : state.register && state.register.user || store.get('user'),
+  data : state.login && state.login.user || store.get('user'),
   language : store.get('language') || 'en',
   isloading : state.nav && state.nav.isloading || false,
   users_online : state.lottery && state.lottery.users_online || 0

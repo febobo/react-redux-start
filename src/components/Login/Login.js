@@ -30,6 +30,7 @@ export class Login extends React.Component {
       },  () => {
           getUser(()=>{
             history.push('/');
+            message.success('登陆成功，系统自动为您跳转至首页', 3);
           });
       }
     );
