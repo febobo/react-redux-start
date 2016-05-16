@@ -1,4 +1,5 @@
 export const SEND_LOTTERY = 'SEND_LOTTERY';
+export const COUNT_DOWN = 'COUNT_DOWN';
 import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd'
@@ -16,6 +17,35 @@ export function lotteryData (res){
   }
 }
 
+export function countDown (count){
+  return ( dispatch , getState) => {
+    count = getState().geetest && getState().geetest.time &&
+            getState().geetest.time.count || count
+    if(true){
+      let timer = setInterval( ()=> {
+        count --;
+        let m = Math.floor(count / 60) < 10 ? '0' + Math.floor(count / 60)
+                  : Math.floor(count / 60)  ;
+        let s = count % 60 < 10 ? '0' + count % 60 : count % 60;
+        let time = m + ':' + s
+        if(count == 0){
+          clearInterval(timer);
+        }
+        return dispatch(calculation({
+          time : time ,
+          count : count
+         }))
+      },1000)
+    }
+  }
+}
+
+export function calculation(time){
+  return {
+    type : COUNT_DOWN,
+    time
+  }
+}
 export function sendLottery(headers){
   if(!headers) return;
   return ( dispatch , getState ) =>{

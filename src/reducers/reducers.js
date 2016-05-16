@@ -1,6 +1,6 @@
 import { BTC_WEBSOCKET } from '../actions/Websocket.js'
 import { IS_BOOLEAN } from '../actions/Nav.js'
-import { SEND_LOTTERY } from '../actions/Geetest.js'
+import { SEND_LOTTERY , COUNT_DOWN } from '../actions/Geetest.js'
 
 
 
@@ -43,6 +43,9 @@ export function  geetest( state = {} , action = {}){
   switch (action.type) {
     case SEND_LOTTERY:
       return Object.assign({} , state , { geetest :action.res})
+      break;
+    case COUNT_DOWN:
+      return Object.assign({} , state , { time :action.time})
       break;
     default:
     return state

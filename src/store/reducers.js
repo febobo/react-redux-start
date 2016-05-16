@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { routerReducer as router } from 'react-router-redux'
-import { lottery , nav } from '../reducers/reducers'
+import { lottery , nav , geetest } from '../reducers/reducers'
 
 export const reducers = (asyncReducers) => {
   return combineReducers({
@@ -8,6 +8,7 @@ export const reducers = (asyncReducers) => {
     router,
     lottery,
     nav,
+    geetest,
     ...asyncReducers })
 }
 

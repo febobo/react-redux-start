@@ -4,11 +4,12 @@ import aboutIco from '../../static/images/aboutIco.png'
 import ad1 from '../../static/images/ad1.jpg'
 import classes from './Geetest.scss'
 import {i18n} from '../../util/i18n'
-import { sendLottery } from '../../actions/Geetest'
+import { sendLottery , countDown } from '../../actions/Geetest'
 import reactDom from 'react-dom'
 import { connect } from 'react-redux'
 import { Alert , Table ,message } from 'antd'
 import geetest from 'geetest-proxy';
+import CountDown from '../CountDown';
 import moment from 'moment'
 import request from 'superagent';
 import store from 'store';
@@ -43,8 +44,8 @@ export class Geetest extends React.Component {
       return message.warning('请先拖动下方验证码进行验证', 3)
     }
 
-
-    const { sendLottery } = this.props;
+    const { sendLottery , count , countDown} = this.props;
+    countDown(10);
     // console.log('ok')
     const captchaObj = this.state.captchaObj.getValidate()
 
@@ -62,6 +63,9 @@ export class Geetest extends React.Component {
     // captchaObj.refresh;
   }
 
+  waiting (){
+    return message.warning('倒计时过后才能再次抽奖', 3)
+  }
   async getCaptcha() {
     let url = new URI(v1 + '/captchas');
     let data = await request.get(url.toString());
@@ -78,10 +82,25 @@ export class Geetest extends React.Component {
 
   }
   render () {
+    // console.log(this.props)
+    const { time } = this.props.geetest;
+    // console.log(this.props)
     return (
       <div className={classes.luck}>
       	<div className={classes.block}>
-        <a href="#" onClick={::this.lottery} className={classes.luckBtn}><span>{i18n.t('common.lottery')}</span></a>
+        {
+          time && time.count ?
+            <a className={classes.luckBtn2}
+              onClick={::this.waiting}
+            >
+              <CountDown
+                count={90}
+                {...this.props}
+              />
+            </a> :
+            <a href="#" onClick={::this.lottery} className={classes.luckBtn}><span>{i18n.t('common.lottery')}</span></a>
+        }
+
         <div ref="geetest"></div>
         </div>
       	<div className={classes.luckCode}  >
@@ -91,16 +110,18 @@ export class Geetest extends React.Component {
     )
   }
 }
+// <a href="#" onClick={::this.lottery} className={classes.luckBtn}><span>{i18n.t('common.lottery')}</span></a>
 
 export default Geetest;
 
 const mapActionCreators = {
-  sendLottery
+  sendLottery,
+  countDown
 }
 
 const mapStateToProps = (state)=>
 ({
-  geetest : state.geetest
+  geetest : state.geetest,
 })
 
 export default connect(mapStateToProps, mapActionCreators)(Geetest)
