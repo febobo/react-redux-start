@@ -13,6 +13,7 @@ export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
 export const IS_BOOLEAN = 'IS_BOOLEAN';
 export const SEND_EMAIL = 'SEND_EMAIL';
 export const LOGOUT = 'LOGOUT';
+export const USER_AUTH = 'USER_AUTH';
 
 
 
@@ -20,6 +21,15 @@ export const LOGOUT = 'LOGOUT';
 // Actions
 // ------------------------------------
 
+// 用户认证
+export function sendUserAuth (res){
+  return {
+    type : USER_AUTH,
+    res : res,
+  }
+}
+
+//注册
 export function register (res){
   return {
     type : USER_REGISTER,
@@ -91,6 +101,39 @@ export function userRegister(url , obj , cb){
   })
  }
 }
+/* 用户认证 */
+export function userAuth(query , cb) {
+  if(!query.id || !query.token) return ;
+  let url = new URI(v1 + `/users/${query.id}/status`);
+
+  // request delete auth token
+  request
+    .put(url.toString())
+    .send({
+      id:query.id,
+      token : query.token
+    })
+    .end((err, res) => {
+      if (err) {
+        console.error('logout error:', err);
+      }
+      switch (res.statusCode) {
+        case 200:
+          cb && cb();
+          message.success('认证成功，系统自动为您跳转至首页', 3);
+          break;
+        case 401:
+          message.error('token 错误或已失效(3个小时)', 3);
+          break;
+        case 403:
+          message.error('账户异常，不能进行认证', 3);
+          break;
+      }
+    });
+    return {
+      type : USER_AUTH
+    }
+}
 
 /* Logout */
 export function logout() {
@@ -120,7 +163,8 @@ export const actions = {
   userRegister,
   isBoolean,
   sendUserEmail,
-  logout
+  logout,
+  userAuth
 }
 
 // ------------------------------------
@@ -141,6 +185,9 @@ const ACTION_HANDLERS = {
   },
   [LOGOUT] : (state , action) => {
     return Object.assign({} , state , { data : '' })
+  },
+  [USER_AUTH] : (state , action) => {
+    return Object.assign({} , state)
   },
 }
 

@@ -8,6 +8,7 @@ import { userRegister ,
          changeLanguage,
          sendUserEmail,
          logout,
+         userAuth
        } from '../../routes/Register/modules/register'
 import { getUser } from '../../routes/Login/modules/login'
 import { isBoolean } from '../../actions/Nav'
@@ -19,13 +20,21 @@ import store from 'store';
 export class CoreLayout extends React.Component {
 
   componentWillMount() {
-    let {language , getUser}  = this.props;
-    getUser();
+    let {language , getUser , userAuth , location}  = this.props;
     i18n.extend(require('../../texts/' + language + '.js').text);
+
+    // token && id 同时存在即为认证
+    const query = location.query;
+    if(query.id && query.token){
+      userAuth(query , getUser);
+    }else{
+      getUser();
+    }
   };
 
   render (){
     const { children } = this.props;
+    console.log(this)
     return (
       <div className=''>
         <Header {...this.props}/>
@@ -51,7 +60,8 @@ const mapActionCreators = {
   getBtcWebsocket,
   sendUserEmail,
   logout,
-  getUser
+  getUser,
+  userAuth
 }
 
 const mapStateToProps = (state) => ({

@@ -16,7 +16,7 @@ export class Footer extends React.Component {
       <div className={classes.footerBg}>
       	<div className={classes.footer}>
       		<div className={classes.footerInfo}>
-      			<p><img src={footerIco} /><span>{i18n.t('footer.server_time')}：{moment.utc(new Date()).format("YYYY-MM-DD hh:mm:ss")}</span></p>
+      			<p><img src={footerIco} /><span>{i18n.t('footer.server_time')}：{moment.utc(new Date()).format("YYYY-MM-DD hh:mm:ss") }</span></p>
       			<em>{i18n.t('footer.copyright')}</em>
       		</div>
       		<div className={classes.footerLogo}>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { userRegister ,isBoolean ,sendUserEmail} from '../modules/register'
+import { userRegister ,isBoolean ,sendUserEmail ,userAuth} from '../modules/register'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -15,7 +15,8 @@ import Register from 'components/Register'
 const mapActionCreators = {
   userRegister,
   isBoolean,
-  sendUserEmail
+  sendUserEmail,
+  userAuth
 }
 
 const mapStateToProps = (state) => ({
