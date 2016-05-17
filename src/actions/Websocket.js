@@ -1,4 +1,4 @@
-
+import store from 'store';
 export const BTC_WEBSOCKET = 'BTC_WEBSOCKET';
 
 export function btcWebsocket(socketData , getState) {

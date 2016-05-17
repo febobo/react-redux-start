@@ -1,6 +1,7 @@
 .aboutUs{width:339px;overflow:hidden;float:right;height:605px;background:#fbfbfb url(../../static/images/aboutBg.png) no-repeat;}
-.aboutTitle img{float:left;margin-top:16px;margin-left:13px;margin-right:10px;}
+.aboutTitle img{float:left;overflow:hidden;margin-top:16px;margin-left:13px;margin-right:10px;}
 .aboutTitle span{float:left;font-size:16px;color:#414141;margin-top:15px;}
+.aboutTitle{overflow: hidden}
 .ourImg{text-align:center;margin-top:15px}
 .ourList ul li{float:left;color:#818181;font-size:14px;width:250px;text-align:center;}
 .aboutText{text-align:center;}

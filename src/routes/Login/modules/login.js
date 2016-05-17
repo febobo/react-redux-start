@@ -57,7 +57,7 @@ export function userLogin(url , obj , cb){
      }
    }
   Fetch(url,obj).then( (res) => {
-    console.log(res , 33333)
+    // console.log(res , 33333)
     if(!res.code){
       store.set('auth_token' , res.auth_token)
       cb && cb();

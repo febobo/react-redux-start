@@ -24,7 +24,17 @@ export class Geetest extends React.Component {
   props: Props;
 
   componentWillMount (){
-
+    const { countDown} = this.props;
+    const prev_time = store.get('prev_time');
+    if(prev_time){
+      let currentTime = Math.ceil(new Date().getTime() /1000)
+      let leftTime = currentTime - prev_time;
+      let count = store.get('user').reward_interval - leftTime;
+      // console.log(store.get('user').reward_interval , leftTime)
+      if(count > 0){
+        countDown(count);
+      }
+    }
   }
 
   state = {}
@@ -45,22 +55,20 @@ export class Geetest extends React.Component {
     }
 
     const { sendLottery , count , countDown} = this.props;
-    countDown(10);
-    // console.log('ok')
     const captchaObj = this.state.captchaObj.getValidate()
-
     const headers = {
       'X-Geetest-Challenge' : captchaObj.geetest_challenge,
       'X-Geetest-Validate' : captchaObj.geetest_validate,
       'X-Geetest-Seccode' : captchaObj.geetest_seccode,
       'Auth-Token' : store.get('auth_token'),
     }
-    // captchaObj.onSuccess( () => {
-    //   alert(1)
-    // })
+
     sendLottery(headers);
     this.state.captchaObj.refresh();
-    // captchaObj.refresh;
+
+    // 每一次抽奖存一次当前时间
+    store.set('prev_time',Math.ceil(new Date().getTime() / 1000))
+    countDown(store.get('user').reward_interval);
   }
 
   waiting (){
