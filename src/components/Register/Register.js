@@ -20,7 +20,13 @@ export class Register extends React.Component {
   }
 
   _userRegister (){
-    const { userRegister , history ,isBoolean , sendUserEmail , location} = this.props;
+    const {
+      userRegister ,
+      history ,isBoolean ,
+      sendUserEmail ,
+      location,
+      userLogin
+    } = this.props;
     let email = this.refs.email.value;
     let address = this.refs.address.value;
     let referer_id = location.query.referer_id ? location.query.referer_id * 1 : null;
@@ -32,8 +38,16 @@ export class Register extends React.Component {
     isBoolean(true)
     userRegister('/users' , {'method' : 'POST' , body:JSON.stringify(query) },
       () => {
-        history.pushState(null, '/login');
-        sendUserEmail()
+        userLogin(
+          '/auth_tokens' ,
+          {
+            'method' : 'POST' ,
+             body:JSON.stringify(query)
+          },  () => {
+            history.pushState(null, '/login');
+            sendUserEmail()
+          }
+        );
       }
     );
 
@@ -41,6 +55,7 @@ export class Register extends React.Component {
 
   render () {
     const {data , userRegister , isLoading } = this.props;
+    console.log(this)
     return (
     <div>
     <div className={classes.login}>

@@ -5,6 +5,7 @@ import ad1 from '../../static/images/ad1.jpg'
 import classes from './Geetest.scss'
 import {i18n} from '../../util/i18n'
 import { sendLottery , countDown } from '../../actions/Geetest'
+import { getUser } from '../../routes/Login/modules/login'
 import reactDom from 'react-dom'
 import { connect } from 'react-redux'
 import { Alert , Table ,message } from 'antd'
@@ -24,17 +25,20 @@ export class Geetest extends React.Component {
   props: Props;
 
   componentWillMount (){
-    const { countDown} = this.props;
-    const prev_time = store.get('prev_time');
-    if(prev_time){
+    const { countDown , getUser  } = this.props;
+    getUser( () => {
+      // console.log(Math.ceil(new Date().getTime() /1000) - new Date(store.get('user').rewarded_at).getTime() / 1000)
       let currentTime = Math.ceil(new Date().getTime() /1000)
-      let leftTime = currentTime - prev_time;
+      let leftTime = currentTime - new Date(store.get('user').rewarded_at).getTime() / 1000;
       let count = store.get('user').reward_interval - leftTime;
-      // console.log(store.get('user').reward_interval , leftTime)
+      console.log(store.get('user') , count)
+      // > 0才开启倒计时 ，否则 关掉定时器
       if(count > 0){
         countDown(count);
+      }else{
+        countDown(false)
       }
-    }
+    });
   }
 
   state = {}
@@ -102,7 +106,6 @@ export class Geetest extends React.Component {
               onClick={::this.waiting}
             >
               <CountDown
-                count={90}
                 {...this.props}
               />
             </a> :
@@ -124,7 +127,8 @@ export default Geetest;
 
 const mapActionCreators = {
   sendLottery,
-  countDown
+  countDown,
+  getUser
 }
 
 const mapStateToProps = (state)=>

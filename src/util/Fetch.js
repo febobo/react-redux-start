@@ -2,10 +2,6 @@
 const remoteApi = 'https://staging.solebtc.com/api/v1';
 function Fetch(url  , obj , cb , header ){
 
-  let myHeaders = new Headers();
-  if(header){
-    myHeaders.append("Auth-Token", header["Auth-Token"]);
-  }
 
   let defaultObj = {
     method : 'GET',

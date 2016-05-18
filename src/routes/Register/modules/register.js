@@ -7,6 +7,7 @@ import store from 'store';
 import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd';
+import { userLogin } from '../../Login/modules/login'
 const v1 = 'https://staging.solebtc.com/api/v1';
 export const USER_REGISTER = 'USER_REGISTER'
 export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
@@ -94,7 +95,7 @@ export function userRegister(url , obj , cb){
   Fetch(url,obj).then( (res) => {
     if(!res.code){
       cb && cb();
-      store.set('user' , res)
+      // store.set('user' , res)
     }
     dispatch(isBoolean(false))
     return dispatch(register(res))
@@ -109,7 +110,7 @@ export function userAuth(query , cb) {
   // request delete auth token
   request
     .put(url.toString())
-    .send({
+    .query({
       id:query.id,
       token : query.token
     })
@@ -152,6 +153,7 @@ export function logout() {
   // remove from local storage
   store.remove('auth_token');
   store.remove('user');
+  store.remove('prev_time')
 
   return {
     type: LOGOUT
@@ -164,7 +166,8 @@ export const actions = {
   isBoolean,
   sendUserEmail,
   logout,
-  userAuth
+  userAuth,
+  userLogin
 }
 
 // ------------------------------------

@@ -80,6 +80,7 @@ export function getUser(cb) {
           case 200:
             let user = JSON.parse(res.text);
             store.set('user', user);
+            console.log(store.get('user'))
             cb && cb();
             dispatch(setUser(user));
         }

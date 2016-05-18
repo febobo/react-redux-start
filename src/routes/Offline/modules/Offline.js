@@ -50,8 +50,8 @@ export const actions = {
 const ACTION_HANDLERS = {
   [GET_OFFLINE_LIST] : (state , action) => {
     return Object.assign({} , state , {
-      offlineList :action.res,
-      count : action.count
+      offlineList :action.res.data,
+      count : action.res.count
     })
   }
 }

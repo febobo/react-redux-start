@@ -17,12 +17,21 @@ export function lotteryData (res){
   }
 }
 
+var timer;
 export function countDown (count){
+  if(!count){
+    clearInterval(timer)
+    return calculation({
+      count : 0
+     })
+  };
   return ( dispatch , getState) => {
-    count = getState().geetest && getState().geetest.time &&
-            getState().geetest.time.count || count
-    if(true){
-      let timer = setInterval( ()=> {
+    // count = getState().geetest && getState().geetest.time &&
+    //         getState().geetest.time.count || count
+      if(timer){
+        clearInterval(timer);
+      }
+      timer = setInterval( ()=> {
         count --;
         let m = Math.floor(count / 60) < 10 ? '0' + Math.floor(count / 60)
                   : Math.floor(count / 60)  ;
@@ -36,7 +45,6 @@ export function countDown (count){
           count : count
          }))
       },1000)
-    }
   }
 }
 

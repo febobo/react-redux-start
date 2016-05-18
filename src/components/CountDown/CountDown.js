@@ -7,16 +7,7 @@ export class CountDown extends React.Component {
   props: Props;
 
   state = {}
-
-  componentWillMount(){
-    let { count , countDown } = this.props;
-    countDown(count);
-  }
-
-  componentWillUnmount(){
-    // clearInterval(this.timer)
-  }
-
+  
   render () {
     const { time } = this.props.geetest;
     // console.log(time)

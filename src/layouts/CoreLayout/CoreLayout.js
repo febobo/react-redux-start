@@ -20,13 +20,14 @@ import store from 'store';
 export class CoreLayout extends React.Component {
 
   componentWillMount() {
-    let {language , getUser , userAuth , location}  = this.props;
+    let {language , getUser , userAuth , location , history}  = this.props;
     i18n.extend(require('../../texts/' + language + '.js').text);
 
     // token && id 同时存在即为认证
     const query = location.query;
     if(query.id && query.token){
       userAuth(query , getUser);
+      history.push('/');
     }else{
       getUser();
     }

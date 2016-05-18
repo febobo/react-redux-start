@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { userRegister ,isBoolean ,sendUserEmail ,userAuth} from '../modules/register'
-
+import { userRegister ,isBoolean ,sendUserEmail ,userAuth } from '../modules/register'
+import { userLogin } from '../../Login/modules/login'
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
     wiring in the actions and state necessary to render a presentational
@@ -16,7 +16,8 @@ const mapActionCreators = {
   userRegister,
   isBoolean,
   sendUserEmail,
-  userAuth
+  userAuth,
+  userLogin
 }
 
 const mapStateToProps = (state) => ({

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import { Menu, Dropdown , Icon , Input ,Modal, Button , Form} from 'antd'
+import { Menu, Dropdown , Icon , Input ,Modal, Button , Form , Tag} from 'antd'
 import store from 'store';
 import {i18n} from '../../util/i18n'
 import classes from './NavBar.scss'
@@ -105,17 +105,17 @@ export class NavBar extends React.Component {
           }
           {
             data && data.status == 'unverified' ?
-      		  <em style={{cursor:"pointer",color : 'red'}} onClick={ ()=> { isBoolean(true) }}>（{i18n.t('navbar.unverified')}）</em>
+      		  <em style={{cursor:"pointer",color : 'red' , float: 'right'}} onClick={ ()=> { isBoolean(true) }}>（{i18n.t('navbar.unverified')}）</em>
             : null
           }
           {
             data && data.status == 'verified' ?
-      		  <em onClick={ ()=> { isBoolean(true) }}>verified</em>
+      		  <em style={{marginLeft:'5px' ,float: 'right'}}>(verified)</em>
             : null
           }
           {
             data && data.status == 'banned' ?
-      		  <em  onClick={ ()=> { isBoolean(true) }}>banned</em>
+      		  <em style={{marginLeft:'5px' , float: 'right'}}>(banned)</em>
             : null
           }
             <Modal ref="modal"

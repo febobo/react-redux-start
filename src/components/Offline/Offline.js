@@ -35,17 +35,21 @@ export class Offline extends React.Component {
         return <a href="#">{text}</a>;
       }
     }, {
+      title: '地址',
+      dataIndex: 'address'
+    }, {
       title: '金额',
       dataIndex: 'amount'
     }];
 
     const data = [];
-    offlineData && offlineData.rewardList &&
-    offlineData.rewardList.length && offlineData.rewardList.map( (v, k) => {
+    offlineData && offlineData.offlineList &&
+    offlineData.offlineList.length && offlineData.offlineList.map( (v, k) => {
         data.push({
           key: `${k}`,
-          updated_at: moment(`${v.updated_at}`).format("YYYY-MM-DD hh:mm:ss"),
-          amount:`${v.amount}`,
+          updated_at: moment(`${v.created_at}`).format("YYYY-MM-DD hh:mm:ss"),
+          address:`${v.address}`,
+          amount:`${v.referer_total_income}`,
         });
     })
 
