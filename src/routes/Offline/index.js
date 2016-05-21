@@ -1,7 +1,7 @@
 import { injectReducer } from '../../store/reducers'
 import localstore from 'store';
 export default (store) => ({
-  path: 'offline',
+  path: 'ref',
   getComponent (nextState, next) {
     require.ensure([
       './containers/OfflineContainer',

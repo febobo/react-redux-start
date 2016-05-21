@@ -15,8 +15,8 @@ type Props = {
 export class Login extends React.Component {
   props: Props;
 
-  async _userLogin (){
-
+  async _userLogin (e){
+    e.preventDefault();
     const { userLogin , history , getRewards , getUser } = this.props;
     let email = this.refs.email.value;
     let query = {
@@ -59,14 +59,16 @@ export class Login extends React.Component {
       		</div>
       		<div className={classes.clear}></div>
       		<div className={classes.regForm}>
-      			<form>
-      				<input name="" className={classes.loginEmail}
-                placeholder={i18n.t('login.email')}
-                ref="email"
-              />
-      				<input type="button" name="" className={classes.regBtn}
+      			<form onSubmit={this._userLogin.bind(this)}>
+              <div className={classes.loginEmail}>
+                <input name=""
+                  placeholder={i18n.t('login.email')}
+                  ref="email"
+                />
+              </div>
+
+      				<input type="submit" name="" className={classes.regBtn}
                 value={i18n.t('login.login')}
-                onClick={ () => this._userLogin() }
               />
       			</form>
       		</div>

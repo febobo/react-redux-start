@@ -35,7 +35,7 @@ export class Account extends React.Component {
       		<p className={classes.accountImg}><img src={accountIco2} /></p>
       		<div className={classes.accountRight}>
       			<p className={classes.accountTitle}>Affiliate Link：</p><br></br>
-      			<span><a href="{host}">{host}</a></span>
+      			<span>{host}</span>
       		</div>
 
       		<div className={classes.clear}></div>

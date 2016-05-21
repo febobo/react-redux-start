@@ -20,6 +20,23 @@
     height: 100%;
   }
 
+  .lottery0{
+    td {
+      >div {
+        background: red;
+        animation:autoHeight 2s infinite;
+        -webkit-animation:autoHeight 2s infinite;
+      }
+    }
+  }
+
+  @keyframes autoHeight
+  {
+    from {height:0px;}
+    to {height:39px;}
+  }
+
+
   *,
   *:before,
   *:after {

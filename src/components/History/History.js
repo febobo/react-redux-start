@@ -51,10 +51,11 @@ export class History extends React.Component {
       historyData.rewardList.length && historyData.rewardList.map( (v, k) => {
           data.push({
             key: `${k}`,
-            updated_at:moment(`${v.updated_at}`).format("YYYY-MM-DD hh:mm:ss"),
+            updated_at:moment(`${v.updated_at}`).format("YYYY-MM-DD HH:mm:ss"),
             amount:`${v.amount}`,
             tx: ( ()=>{
-              return  <a href={v.tx_url}>{v.tx_url}</a>
+              if(!v.tx_url) return null;
+              return  <a href={v.tx_url}>blockchain</a>
             })(),
             status: (() => {
               if(`${v.status}` == 2){

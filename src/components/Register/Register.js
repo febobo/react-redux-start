@@ -19,7 +19,8 @@ export class Register extends React.Component {
       this.refs.email.focus();
   }
 
-  _userRegister (){
+  _userRegister (e){
+    e.preventDefault();
     const {
       userRegister ,
       history ,isBoolean ,
@@ -76,12 +77,26 @@ export class Register extends React.Component {
     		</div>
     		<div className={classes.clear}></div>
     		<div className={classes.regForm}>
-    			<form style={{overflow : 'hidden'}}>
-    				<input name="" className={classes.regEmail} placeholder={i18n.t('register.email')} ref="email"/>
-    				<input name="" className={classes.regBtc} placeholder={i18n.t('register.bitcoin_address')} ref="address" />
-            <Button type="primary" loading={isLoading} className={classes.regBtn} onClick={ () => this._userRegister() }>
-              {i18n.t('register.register')}
-            </Button>
+    			<form style={{overflow : 'hidden'}}
+            onSubmit={::this._userRegister}
+          >
+            <div className={classes.regEmail}>
+              <input name=""
+                placeholder={i18n.t('register.email')}
+                ref="email"
+              />
+            </div>
+            <div className={classes.regBtc}>
+              <input name=""
+                placeholder={i18n.t('register.bitcoin_address')}
+                ref="address"
+              />
+            </div>
+            <input type="submit"
+              loading={isLoading}
+              className={classes.regBtn}
+              value={i18n.t('register.register')}
+            />
     			</form>
     		</div>
         {

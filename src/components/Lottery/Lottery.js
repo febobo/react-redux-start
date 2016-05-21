@@ -68,7 +68,7 @@ export class Lottery extends React.Component {
           key: `${k}`,
           address: `${v.address}`,
           amount: <Tag color="blue">{v.amount}</Tag>,
-          time: moment(`${v.time}`).format("YYYY-MM-DD hh:mm:ss"),
+          time: moment(Date.parse(`${v.time}`)).format("YYYY-MM-DD HH:mm:ss"),
         });
     })
     return (
@@ -87,6 +87,9 @@ export class Lottery extends React.Component {
           pagination={false}
           size="small"
           ref="box"
+          rowClassName={(v,k) =>{
+            return 'lottery' + k
+          }}
         />
 
       </div>

@@ -22,7 +22,7 @@ export const text = {
   },
   "footer": {
     "server_time": "Server Time",
-    "copyright": "Copyright © 2016 solebtc.com All Rights Reserved"
+    "copyright": "Copyright © 2016 solebtc.com "
   },
   "login": {
     "email": "Email Address",
@@ -48,7 +48,7 @@ export const text = {
     "lottery" : "Lottery",
     "account" : "Account",
     "history" : "History",
-    "offline" : "Offline",
+    "offline" : "Ref",
     "other" : "Other"
   },
   "message" : {

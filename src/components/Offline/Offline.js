@@ -47,7 +47,7 @@ export class Offline extends React.Component {
     offlineData.offlineList.length && offlineData.offlineList.map( (v, k) => {
         data.push({
           key: `${k}`,
-          updated_at: moment(`${v.created_at}`).format("YYYY-MM-DD hh:mm:ss"),
+          updated_at: moment(`${v.created_at}`).format("YYYY-MM-DD HH:mm:ss"),
           address:`${v.address}`,
           amount:`${v.referer_total_income}`,
         });

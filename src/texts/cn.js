@@ -11,7 +11,8 @@ export const text = {
     "verified": "已认证",
     "banned": "禁用",
     "balance": "余额",
-    "next_reward_time": "下次抽奖时间"
+    "next_reward_time": "下次抽奖时间",
+    "tips" : "只要你有超过0.001 BTC,系统在每天0:00(UTC)将自动支付你的BTC地址。"
   },
   "advantage": {
     "header": "我们的优势",
@@ -22,11 +23,12 @@ export const text = {
   },
   "footer": {
     "server_time": "服务器时间",
-    "copyright": "Copyright © 2016 solebtc.com 版权所有"
+    "copyright": "Copyright © 2016 solebtc.com",
   },
   "login": {
     "email": "邮箱地址",
-    "login": "登陆"
+    "login": "登陆",
+    "logout" : "退出"
   },
   "register": {
     "register": "注册",
@@ -55,5 +57,19 @@ export const text = {
     "tips" : "温馨提示",
     "invalidEamil" : "请输入正确的邮箱",
     "accountRepeated" : "账号已被注册",
-  }
+    "emailTips" : "认证邮件已发送至邮箱，请尽快完成认证",
+    "emptyInfo" : "请填写完整信息",
+    "login_success" : "登陆成功，系统自动为您跳转至首页",
+  },
+  "account" : {
+    "link" : "推广链接",
+    "banners" : "广告",
+  },
+  "history" : {
+    "status" : "状态",
+    "transaction" : "交易号",
+    "handle_end" : "已处理",
+    "handle_ing" : "处理中",
+    "wait_handle" : "待处理",
+  },
 }

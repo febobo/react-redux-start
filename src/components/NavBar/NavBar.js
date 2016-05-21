@@ -9,6 +9,9 @@ import navIco3 from '../../static/images/navIco3.png'
 import navIco4 from '../../static/images/navIco4.png'
 import navIco5 from '../../static/images/navIco5.png'
 import navIco1 from '../../static/images/navIco1.png'
+// import navIco2 from '../../static/images/navIco2.png'
+// import navIco3 from '../../static/images/navIco3.png'
+// import navIco4 from '../../static/images/navIco4.png'
 
 import btcIco from '../../static/images/btcIco.png'
 import moneyIco from '../../static/images/moneyIco.png'
@@ -66,19 +69,19 @@ export class NavBar extends React.Component {
           </li>
       		<li>
             <Link to='/account' activeClassName={classes.navCur}>
-              <img src={navIco1} />
+              <img src={navIco2} />
               {i18n.t('common.account')}
             </Link>
           </li>
       		<li>
             <Link to='/history' activeClassName={classes.navCur}>
-              <img src={navIco1} />
+              <img src={navIco3} />
               {i18n.t('common.history')}
             </Link>
           </li>
       		<li>
-            <Link to='/offline' activeClassName={classes.navCur}>
-              <img src={navIco1} />
+            <Link to='/ref' activeClassName={classes.navCur}>
+              <img src={navIco4} />
               {i18n.t('common.offline')}
             </Link>
           </li>
