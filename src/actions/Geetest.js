@@ -64,7 +64,7 @@ export function sendLottery(headers){
       .end((err, res) => {
         switch (res.statusCode) {
           case 200:
-            message.success('您已成功抽奖一次', 3);
+            // message.success('您已成功抽奖一次', 3);
             let res = JSON.parse(res.text);
             dispatch(lotteryData(res));
         }

@@ -6,6 +6,7 @@ import classes from './Geetest.scss'
 import {i18n} from '../../util/i18n'
 import { sendLottery , countDown } from '../../actions/Geetest'
 import { getUser } from '../../routes/Login/modules/login'
+import { getBtcWebsocket } from '../../actions/Websocket'
 import reactDom from 'react-dom'
 import { connect } from 'react-redux'
 import { Alert , Table ,message } from 'antd'
@@ -86,6 +87,7 @@ export class Geetest extends React.Component {
       gt: data.body && data.body.captcha_id,
       challenge : data.body && data.body.challenge,
       product : 'float',
+      lang : store.get('language') || 'en'
     }, ::this.handlerPopup);
 
   }
@@ -95,27 +97,35 @@ export class Geetest extends React.Component {
   }
   render () {
     // console.log(this.props)
-    const { time } = this.props.geetest;
-    // console.log(this.props)
+    const { time , tipsDley} = this.props.geetest;
+    const { tips } = this.props;
+    console.log(tips,222)
     return (
-      <div className={classes.luck}>
-      	<div className={classes.block}>
+      <div className={classes.wrap}>
         {
-          time && time.count ?
-            <a className={classes.luckBtn2}
-              onClick={::this.waiting}
-            >
-              <CountDown
-                {...this.props}
-              />
-            </a> :
-            <a href="#" onClick={::this.lottery} className={classes.luckBtn}><span>{i18n.t('common.lottery')}</span></a>
+          tips.user_lattery && tips.user_lattery.amount && tipsDley ?
+          <div className={classes.tips}>恭喜！成功获得{tips.user_lattery.amount} BTC！</div> :
+          null
         }
+        <div className={classes.luck}>
+        	<div className={classes.block}>
+          {
+            time && time.count ?
+              <a className={classes.luckBtn2}
+                onClick={::this.waiting}
+              >
+                <CountDown
+                  {...this.props}
+                />
+              </a> :
+              <a href="#" onClick={::this.lottery} className={classes.luckBtn}><span>{i18n.t('common.lottery')}</span></a>
+          }
 
-        <div ref="geetest"></div>
-        </div>
-      	<div className={classes.luckCode}  >
-          <a href="#"><img src={ad1} /></a>
+          <div ref="geetest"></div>
+          </div>
+        	<div className={classes.luckCode}  >
+            <a href="#"><img src={ad1} /></a>
+          </div>
         </div>
       </div>
     )
@@ -134,6 +144,7 @@ const mapActionCreators = {
 const mapStateToProps = (state)=>
 ({
   geetest : state.geetest,
+  tips : state.lottery
 })
 
 export default connect(mapStateToProps, mapActionCreators)(Geetest)

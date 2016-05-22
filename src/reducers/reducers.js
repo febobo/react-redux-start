@@ -14,6 +14,7 @@ export function lottery ( state = lotteryState , action = {}){
         {
           users_online : action.users_online,
           latest_incomes : action.latest_incomes,
+          user_lattery : action.user_lattery
         }
       )
       break;

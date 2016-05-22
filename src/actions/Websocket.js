@@ -14,6 +14,7 @@ export function btcWebsocket(socketData , getState) {
     type: BTC_WEBSOCKET,
     users_online : socketData.users_online || lottery.users_online,
     latest_incomes : lottery.latest_incomes,
+    user_lattery : socketData.delta_income || lottery.delta_income
   };
 }
 
