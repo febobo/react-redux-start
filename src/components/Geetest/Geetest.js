@@ -4,7 +4,7 @@ import aboutIco from '../../static/images/aboutIco.png'
 import ad1 from '../../static/images/ad1.jpg'
 import classes from './Geetest.scss'
 import {i18n} from '../../util/i18n'
-import { sendLottery , countDown } from '../../actions/Geetest'
+import { sendLottery , countDown , setDely} from '../../actions/Geetest'
 import { getUser } from '../../routes/Login/modules/login'
 import { getBtcWebsocket } from '../../actions/Websocket'
 import reactDom from 'react-dom'
@@ -59,7 +59,7 @@ export class Geetest extends React.Component {
       return message.warning('请先拖动下方验证码进行验证', 3)
     }
 
-    const { sendLottery , count , countDown} = this.props;
+    const { sendLottery , count , countDown , setDely} = this.props;
     const captchaObj = this.state.captchaObj.getValidate()
     const headers = {
       'X-Geetest-Challenge' : captchaObj.geetest_challenge,
@@ -69,8 +69,8 @@ export class Geetest extends React.Component {
     }
 
     sendLottery(headers);
+    setDely(4)
     this.state.captchaObj.refresh();
-
     // 每一次抽奖存一次当前时间
     store.set('prev_time',Math.ceil(new Date().getTime() / 1000))
     countDown(store.get('user').reward_interval);
@@ -99,7 +99,7 @@ export class Geetest extends React.Component {
     // console.log(this.props)
     const { time , tipsDley} = this.props.geetest;
     const { tips } = this.props;
-    console.log(tips,222)
+    console.log(this , tips,222)
     return (
       <div className={classes.wrap}>
         {
@@ -138,7 +138,8 @@ export default Geetest;
 const mapActionCreators = {
   sendLottery,
   countDown,
-  getUser
+  getUser,
+  setDely
 }
 
 const mapStateToProps = (state)=>

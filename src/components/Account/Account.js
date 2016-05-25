@@ -4,10 +4,10 @@ import accountIco1 from '../../static/images/accountIco1.png'
 import accountIco2 from '../../static/images/accountIco2.png'
 import accountIco3 from '../../static/images/accountIco3.png'
 
-import ad6 from '../../static/images/ad6.jpg'
-import ad7 from '../../static/images/ad7.jpg'
-import ad8 from '../../static/images/ad8.jpg'
-import ad9 from '../../static/images/ad9.jpg'
+import ad6 from '../../static/images/ad6.gif'
+import ad7 from '../../static/images/ad7.gif'
+import ad8 from '../../static/images/ad8.gif'
+import ad9 from '../../static/images/ad9.gif'
 type Props = {
 
 };

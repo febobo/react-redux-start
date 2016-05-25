@@ -1,5 +1,7 @@
 export const SEND_LOTTERY = 'SEND_LOTTERY';
 export const COUNT_DOWN = 'COUNT_DOWN';
+export const SET_DELY = 'SET_DELY';
+
 import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd'
@@ -52,6 +54,28 @@ export function calculation(time){
   return {
     type : COUNT_DOWN,
     time
+  }
+}
+
+export function tipsShow(tipsDley){
+  console.log(tipsDley)
+  return {
+    type : SET_DELY,
+    tipsDley
+  }
+}
+
+var tipsTimer ;
+export function setDely (dely){
+  if(!dely) return ;
+  return ( dispatch ) => {
+  let tipsTimer = setInterval( () => {
+      dely --;
+      dispatch(tipsShow(tipsDley))
+      if(dely == 0){
+        clearInterval(tipsTimer)
+      }
+    },1000)
   }
 }
 export function sendLottery(headers){

@@ -1,6 +1,6 @@
 import { BTC_WEBSOCKET } from '../actions/Websocket.js'
 import { IS_BOOLEAN } from '../actions/Nav.js'
-import { SEND_LOTTERY , COUNT_DOWN } from '../actions/Geetest.js'
+import { SEND_LOTTERY , COUNT_DOWN , SET_DELY} from '../actions/Geetest.js'
 
 
 
@@ -47,6 +47,10 @@ export function  geetest( state = {} , action = {}){
       break;
     case COUNT_DOWN:
       return Object.assign({} , state , { time :action.time})
+      break;
+    case SET_DELY:
+    console.log(action)
+      return Object.assign({} , state , { tipsDley :action.tipsDley})
       break;
     default:
     return state
