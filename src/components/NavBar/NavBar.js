@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router'
+import {Link , IndexLink} from 'react-router'
 import { Menu, Dropdown , Icon , Input ,Modal, Button , Form , Tag} from 'antd'
 import store from 'store';
 import {i18n} from '../../util/i18n'
@@ -62,10 +62,10 @@ export class NavBar extends React.Component {
       <div className={classes.nav}>
       	<ul>
       		<li>
-            <Link to='/' activeClassName={classes.navCur}>
+            <IndexLink to='/' activeClassName={classes.navCur}>
               <img src={navIco1} />
               {i18n.t('common.lottery')}
-            </Link>
+            </IndexLink>
           </li>
       		<li>
             <Link to='/account' activeClassName={classes.navCur}>

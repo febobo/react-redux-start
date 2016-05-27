@@ -59,7 +59,6 @@ export function calculation(time){
 }
 
 export function tipsShow(tipsDley){
-  console.log(tipsDley)
   return {
     type : SET_DELY,
     tipsDley

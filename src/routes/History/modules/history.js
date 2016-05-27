@@ -38,7 +38,7 @@ export function getHistoryList(param) {
       .end((err, res) => {
         switch (res.statusCode) {
           case 200:
-          console.log(res)
+          // console.log(res)
             let res = JSON.parse(res.text);
             dispatch(historyList(res));
         }

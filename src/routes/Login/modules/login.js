@@ -7,6 +7,7 @@ import store from 'store';
 import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd';
+import {i18n} from '../../../util/i18n'
 // const v1 = 'https://staging.solebtc.com/api/v1';
 const v1 = 'https://solebtc.com/api/v1'
 
@@ -48,13 +49,13 @@ export function userLogin(url , obj , cb){
  return (dispatch , getstate ) => {
 
    if(!JSON.parse(obj.body).email){
-     return dispatch(login({code : -110 , message : '请填写完整信息'}))
+     return dispatch(login({code : -110 , message : i18n.t('message.emptyInfo')}))
    }
    let param =  JSON.parse(obj.body);
    // 验证邮箱
    if(param && param.email){
      if(!/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(param.email)){
-       return dispatch(login({code : -110 , message : '请输入正确的邮箱'}))
+       return dispatch(login({code : -110 , message : i18n.t('message.invalidEamil')}))
      }
    }
   Fetch(url,obj).then( (res) => {
@@ -81,7 +82,6 @@ export function getUser(cb) {
           case 200:
             let user = JSON.parse(res.text);
             store.set('user', user);
-            console.log(store.get('user'))
             cb && cb();
             dispatch(setUser(user));
         }

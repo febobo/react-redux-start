@@ -30,7 +30,7 @@ export class Login extends React.Component {
       },  () => {
           getUser(()=>{
             history.push('/');
-            message.success('登陆成功，系统自动为您跳转至首页', 3);
+            message.success(i18n.t('message.login_success'), 3);
           });
       }
     );
@@ -76,7 +76,7 @@ export class Login extends React.Component {
             data && data.code == -110 ?
             <div style={{padding : "10px 20px"}}>
             <Alert
-              message="温馨提示"
+              message={i18n.t('message.tips')}
               description={data.message}
               type="error"
               showIcon

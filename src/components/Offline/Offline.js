@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Offline.scss'
 import { Pagination ,  Alert , Tag , Table} from 'antd';
 import moment from 'moment'
+import {i18n} from '../../util/i18n'
 type Props = {
 
 };
@@ -29,16 +30,16 @@ export class Offline extends React.Component {
   render () {
     const { offlineData } = this.props;
     const columns = [{
-      title: '时间',
+      title: i18n.t('common.time'),
       dataIndex: 'updated_at',
       render(text) {
         return <a href="#">{text}</a>;
       }
     }, {
-      title: '地址',
+      title: i18n.t('common.btcAddress'),
       dataIndex: 'address'
     }, {
-      title: '金额',
+      title: i18n.t('common.amount'),
       dataIndex: 'amount'
     }];
 

@@ -33,7 +33,6 @@ export class Geetest extends React.Component {
       let currentTime = Math.ceil(new Date().getTime() /1000)
       let leftTime = currentTime - new Date(store.get('user').rewarded_at).getTime() / 1000;
       let count = store.get('user').reward_interval - leftTime;
-      console.log(store.get('user') , count)
       // > 0才开启倒计时 ，否则 关掉定时器
       if(count > 0){
         countDown(count);
@@ -70,7 +69,7 @@ export class Geetest extends React.Component {
     }
 
     sendLottery(headers);
-    setDely(4)
+    setDely(5)
     this.state.captchaObj.refresh();
     // 每一次抽奖存一次当前时间
     store.set('prev_time',Math.ceil(new Date().getTime() / 1000))
@@ -100,13 +99,21 @@ export class Geetest extends React.Component {
     // console.log(this.props)
     const { time , tipsDley} = this.props.geetest;
     const { tips } = this.props;
-    console.log(this , tips,222)
+    const amout = tips && tips.user_lattery && tips.user_lattery.amount ;
+    const description = i18n.t('message.Bonus_display') + amout + i18n.t('message.unit')
     return (
       <div className={classes.wrap}>
         {
           tips.user_lattery && tips.user_lattery.amount && tipsDley ?
-          <div className={classes.tips}>{i18n.t('message.Bonus_display')}{tips.user_lattery.amount}{i18n.t('message.unit')}！</div> :
-          null
+          <div style={{paddingTop:'25px'}}>
+            <Alert
+              message={i18n.t('message.tips')}
+              description={description}
+              type="success"
+              showIcon
+            />
+          </div>
+          :null
         }
         <div className={classes.luck}>
         	<div className={classes.block}>
@@ -133,6 +140,7 @@ export class Geetest extends React.Component {
   }
 }
 // <a href="#" onClick={::this.lottery} className={classes.luckBtn}><span>{i18n.t('common.lottery')}</span></a>
+// <div className={classes.tips}>{i18n.t('message.Bonus_display')}{tips.user_lattery.amount}{i18n.t('message.unit')}！</div> :
 
 export default Geetest;
 

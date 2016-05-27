@@ -9,7 +9,7 @@ export class Tips extends React.Component {
   props: Props;
 
   render () {
-    console.log(this.props)
+    // console.log(this.props)
     const { tips } = this.props;
     return (
       <div className={classes.tips}>
