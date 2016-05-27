@@ -97,7 +97,7 @@ export class NavBar extends React.Component {
 
       	</ul>
       	<div className={classes.clear}></div>
-      	<p>As long as you have over 0.001BTC, the system will pay to your BTC address automatically at 0:00(UTC) every day.</p>
+      	<p>{i18n.t('navbar.tips')}</p>
       	<div className={classes.btc}>
       		<img src={btcIco} />
       		<strong>{i18n.t('common.btcAddress')}：</strong>
@@ -123,16 +123,16 @@ export class NavBar extends React.Component {
           }
             <Modal ref="modal"
               visible={isloading}
-              title="邮箱认证"
+              title={i18n.t('message.verify_email')}
               onCancel={ ()=> {isBoolean(false)} }
               footer={[
-                <Button key="back" type="ghost" size="large" onClick={ ()=> {isBoolean(false)} }>返 回</Button>,
+                <Button key="back" type="ghost" size="large" onClick={ ()=> {isBoolean(false)} }>{i18n.t('message.verifyEmailcancel')}</Button>,
                 <Button key="submit" type="primary" size="large" loading={false} onClick={::this._sendEmail} >
-                  提 交
+                  {i18n.t('message.verifyEmailsubmit')}
                 </Button>,
               ]}>
               <div style={{'fontSize':'20px'}}>
-                点击提交系统将会发送验证邮件至您邮箱<br></br>请注意查收
+                {i18n.t('message.verifyEmailInfo')}
               </div>
             </Modal>
 
@@ -142,13 +142,13 @@ export class NavBar extends React.Component {
       		<strong>{i18n.t('navbar.balance')}：</strong>
           {
             data && data.balance ?
-            <span>{data.balance}Bits</span> :
+            <span>{data.balance}{i18n.t('message.unit')}</span> :
             0
           }
       	</div>
         <div className={classes.logout} onClick={::this._logout} >
           <Icon type="poweroff" />
-          Logout
+          {i18n.t('navbar.logout')}
         </div>
       </div>
     )

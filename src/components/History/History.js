@@ -4,6 +4,7 @@ import classes from './History.scss'
 import Adv from '../Adv'
 import moment from 'moment'
 import { Pagination ,  Alert , Tag , Table} from 'antd';
+import {i18n} from '../../util/i18n'
 
 // export const History = () => (
 export class History extends React.Component {
@@ -30,19 +31,19 @@ export class History extends React.Component {
     const { historyData } = this.props;
 
       const columns = [{
-        title: '时间',
+        title: i18n.t('common.time'),
         dataIndex: 'updated_at',
         render(text) {
           return <a href="#">{text}</a>;
         }
       }, {
-        title: '金额',
+        title: i18n.t('common.amount'),
         dataIndex: 'amount'
       }, {
-        title: '交易号',
+        title: i18n.t('history.transaction'),
         dataIndex: 'tx'
       }, {
-        title: '状态',
+        title: i18n.t('history.status'),
         dataIndex: 'status'
       }];
 
@@ -59,11 +60,11 @@ export class History extends React.Component {
             })(),
             status: (() => {
               if(`${v.status}` == 2){
-                return  <Tag color="green">已处理</Tag>
+                return  <Tag color="green">{i18n.t('history.handle_end')}</Tag>
               }else if(`${v.status}` == 1){
-                return  <Tag  color="yellow">处理中</Tag>
+                return  <Tag  color="yellow">{i18n.t('history.handle_ing')}</Tag>
               }else{
-                return  <Tag  color="red">等待处理</Tag>
+                return  <Tag  color="red">{i18n.t('history.wait_handle')}</Tag>
               }
             })()
           });

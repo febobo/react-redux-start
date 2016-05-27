@@ -16,6 +16,8 @@ import { getBtcWebsocket } from '../../actions/Websocket'
 
 import {i18n} from '../../util/i18n'
 import store from 'store';
+import {LocaleProvider} from 'antd'
+import enUS from 'antd/lib/locale-provider/en_US';
 
 export class CoreLayout extends React.Component {
 
@@ -37,6 +39,7 @@ export class CoreLayout extends React.Component {
     const { children } = this.props;
     // console.log(this)
     return (
+      <LocaleProvider locale={enUS}>
       <div className=''>
         <Header {...this.props}/>
         <div className={classes.mainContainer}>
@@ -44,6 +47,7 @@ export class CoreLayout extends React.Component {
         </div>
         <Footer />
       </div>
+      </LocaleProvider>
     )
   }
 }

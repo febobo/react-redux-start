@@ -17,7 +17,8 @@ import request from 'superagent';
 import store from 'store';
 import URI from 'urijs';
 import gs from './gs'
-const v1 = 'https://staging.solebtc.com/api/v1';
+// const v1 = 'https://staging.solebtc.com/api/v1';
+const v1 ='https://solebtc.com/api/v1'
 
 type Props = {
 
@@ -56,7 +57,7 @@ export class Geetest extends React.Component {
 
   lottery (){
     if(this.state.captchaObj && !this.state.captchaObj.getValidate()){
-      return message.warning('请先拖动下方验证码进行验证', 3)
+      return message.warning(i18n.t('message.Solve_Captcha'), 3)
     }
 
     const { sendLottery , count , countDown , setDely} = this.props;
@@ -77,7 +78,7 @@ export class Geetest extends React.Component {
   }
 
   waiting (){
-    return message.warning('倒计时过后才能再次抽奖', 3)
+    return message.warning(i18n.t('message.Await_Captcha'), 3)
   }
   async getCaptcha() {
     let url = new URI(v1 + '/captchas');
@@ -104,7 +105,7 @@ export class Geetest extends React.Component {
       <div className={classes.wrap}>
         {
           tips.user_lattery && tips.user_lattery.amount && tipsDley ?
-          <div className={classes.tips}>恭喜！成功获得{tips.user_lattery.amount} BTC！</div> :
+          <div className={classes.tips}>{i18n.t('message.Bonus_display')}{tips.user_lattery.amount}{i18n.t('message.unit')}！</div> :
           null
         }
         <div className={classes.luck}>

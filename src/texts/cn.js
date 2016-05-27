@@ -3,7 +3,7 @@ export const text = {
     "language" : "简体中文"
   },
   "navbar": {
-    "online": "在线人数",
+    "online": "在线",
     "bitcoin_price": "比特币价格",
     "unit": "美元",
     "logout": "退出",
@@ -12,18 +12,18 @@ export const text = {
     "banned": "禁用",
     "balance": "余额",
     "next_reward_time": "下次抽奖时间",
-    "tips" : "只要你有超过0.001 BTC,系统在每天0:00(UTC)将自动支付你的BTC地址。"
+    "tips" : "当你账户资金达到0.001 BTC,系统将在每天0:00(UTC)自动付款至你的BTC地址。"
   },
   "advantage": {
     "header": "我们的优势",
-    "first_adv": "每几分钟抽奖一次",
-    "second_adv": "无限制注册",
+    "first_adv": "高额的奖金",
+    "second_adv": "可无限注册",
     "third_adv": "每日自动提现",
-    "fourth_adv": "做任务获取更多比特币"
+    "fourth_adv": "众多山寨币水龙头"
   },
   "footer": {
     "server_time": "服务器时间",
-    "copyright": "Copyright © 2016 solebtc.com",
+    "copyright": "Copyright © 2016 Solebtc.com",
   },
   "login": {
     "email": "邮箱地址",
@@ -39,7 +39,7 @@ export const text = {
     "go_home": "返回首页"
   },
   "about" : {
-    "about" : "        Solebtc专注于交换数字货币,通常被称为“比特币”我们目前服务超过20种不同类型的数字货币可以直接与人民币交易比特币没有一个集中的发行方。",
+    "about" : "        SoleBTC为全世界的用户提供了完美的获取免费比特币的解决方案。每15分钟，你可以获得一次免费的抽奖机会，金额从110至3000聪。我们还拥有先进的推荐系统，邀请你的朋友加入我们，你将可以获得额外的30%的抽奖佣金。我们致力于打造加密货币水龙头联盟，我们还拥有以太币，狗币，莱特币，达世币等水龙头网站，未来也会推出更多。我们将不断努力以及创造出更多有趣的方式，让更多的朋友们可以免费，快速的得到各类加密货币。",
     "title" : "关于我们"
   },
   "common" : {
@@ -50,8 +50,8 @@ export const text = {
     "lottery" : "抽奖",
     "account" : "账户",
     "history" : "历史",
-    "offline" : "下线",
-    "other" : "其它"
+    "offline" : "推广",
+    "other" : "更多"
   },
   "message" : {
     "tips" : "温馨提示",
@@ -59,16 +59,27 @@ export const text = {
     "accountRepeated" : "账号已被注册",
     "emailTips" : "认证邮件已发送至邮箱，请尽快完成认证",
     "emptyInfo" : "请填写完整信息",
-    "login_success" : "登陆成功，系统自动为您跳转至首页",
+    "login_success" : "登陆成功，系统自动为您跳转。",
+  	"Bonus_tips" : "温馨提示",
+  	"Bonus_display" : "恭喜！你获得了0.55654BTC",
+  	"verify_email" : "邮箱验证",
+  	"verifyEmailInfo" : "点击提交后，系统将发送认证邮件至您注册邮箱，请注意查收。",
+  	"verifyEmailcancel" : "返回",
+  	"verifyEmailsubmit" : "提交",
+  	"no_data" : "暂无数据",
+  	"unit" : "BTC",
+  	"Solve_Captcha" : "请先拖动下方验证码进行验证",
+  	"Await_Captcha" : "倒计时过后才能再次抽奖",
+  	"Total_commission" : "总佣金",
   },
   "account" : {
     "link" : "推广链接",
-    "banners" : "广告",
+    "banners" : "广告素材",
   },
   "history" : {
     "status" : "状态",
     "transaction" : "交易号",
-    "handle_end" : "已处理",
+    "handle_end" : "已支付",
     "handle_ing" : "处理中",
     "wait_handle" : "待处理",
   },

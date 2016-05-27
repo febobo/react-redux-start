@@ -8,7 +8,8 @@ import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd';
 import { userLogin } from '../../Login/modules/login'
-const v1 = 'https://staging.solebtc.com/api/v1';
+// const v1 = 'https://staging.solebtc.com/api/v1';
+const v1 = 'https://solebtc.com/api/v1'
 export const USER_REGISTER = 'USER_REGISTER'
 export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
 export const IS_BOOLEAN = 'IS_BOOLEAN';

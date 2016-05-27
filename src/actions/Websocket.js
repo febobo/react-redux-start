@@ -22,7 +22,7 @@ let ws ;
 export function getBtcWebsocket(socketData) {
   return (dispatch , getState) => {
     if(ws && ws.readyState <= 1) return;
-    let url = 'wss://staging.solebtc.com/api/v1/websocket';
+    let url = 'wss://solebtc.com/api/v1/websocket';
     ws = new WebSocket(url);
     ws.onopen = (evt) => setInterval(() => ws.send('ping message'), 5); // send ping
     ws.onerror = (evt) => console.log('websocket error ', evt);

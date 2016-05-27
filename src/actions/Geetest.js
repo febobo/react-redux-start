@@ -5,7 +5,8 @@ export const SET_DELY = 'SET_DELY';
 import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd'
-const v1 = 'https://staging.solebtc.com/api/v1';
+// const v1 = 'https://staging.solebtc.com/api/v1';
+const v1 = 'https://solebtc.com/api/v1'
 
 
 // ------------------------------------
@@ -71,7 +72,7 @@ export function setDely (dely){
   return ( dispatch ) => {
   let tipsTimer = setInterval( () => {
       dely --;
-      dispatch(tipsShow(tipsDley))
+      dispatch(tipsShow(dely))
       if(dely == 0){
         clearInterval(tipsTimer)
       }

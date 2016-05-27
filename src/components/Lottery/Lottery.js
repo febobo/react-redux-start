@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { Alert , Table ,Tag } from 'antd'
 import moment from 'moment'
 
+
 type Props = {
 
 };
@@ -47,16 +48,16 @@ export class Lottery extends React.Component {
         //      )
         //    })
     const columns = [{
-      title: 'BTC Address',
+      title: i18n.t('common.btcAddress'),
       dataIndex: 'address',
       render(text) {
         return <a href="#">{text}</a>;
       }
     }, {
-      title: 'Amount',
+      title: i18n.t('common.amount'),
       dataIndex: 'amount'
     }, {
-      title: 'Time',
+      title: i18n.t('common.time'),
       dataIndex: 'time'
     }];
 // console.log(moment(new Date()).format("YYYY-MM-DD hh:mm:ss") )
@@ -89,6 +90,11 @@ export class Lottery extends React.Component {
           ref="box"
           rowClassName={(v,k) =>{
             return 'lottery' + k
+          }}
+          locale={()=>{
+            return {
+              emptyText : "数据"
+            }
           }}
         />
 

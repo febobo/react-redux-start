@@ -1,5 +1,7 @@
 // 定义全局api
-const remoteApi = 'https://staging.solebtc.com/api/v1';
+// const remoteApi = 'https://staging.solebtc.com/api/v1';
+const remoteApi = 'https://solebtc.com/api/v1';
+import {i18n} from './i18n'
 function Fetch(url  , obj , cb , header ){
 
 
@@ -17,7 +19,7 @@ function Fetch(url  , obj , cb , header ){
           resolve({code : -110 , message : '参数错误'})
           break;
         case 409:
-          resolve({code : -110 , message : '邮箱或地址已被注册'})
+          resolve({code : -110 , message : i18n.t('message.accountRepeated')})
           break;
         case 401:
           resolve({code : -110 , message : '验证失败，TOKEN失效'})
@@ -26,7 +28,7 @@ function Fetch(url  , obj , cb , header ){
           resolve({code : -110 , message : '无权限操作'})
           break;
         case 404:
-          resolve({code : -110 , message : '查询条件下没有结果'})
+          resolve({code : -110 , message : i18n.t('message.no_data')})
           break;
         case 200:
           res.json().then( (res)=> {

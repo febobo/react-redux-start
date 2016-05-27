@@ -7,7 +7,9 @@ import store from 'store';
 import URI from 'urijs';
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
 export const GET_HISTORY_LIST = 'GET_HISTORY_LIST'
-const v1 = 'https://staging.solebtc.com/api/v1';
+// const v1 = 'https://staging.solebtc.com/api/v1';
+const v1 = 'https://solebtc.com/api/v1'
+
 // ------------------------------------
 // Actions
 // ------------------------------------
