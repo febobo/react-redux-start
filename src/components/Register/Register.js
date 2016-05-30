@@ -25,8 +25,9 @@ export class Register extends React.Component {
       this.refs.email.focus();
       const script1 = document.createElement("script");
       const script2 = document.createElement("script");
+      script2.id="adv_register";
       const ins = document.createElement("ins");
-      script1.src = "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      script1.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
       script1.async = true;
       script2.async = true;
       script1.type = 'text/javascript';
@@ -36,8 +37,6 @@ export class Register extends React.Component {
       ins.setAttribute('data-ad-client','ca-pub-5722932343401905');
       ins.setAttribute('data-ad-slot','7890025877');
       // script1.id="adv_register1";
-      script2.id="adv_register";
-
       document.getElementById('adv').appendChild(script1);
       document.getElementById('adv').appendChild(ins);
       document.getElementById('adv').appendChild(script2);

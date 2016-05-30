@@ -16,26 +16,33 @@ import geetest from 'geetest-proxy';
 export class HomeView extends React.Component {
 
   componentDidMount (){
-    // let captcha = geetest(reactDom.findDOMNode(this.refs.geetest), {
-    //   gt: '5c17ac67511f4174d0861e0ae16e5975',
-    //   challenge : '41580e1e3343648961506f235de68cd7',
-    //   product : 'float',
-    // });
-    // let warp = document.getElementById('listScroll');
-    // setInterval( () =>{
-    //   if(warp.scrollTop >= 105){
-    //     warp.scrollTop =0;
-    //   }else {
-    //     warp.scrollTop ++ ;
-    //   }
-    // },100)
+      // this.refs.email.focus();
+      const script1 = document.createElement("script");
+      const script2 = document.createElement("script");
+      script2.id="adv_register";
+      const ins = document.createElement("ins");
+      script1.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      script1.async = true;
+      script2.async = true;
+      script1.type = 'text/javascript';
+      script2.type = 'text/javascript';
+      ins.className = 'adsbygoogle';
+      ins.style = 'display:inline-block;width:970px;height:90px';
+      ins.setAttribute('data-ad-client','ca-pub-5722932343401905');
+      ins.setAttribute('data-ad-slot','7890025877');
+      // script1.id="adv_register1";
+      document.getElementById('adv').appendChild(script1);
+      document.getElementById('adv').appendChild(ins);
+      document.getElementById('adv').appendChild(script2);
+      document.getElementById('adv_register').innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({});'
+
   }
 
   render (){
     return (
 
   <div>
-
+    <div id="adv"></div>
     <Geetest />
     <Adv />
     <div className={classes.luckMain}>
