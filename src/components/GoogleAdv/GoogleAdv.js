@@ -1,27 +1,11 @@
-import React from 'react'
-import GoogleAd from 'react-google-ad'
-
-type Props = {
-
-};
-export class GoogleAdv extends React.Component {
-  props: Props;
-
-  componentDidMount (){
-    (window.adsbygoogle = window.adsbygoogle || []).push({})
-  }
-
-  render () {
-    const style = 'display:inline-block;width:970px;height:90px';
+import React, { Component } from 'react';
+import AD from 'react-google-publisher-tag';
+export default class GoogleAdv extends Component {
+  render() {
     return (
-        <ins
-          className="adsbygoogle"
-          style={{display:"inline-block";width:"970px";height:"90px"}}
-          data-ad-client="ca-pub-5722932343401905"
-          data-ad-slot={7890025877}
-          />
-    )
+      <div id="application">
+        <AD path="/7890025877/ca-pub-5722932343401905" />
+      </div>
+    );
   }
 }
-
-export default GoogleAdv

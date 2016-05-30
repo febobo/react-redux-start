@@ -61,7 +61,7 @@ export const text = {
     "emptyInfo" : "请填写完整信息",
     "login_success" : "登陆成功，系统自动为您跳转。",
   	"Bonus_tips" : "温馨提示",
-  	"Bonus_display" : "恭喜！你获得了0.55654BTC",
+  	"Bonus_display" : "恭喜！你获得了",
   	"verify_email" : "邮箱验证",
   	"verifyEmailInfo" : "点击提交后，系统将发送认证邮件至您注册邮箱，请注意查收。",
   	"verifyEmailcancel" : "返回",

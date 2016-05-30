@@ -21,13 +21,19 @@ const FormItem = Form.Item;
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" href="http://www.baidu.com/">go to baidu</a>
+      <a target="_blank" href="https://solebtc.com">Bitcoin Faucet</a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" href="http://www.baidu.com/">go to baidu</a>
+      <a target="_blank" href="https://soledoges.com">Dogecoin Faucet</a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" href="http://www.baidu.com/">go to baidu</a>
+      <a target="_blank" href="https://soleltc.com">Litecoin Faucet</a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" href="https://soledash.net">Dash Faucet </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" href="#">ETHer Fauet</a>
     </Menu.Item>
   </Menu>
 );

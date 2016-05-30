@@ -26,9 +26,11 @@ export class Register extends React.Component {
       const script1 = document.createElement("script");
       const script2 = document.createElement("script");
       const ins = document.createElement("ins");
-      // script1.src = "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-      // script1.async = true;
-      // script2.async = true;
+      script1.src = "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      script1.async = true;
+      script2.async = true;
+      script1.type = 'text/javascript';
+      script2.type = 'text/javascript';
       ins.className = 'adsbygoogle';
       ins.style = 'display:inline-block;width:970px;height:90px';
       ins.setAttribute('data-ad-client','ca-pub-5722932343401905');
@@ -36,7 +38,7 @@ export class Register extends React.Component {
       // script1.id="adv_register1";
       script2.id="adv_register";
 
-      // document.getElementById('adv').appendChild(script1);
+      document.getElementById('adv').appendChild(script1);
       document.getElementById('adv').appendChild(ins);
       document.getElementById('adv').appendChild(script2);
       document.getElementById('adv_register').innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({});'
