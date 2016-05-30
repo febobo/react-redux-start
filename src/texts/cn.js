@@ -71,6 +71,10 @@ export const text = {
   	"Solve_Captcha" : "请先拖动下方验证码进行验证",
   	"Await_Captcha" : "倒计时过后才能再次抽奖",
   	"Total_commission" : "总佣金",
+    "EmailVerified" : "认证成功，系统自动为您跳转至首页",
+    "Invalidctivation" : "token 错误或已失效(3个小时)",
+    "EmailCannot" : "账户异常，不能进行认证",
+    "paramWrong" : "比特币地址错误"
   },
   "account" : {
     "link" : "推广链接",

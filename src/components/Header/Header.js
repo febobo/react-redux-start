@@ -61,7 +61,7 @@ export class Header extends React.Component {
         		</div>
         		<div className={classes.oline}>
         			<strong></strong>
-        			<span>Oline：<em>{users_online}</em><span>
+        			<span>{i18n.t('navbar.online')}：<em>{users_online}</em><span>
         		</span></span></div>
         	</div>
 

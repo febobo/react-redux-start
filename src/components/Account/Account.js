@@ -22,6 +22,14 @@ export class Account extends React.Component {
   }
   render () {
     const { user , host} = this.props;
+    const ad6_link = `<a href="${host}" target="_blank"><img src="${ad6}"></a>`;
+    const ad7_link = '<a href="'+host+'" target="_blank"><img src="'+ ad7 + '"></a>';
+    const ad8_link = '<a href="'+host+'" target="_blank"><img src="'+ ad8 + '"></a>';
+    const ad9_link = '<a href="'+host+'" target="_blank"><img src="'+ ad9 + '"></a>';
+
+
+    // console.log(str)
+    // console.log(location.host)
     return (
       <div className={classes.account}>
       	<div className={classes.accountList}>
@@ -44,20 +52,16 @@ export class Account extends React.Component {
       			<p className={classes.accountTitle}>{i18n.t('account.banners')}</p>
       			<em>200*200</em>
       			<img src={ad6} />
-      			<span>http://image.baidu.com/search/index?tn=baiduimage&amp;ipn=r&amp;ct=201326592&amp;cl=2&amp;lm=-1&amp;st=-1&amp;fm=index&amp;fr=&amp;sf=1&amp;fmq=&amp;pv=&amp;ic=0&amp;
-      	&amp;se=1&amp;showtab=0&amp;fb=0&amp;width=&amp;height=&amp;face=0&amp;istype=2&amp;ie=utf-8&amp;word=Bits&amp;oq=Bits&amp;rsp=-1</span>
+      			<span>{ad6_link}</span>
       			<em>200*200</em>
       			<img src={ad7} />
-      			<span>http://image.baidu.com/search/index?tn=baiduimage&amp;ipn=r&amp;ct=201326592&amp;cl=2&amp;lm=-1&amp;st=-1&amp;fm=index&amp;fr=&amp;sf=1&amp;fmq=&amp;pv=&amp;ic=0&amp;
-      	&amp;se=1&amp;showtab=0&amp;fb=0&amp;width=&amp;height=&amp;face=0&amp;istype=2&amp;ie=utf-8&amp;word=Bits&amp;oq=Bits&amp;rsp=-1</span>
+      			<span>{ad7_link}</span>
       			<em>468*60</em>
       			<img src={ad8} />
-      				<span>http://image.baidu.com/search/index?tn=baiduimage&amp;ipn=r&amp;ct=201326592&amp;cl=2&amp;lm=-1&amp;st=-1&amp;fm=index&amp;fr=&amp;sf=1&amp;fmq=&amp;pv=&amp;ic=0&amp;
-      	&amp;se=1&amp;showtab=0&amp;fb=0&amp;width=&amp;height=&amp;face=0&amp;istype=2&amp;ie=utf-8&amp;word=Bits&amp;oq=Bits&amp;rsp=-1</span>
+      				<span>{ad8_link}</span>
       			<em>728*90</em>
       			<img src={ad9} />
-      			<span>http://image.baidu.com/search/index?tn=baiduimage&amp;ipn=r&amp;ct=201326592&amp;cl=2&amp;lm=-1&amp;st=-1&amp;fm=index&amp;fr=&amp;sf=1&amp;fmq=&amp;pv=&amp;ic=0&amp;
-      	&amp;se=1&amp;showtab=0&amp;fb=0&amp;width=&amp;height=&amp;face=0&amp;istype=2&amp;ie=utf-8&amp;word=Bits&amp;oq=Bits&amp;rsp=-1</span>
+      			<span>{ad9_link}</span>
       		</div>
       	</div>
       </div>

@@ -39,14 +39,14 @@ export const text = {
     "go_home": "Back Home"
   },
   "about" : {
-    "about" : "        SoleBTC is a completely FREE bitcoin faucet paying out 110 up to 3K satoshi every 15 min. We also offer an advanced referral program, and you'll get a totally 30% commission of all claims, made by your referrals. We have created a unique Cryptocurrency Faucets Networks, including Bitcoin faucet, ETH faucet, Litecoin Faucet, Dogecoin Faucet and Dash Faucet. We will continue making our site have more ways to earn, so that everyone can get even more Cryptocurrencies, without having to pay any money at all. ",
+    "about" : "        SoleBTC is a completely FREE bitcoin faucet paying out 110 up to 3K satoshi every 15 min. We also offer an advanced referral program, and you'll get a totally 30% commission of all claims, made by your referrals. We have created a unique Cryptocurrency Faucets Networks,  including Bitcoin faucet, ETH faucet, Litecoin Faucet, Dogecoin Faucet and Dash Faucet. We will continue making our site have more ways to earn, so that everyone can get even more Cryptocurrencies, without having to pay any money at all. ",
     "title" : "About Us"
   },
   "common" : {
     "btcAddress" : "BTC Address",
     "amount" : "Amount (BTC)",
     "time" : "Date",
-    "dynamic" : "Lottery Dynamic",
+    "dynamic" : "Statistics",
     "lottery" : "Reward",
     "account" : "Account",
     "history" : "History",
@@ -71,6 +71,10 @@ export const text = {
     "Solve_Captcha" : "Drag and solve the Captcha firstly.",
 	"Await_Captcha" : " Await your next reward time .",
 "Total_commission" : " Total Commissions ",
+  "EmailVerified" : "Email Verified Successfully!",
+  "Invalidctivation" : "Invalid activation link, please try again",
+  "EmailCannot" : "Email cannot be verified because of account issue.",
+  "paramWrong" : "Wrong BTC ddress"
   },
   "account" : {
     "link" : "Affiliate Link",

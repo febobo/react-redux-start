@@ -18,7 +18,7 @@ export class Footer extends React.Component {
       		<div className={classes.footerInfo}>
       			<p><img src={footerIco} /><span>{i18n.t('footer.server_time')}：{moment.utc(new Date()).format("YYYY-MM-DD HH:mm:ss") }</span></p>
       			<em>{i18n.t('footer.copyright')}
-              <a href="http://help.solebtc.com/category/advertise/">Advertise&nbsp;&nbsp;</a>
+              <a href="http://help.solebtc.com/category/advertise/">   Advertise&nbsp;&nbsp;</a>
               <a href="http://help.solebtc.com/category/news/">News</a>
             </em>
       		</div>

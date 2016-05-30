@@ -91,11 +91,6 @@ export class Lottery extends React.Component {
           rowClassName={(v,k) =>{
             return 'lottery' + k
           }}
-          locale={()=>{
-            return {
-              emptyText : "数据"
-            }
-          }}
         />
 
       </div>

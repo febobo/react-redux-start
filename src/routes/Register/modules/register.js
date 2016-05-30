@@ -8,6 +8,7 @@ import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd';
 import { userLogin } from '../../Login/modules/login'
+import {i18n} from '../../../util/i18n'
 // const v1 = 'https://staging.solebtc.com/api/v1';
 const v1 = 'https://solebtc.com/api/v1'
 export const USER_REGISTER = 'USER_REGISTER'
@@ -71,7 +72,7 @@ export function sendUserEmail(emali){
       .end((err, res) => {
         switch (res.statusCode) {
           case 200:
-            message.success('认证邮件已发送至邮箱，请尽快完成认证', 30);
+            message.success(i18n.t('message.emailTips'), 30);
             dispatch(send_email(res));
         }
       });
@@ -83,14 +84,14 @@ export function userRegister(url , obj , cb){
 
    if(!obj.body || !JSON.parse(obj.body).email || !JSON.parse(obj.body).address){
      dispatch(isBoolean(false))
-     return dispatch(register({code : -110 , message : '请填写完整信息'}))
+     return dispatch(register({code : -110 , message : i18n.t('message.emptyInfo')}))
    }
    let param =  JSON.parse(obj.body);
    // 验证邮箱
    if(param && param.email){
      if(!/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(param.email)){
        dispatch(isBoolean(false))
-       return dispatch(register({code : -110 , message : '请输入正确的邮箱'}))
+       return dispatch(register({code : -110 , message : i18n.t('message.invalidEamil')}))
      }
    }
   Fetch(url,obj).then( (res) => {
@@ -122,13 +123,13 @@ export function userAuth(query , cb) {
       switch (res.statusCode) {
         case 200:
           cb && cb();
-          message.success('认证成功，系统自动为您跳转至首页', 3);
+          message.success(i18n.t('message.EmailVerified'), 3);
           break;
         case 401:
-          message.error('token 错误或已失效(3个小时)', 3);
+          message.error(i18n.t('message.Invalidctivation'), 3);
           break;
         case 403:
-          message.error('账户异常，不能进行认证', 3);
+          message.error(i18n.t('message.EmailCannot'), 3);
           break;
       }
     });

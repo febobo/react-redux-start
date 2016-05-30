@@ -16,7 +16,7 @@ function Fetch(url  , obj , cb , header ){
     fetch(remoteApi + url , defaultObj).then( (res)=> {
       switch (res.status) {
         case 400:
-          resolve({code : -110 , message : '参数错误'})
+          resolve({code : -110 , message : i18n.t('message.paramWrong')})
           break;
         case 409:
           resolve({code : -110 , message : i18n.t('message.accountRepeated')})
