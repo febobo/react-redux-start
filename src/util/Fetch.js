@@ -2,6 +2,7 @@
 // const remoteApi = 'https://staging.solebtc.com/api/v1';
 const remoteApi = 'https://solebtc.com/api/v1';
 import {i18n} from './i18n'
+import fetch from 'node-fetch'
 function Fetch(url  , obj , cb , header ){
 
 

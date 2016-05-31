@@ -21,29 +21,6 @@ export class Register extends React.Component {
 
   }
 
-  componentDidMount (){
-      this.refs.email.focus();
-      const script1 = document.createElement("script");
-      const script2 = document.createElement("script");
-      script2.id="adv_register";
-      const ins = document.createElement("ins");
-      script1.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-      script1.async = true;
-      script2.async = true;
-      script1.type = 'text/javascript';
-      script2.type = 'text/javascript';
-      ins.className = 'adsbygoogle';
-      ins.style = 'display:inline-block;width:970px;height:90px';
-      ins.setAttribute('data-ad-client','ca-pub-5722932343401905');
-      ins.setAttribute('data-ad-slot','7890025877');
-      // script1.id="adv_register1";
-      document.getElementById('adv').appendChild(script1);
-      document.getElementById('adv').appendChild(ins);
-      document.getElementById('adv').appendChild(script2);
-      document.getElementById('adv_register').innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({});'
-
-  }
-
   _userRegister (e){
     e.preventDefault();
     const {
@@ -81,10 +58,8 @@ export class Register extends React.Component {
 
   render () {
     const {data , userRegister , isLoading } = this.props;
-    console.log(this)
     return (
     <div>
-    <GoogleAdv />
     <div className={classes.login}>
     	<div className={classes.reg}>
     		<div className={classes.regTitle}>
@@ -139,7 +114,6 @@ export class Register extends React.Component {
         }
     	</div>
     </div>
-    <div id="adv"></div>
       <div className={classes.main}>
       	<div className={classes.mainBlock}>
         <Lottery />

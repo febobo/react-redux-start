@@ -17,6 +17,7 @@ import request from 'superagent';
 import store from 'store';
 import URI from 'urijs';
 import gs from './gs'
+import GoogleAdv from '../GoogleAdv'
 // const v1 = 'https://staging.solebtc.com/api/v1';
 const v1 ='https://solebtc.com/api/v1'
 
@@ -101,6 +102,13 @@ export class Geetest extends React.Component {
     const { tips } = this.props;
     const amout = tips && tips.user_lattery && tips.user_lattery.amount ;
     const description = i18n.t('message.Bonus_display') + amout + i18n.t('message.unit')
+
+    const advProps = {
+      style : {display:"inline-block",width:"300px",height:"250px"},
+      client : 'ca-pub-5722932343401905',
+      slot : '9366759071',
+      // advBoxStyle : { paddingTop:"25px", textAlign : "center"}
+    }
     return (
       <div className={classes.wrap}>
         {
@@ -132,13 +140,17 @@ export class Geetest extends React.Component {
           <div ref="geetest"></div>
           </div>
         	<div className={classes.luckCode}  >
-            <a href="#"><img src={ad1} /></a>
+            <GoogleAdv
+              {...advProps}
+            />
           </div>
         </div>
       </div>
     )
   }
 }
+// <a href="#"><img src={ad1} /></a>
+//
 // <a href="#" onClick={::this.lottery} className={classes.luckBtn}><span>{i18n.t('common.lottery')}</span></a>
 // <div className={classes.tips}>{i18n.t('message.Bonus_display')}{tips.user_lattery.amount}{i18n.t('message.unit')}！</div> :
 

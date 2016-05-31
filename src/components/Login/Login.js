@@ -9,6 +9,7 @@ import store from 'store'
 import {i18n} from '../../util/i18n'
 import Lottery from '../Lottery'
 import About from '../About'
+import GoogleAdv from '../GoogleAdv'
 type Props = {
 
 };
@@ -39,6 +40,12 @@ export class Login extends React.Component {
 
   render () {
     const { data } = this.props;
+    const advProps = {
+      style : {display:"inline-block",width:"970px",height:"90px"},
+      client : 'ca-pub-5722932343401905',
+      slot : '7890025877',
+      advBoxStyle : { paddingTop:"25px", textAlign : "center"}
+    }
     return (
     <div>
       <div className={classes.login}>
@@ -86,6 +93,9 @@ export class Login extends React.Component {
           }
       	</div>
       </div>
+      <GoogleAdv
+        {...advProps}
+      />
       <div className={classes.main}>
       	<div className={classes.mainBlock}>
           <Lottery />
