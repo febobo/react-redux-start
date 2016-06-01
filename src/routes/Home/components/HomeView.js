@@ -80,7 +80,7 @@ export class HomeView extends React.Component {
     <div className={classes.adv}>
       <center>
           <div>
-            <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=L05ZQS9VCGVN4&b=M05UEX1GW3PS7" style={{overflow:"hidden",width:"728px",height:"90px"}} frameborder="0"></iframe>
+            <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=QP10TX6B6KV66" style={{overflow:"hidden",width:"728px",height:"90px"}} frameborder="0"></iframe>
           </div>
       </center>
     </div>

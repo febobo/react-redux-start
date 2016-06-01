@@ -23,6 +23,8 @@ export class CoreLayout extends React.Component {
 
   componentWillMount() {
     let {language , getUser , userAuth , location , history}  = this.props;
+
+    console.log('../../texts/' + language + '.js')
     i18n.extend(require('../../texts/' + language + '.js').text);
 
     // token && id 同时存在即为认证

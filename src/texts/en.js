@@ -7,7 +7,7 @@ export const text = {
     "bitcoin_price": "Bitcoin Price",
     "unit": "USD",
     "logout": "Logout",
-    "unverified": "Unverified Email",
+    "unverified": "Unverified",
     "verified": "Verified",
     "banned": "Banned",
     "balance": "Balance",
@@ -16,7 +16,7 @@ export const text = {
   },
   "advantage": {
     "header": "Our Advantages",
-    "first_adv": "Huge Bonus",
+    "first_adv": "Free Bitcoin",
     "second_adv": "Register as many accounts as you want",
     "third_adv": "Auto-payouts every day",
     "fourth_adv": "Awesome referral program"
@@ -60,8 +60,8 @@ export const text = {
     "emailTips" : " We have sent an email to your address, please verify your email in order to you could withdraw. ",
     "emptyInfo" : " Enter complete information ",
     "login_success" : " Login Successfully ",
-	"Bonus_tips" : "Tips",
-	"Bonus_display" : " Congratulation!  ",
+	"Bonus_tips" : "Congratulation!",
+	"Bonus_display" : " You got  ",
 	"verify_email" : " Verification ",
 	"verifyEmailInfo" : " Please check your eamil box and verify email address ASAP .",
 	"verifyEmailcancel" : "Back",
