@@ -22,10 +22,11 @@ export class Account extends React.Component {
   }
   render () {
     const { user , host} = this.props;
-    const ad6_link = `<a href="${host}" target="_blank"><img src="${ad6}"></a>`;
-    const ad7_link = '<a href="'+host+'" target="_blank"><img src="'+ ad7 + '"></a>';
-    const ad8_link = '<a href="'+host+'" target="_blank"><img src="'+ ad8 + '"></a>';
-    const ad9_link = '<a href="'+host+'" target="_blank"><img src="'+ ad9 + '"></a>';
+    const hosts = window.location.host;
+    const ad6_link = `<a href="${host}" target="_blank"><img src="${hosts}${ad6}"></a>`;
+    const ad7_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + ad7 + '"></a>';
+    const ad8_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + ad8 + '"></a>';
+    const ad9_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + ad9 + '"></a>';
 
 
     // console.log(str)

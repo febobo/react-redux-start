@@ -10,6 +10,7 @@ import ad2 from '../../../static/images/ad2.jpg'
 import Lottery from '../../../components/Lottery'
 import Geetest from '../../../components/Geetest'
 import GoogleAdv from '../../../components/GoogleAdv'
+import GoogleAdv2 from '../../../components/GoogleAdv2'
 import CoinadAdv from '../../../components/CoinadAdv'
 import geetest from 'geetest-proxy';
 // import gs from './gs'
@@ -50,7 +51,7 @@ export class HomeView extends React.Component {
 
   <div>
     <Geetest />
-    <GoogleAdv
+    <GoogleAdv2
       {...advProps}
     />
     <div className={classes.luckMain}>
@@ -59,18 +60,42 @@ export class HomeView extends React.Component {
         </div>
         <Lottery isDynamic={true} style={{marginTop:'20px'}}/>
     		<div className={classes.ad}>
-    			<div className={classes.ad1}><a href="#"><img src={ad1} /></a></div>
-    			<div className={classes.ad1}><a href="#"><img src={ad2} /></a></div>
+    			<div className={classes.ad1}>
+            <center>
+            	<div>
+            		<iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+            	</div>
+            </center>
+          </div>
+    			<div className={classes.ad1}>
+          <center>
+            <div>
+              <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+            </div>
+          </center>
+          </div>
     		</div>
     	</div>
     </div>
-    <Adv />
+    <div className={classes.adv}>
+      <center>
+          <div>
+            <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=L05ZQS9VCGVN4&b=M05UEX1GW3PS7" style={{overflow:"hidden",width:"728px",height:"90px"}} frameborder="0"></iframe>
+          </div>
+      </center>
+    </div>
   </div>
 
 )
   }
 }
 
+          // <div style={{textAlign:"center"}}>
+          //   <a href="https://coinad.com/?a=BuyAds&id=L05ZQS9VCGVN4" target="_blank">Advertise in this spot</a>
+          // </div>
+// <div style={{textAlign:"center"}}>
+//   <a href="https://coinad.com/?a=BuyAds&id=3FMLHO8FY55DT" target="_blank">Advertise in this spot</a>
+// </div>
     // <CoinadAdv />
 // )
 // <Adv />

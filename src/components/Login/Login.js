@@ -9,7 +9,7 @@ import store from 'store'
 import {i18n} from '../../util/i18n'
 import Lottery from '../Lottery'
 import About from '../About'
-import GoogleAdv from '../GoogleAdv'
+import GoogleAdv3 from '../GoogleAdv3'
 type Props = {
 
 };
@@ -93,7 +93,7 @@ export class Login extends React.Component {
           }
       	</div>
       </div>
-      <GoogleAdv
+      <GoogleAdv3
         {...advProps}
       />
       <div className={classes.main}>
