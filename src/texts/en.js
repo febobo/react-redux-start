@@ -7,7 +7,7 @@ export const text = {
     "bitcoin_price": "Bitcoin Price",
     "unit": "USD",
     "logout": "Logout",
-    "unverified": "Unverified",
+    "unverified": "Unverified Email",
     "verified": "Verified",
     "banned": "Banned",
     "balance": "Balance",
@@ -16,7 +16,7 @@ export const text = {
   },
   "advantage": {
     "header": "Our Advantages",
-    "first_adv": "Free Bitcoin",
+    "first_adv": "Huge Bonus",
     "second_adv": "Register as many accounts as you want",
     "third_adv": "Auto-payouts every day",
     "fourth_adv": "Awesome referral program"
@@ -39,14 +39,14 @@ export const text = {
     "go_home": "Back Home"
   },
   "about" : {
-    "about" : "        SoleBTC is a completely FREE bitcoin faucet paying out 110 up to 3K satoshi every 15 min. We also offer an advanced referral program, and you'll get a totally 30% commission of all claims, made by your referrals. We have created a unique Cryptocurrency Faucets Networks,  including Bitcoin faucet, ETH faucet, Litecoin Faucet, Dogecoin Faucet and Dash Faucet. We will continue making our site have more ways to earn, so that everyone can get even more Cryptocurrencies, without having to pay any money at all. ",
+    "about" : "        SoleBTC is a completely FREE bitcoin faucet paying out 110 up to 3K satoshi every 15 min. We also offer an advanced referral program, and you'll get a totally 30% commission of all claims, made by your referrals. We have created a unique Cryptocurrency Faucets Networks, including Bitcoin faucet, ETH faucet, Litecoin Faucet, Dogecoin Faucet and Dash Faucet. We will continue making our site have more ways to earn, so that everyone can get even more Cryptocurrencies, without having to pay any money at all. ",
     "title" : "About Us"
   },
   "common" : {
     "btcAddress" : "BTC Address",
     "amount" : "Amount (BTC)",
     "time" : "Date",
-    "dynamic" : "Statistics",
+    "dynamic" : "抽奖动态",
     "lottery" : "Reward",
     "account" : "Account",
     "history" : "History",
@@ -60,8 +60,8 @@ export const text = {
     "emailTips" : " We have sent an email to your address, please verify your email in order to you could withdraw. ",
     "emptyInfo" : " Enter complete information ",
     "login_success" : " Login Successfully ",
-	"Bonus_tips" : "Congratulation!",
-	"Bonus_display" : " You got  ",
+	"Bonus_tips" : "Tips",
+	"Bonus_display" : " Congratulation!  ",
 	"verify_email" : " Verification ",
 	"verifyEmailInfo" : " Please check your eamil box and verify email address ASAP .",
 	"verifyEmailcancel" : "Back",
@@ -71,10 +71,6 @@ export const text = {
     "Solve_Captcha" : "Drag and solve the Captcha firstly.",
 	"Await_Captcha" : " Await your next reward time .",
 "Total_commission" : " Total Commissions ",
-  "EmailVerified" : "Email Verified Successfully!",
-  "Invalidctivation" : "Invalid activation link, please try again",
-  "EmailCannot" : "Email cannot be verified because of account issue.",
-  "paramWrong" : "Wrong BTC ddress"
   },
   "account" : {
     "link" : "Affiliate Link",
