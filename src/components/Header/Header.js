@@ -29,6 +29,9 @@ export class Header extends React.Component {
     const langs = {
       'en': 'English',
       'cn': '中文',
+      'ft': '繁體中文',
+      'ar': 'العربية',
+      'ru': 'Русский',
       'pt' : 'Português',
       'de' : 'Deutsch',
       'sp' : 'Español',
@@ -36,7 +39,7 @@ export class Header extends React.Component {
 
     const menu = (
       <Menu onClick={::this._changeLanguage} >
-        {['en', 'cn' , 'pt' , 'de' , 'sp'].map((lang, i) => {
+        {['en', 'cn' , 'ft' , 'ar' , 'ru', 'pt' , 'de' , 'sp'].map((lang, i) => {
           return (
               <Menu.Item key={i} lang={`${lang}`} >
                 {langs[lang]}

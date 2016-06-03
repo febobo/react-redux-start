@@ -3,11 +3,12 @@
 .aboutTitle span{float:left;font-size:16px;color:#414141;margin-top:15px;}
 .aboutTitle{overflow: hidden}
 .ourImg{text-align:center;margin-top:15px}
+.ourList ul{    overflow: hidden;}
 .ourList ul li{float:left;color:#818181;font-size:14px;width:250px;text-align:center;}
 .aboutText{text-align:center;}
 .aboutText img{margin-top:88px;}
 .aboutText p{font-size:14px;color:#818181;margin:0 30px;line-height:32px;text-align:left;margin-top:15px}
-.ourBg{height:198px;background:url(../../static/images/ourBg.png);margin-top:28px}
+.ourBg{background:url(../../static/images/ourBg.png);margin-top:28px}
 .ourAdvantages{width:1000px;margin:0 auto;}
 .regBtnLoding{width:141px;height:39px;background:#eb9745;line-height:39px;border-radius:3px;color:#fff;font-weight:bold;font-family:microsoft yahei;font-size:17px;border:0px;margin-left:30px;margin-left:500px;padding-left:100px}
 .alert{width:100%;height:1243px;background:url(../../static/images/alertBg.png);top:0px;position:fixed;}

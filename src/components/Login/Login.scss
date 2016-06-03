@@ -2,7 +2,7 @@
 .login{border:1px solid #efefef;width:998px;margin:0 auto;background:#fff;margin-top:30px}
 .reg{padding-bottom: 30px; border-bottom:1px solid #efefef;}
 .regTitle{margin:0 30px;height:55px;background:url(../../static/images/line.png) bottom repeat-x;}
-.regTitle ul li a{display:inline-block ;float:left;font-size:18px;line-height:55px;width:90px;text-align:center;}
+.regTitle ul li a{display:inline-block ;float:left;font-size:18px;line-height:55px;padding:0 15px ;text-align:center;}
 .regCur{color:#e47000;background:url(../../static/images/arrowBg.png) bottom no-repeat;}
 .regForm{margin-top:30px; overflow: hidden}
 .regForm input{float:left;}
@@ -20,8 +20,8 @@
 }
 .regBtc{cursor:auto;height:37px;width:238px;border:1px solid #e3e3e3;background:#f5f5f5 url(../../static/images/bIco.png) left no-repeat;font-size:14px;color:#b0b0b0;text-indent:45px;font-family:microsoft yahei;margin-left:30px;}
 .regBtn{width:241px;height:39px;background:#eb9745;line-height:39px;border-radius:3px;color:#fff;font-weight:bold;font-family:microsoft yahei;font-size:17px;border:0px;margin-left:30px;}
-.main{height:608px;border:1px solid #efefef;background:#fff;width:1000px;margin:0 auto;margin-top:30px;}
-.mainBlock{height:605px;border-bottom:1px solid #efefef;}
+.main{overflow: hidden;border:1px solid #efefef;background:#fff;width:1000px;margin:0 auto;margin-top:30px;}
+.mainBlock{border-bottom:1px solid #efefef;}
 .dynamic{width:659px;float:left;}
 .dynamicTitle{height:46px;border-bottom:1px solid #eaeaea;}
 .dynamicTitle img{float:left;margin-top:18px;margin-left:13px;margin-right:8px;}

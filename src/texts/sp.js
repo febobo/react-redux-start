@@ -26,13 +26,13 @@ export const text = {
     "copyright": "Copyright © 2016 Solebtc.com",
   },
   "login": {
-    "email": "Dirección de correo electrónico",
+    "email": "Email",
     "login": "Iniciar sesión",
     "logout" : "Cerrar sesión"
   },
   "register": {
     "register": "Regístrate",
-    "email": "Dirección de correo electrónico",
+    "email": "Email",
     "bitcoin_address": "Dirección Bitcoin"
   },
   "404": {
