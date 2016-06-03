@@ -33,7 +33,7 @@ const menu = (
       <a target="_blank" href="https://soledash.net">Dash Faucet </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" href="#">ETHer Fauet</a>
+      <a target="_blank" href="#">ETHer Faucet (Coming)</a>
     </Menu.Item>
   </Menu>
 );

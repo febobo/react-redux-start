@@ -38,7 +38,7 @@ a:hover,a:active,a:focus{color:#666;text-decoration:none;}
 .nav ul li a{text-align: center;display: inline-block; width: 100%; height : 100%; line-height: 47px;color:#777777;font-size:16px;}
 .nav ul li:hover{background:#f7f7f7 url(../../static/images/navLine.png) right no-repeat;}
 .navCur{background:#f7f7f7 url(../../static/images/navLine.png) right no-repeat !important;}
-.nav p{color:#07669c;font-size:12px;line-height:48px;margin-left:40px}
+.nav p{color:#07669c;font-size:12px;margin-left:40px;    padding: 15px 0;}
 .btc{width:616px;float:left;line-height:75px; position: relative;}
 .btc img{float:left;margin-left:40px;margin-top:17px;margin-right:10px;}
 .btc span{float:left;font-size:15px;color:#509c1d;}
