@@ -9,8 +9,8 @@ import URI from 'urijs';
 import { message } from 'antd';
 import { userLogin } from '../../Login/modules/login'
 import {i18n} from '../../../util/i18n'
-// const v1 = 'https://staging.solebtc.com/api/v1';
-const v1 = 'https://solebtc.com/api/v1'
+import BaseConfig from '../../../BaseConfig';
+const v1 = BaseConfig.api
 export const USER_REGISTER = 'USER_REGISTER'
 export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
 export const IS_BOOLEAN = 'IS_BOOLEAN';

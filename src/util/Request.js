@@ -1,5 +1,5 @@
 // 定义全局api
-const remoteApi = 'https://staging.solebtc.com/api/v1';
+const remoteApi = BaseConfig.api;
 import request from 'superagent';
 import store from 'store';
 import URI from 'urijs';
@@ -14,7 +14,7 @@ function Request(url  , obj ){
   }
   // console.log(defaultObj)
   // const promise = new Promise( (resolve , reject) => {
-  //   
+  //
   // })
   // return promise
 }

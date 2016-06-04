@@ -2,10 +2,10 @@
 import _debug from 'debug'
 import path from 'path'
 import { argv } from 'yargs'
-
 const debug = _debug('app:config:_base')
 const config = {
   env : process.env.NODE_ENV || 'development',
+  type : process.env.TYPE || '1',
 
   // ----------------------------------
   // Project Structure
@@ -70,7 +70,8 @@ Edit at Your Own Risk
 // N.B.: globals added here must _also_ be added to .eslintrc
 config.globals = {
   'process.env'  : {
-    'NODE_ENV' : JSON.stringify(config.env)
+    'NODE_ENV' : JSON.stringify(config.env),
+    'TYPE' : JSON.stringify(config.type)
   },
   'NODE_ENV'     : config.env,
   '__DEV__'      : config.env === 'development',

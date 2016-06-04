@@ -5,8 +5,8 @@ export const SET_DELY = 'SET_DELY';
 import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd'
-// const v1 = 'https://staging.solebtc.com/api/v1';
-const v1 = 'https://solebtc.com/api/v1'
+import BaseConfig from '../BaseConfig';
+const v1 = BaseConfig.api
 
 
 // ------------------------------------

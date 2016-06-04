@@ -56,7 +56,8 @@
       "command": "npm run deploy",
       "env": {
         "NODE_ENV": "production",
-        "DEBUG": "app:*"
+        "DEBUG": "app:*",
+        "TYPE" : 2
       }
     },
     "deploy:gb": {

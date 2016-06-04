@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 
 const MOUNT_ELEMENT = document.getElementById('root')
 
-// Configure history for react-router
+// BaseConfig'ure history for react-router
 const browserHistory = useRouterHistory(createBrowserHistory)({
   basename: __BASENAME__
 })

@@ -2,8 +2,8 @@ import request from 'superagent';
 import store from 'store';
 import URI from 'urijs';
 export const GET_OFFLINE_LIST = 'GET_OFFLINE_LIST'
-// const v1 = 'https://staging.solebtc.com/api/v1';
-const v1 = 'https://solebtc.com/api/v1'
+import BaseConfig from '../../../BaseConfig';
+const v1 = BaseConfig.api
 // ------------------------------------
 // Actions
 // ------------------------------------

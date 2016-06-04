@@ -3,6 +3,9 @@ import { IndexLink, Link } from 'react-router'
 import NavBar from '../NavBar'
 import classes from './Header.scss'
 import logoImg from '../../static/images/logo.png'
+import soledash from '../../static/images/soledash.png'
+import SoleDoKC from '../../static/images/SoleDoKC.png'
+import SoleLTC from '../../static/images/SoleLTC.png'
 import arrowIco from '../../static/images/arrowIco.png'
 import { Menu, Dropdown, Icon } from 'antd';
 import {i18n} from '../../util/i18n'
@@ -11,13 +14,14 @@ import store from 'store'
 //   console.log('click', e);
 // }
 
-
+//process.env.TYPE
+// [1,2,3,4] => [solebtc , SoleLTC , soledash , SoleDoKC]
 export class Header extends React.Component {
 
   constructor (props){
     super(props);
     this.changeLanguage = this.props.changeLanguage.bind(this);
-    console.log(process)
+    // console.log(process.env.TYPE)
   }
 
   _changeLanguage(evt) {
@@ -27,7 +31,7 @@ export class Header extends React.Component {
   };
 
   render (){
-    const langs = {
+    const langs = [{
       'en': 'English',
       'cn': '中文',
       'ft': '繁體中文',
@@ -36,19 +40,35 @@ export class Header extends React.Component {
       'pt' : 'Português',
       'de' : 'Deutsch',
       'sp' : 'Español',
-    };
+    },{
+      'lt': 'English',
+    },{
+      'ds': 'English',
+    },{
+      'gb': 'English',
+    },
+  ];
 
+  const Lang = [
+    ['en', 'cn' , 'ft'  , 'ru', 'pt' , 'de' , 'sp'],
+    ['lt'],
+    ['ds'],
+    ['gb']
+  ]
+  console.log(Lang[process.env.TYPE-1])
     const menu = (
       <Menu onClick={::this._changeLanguage} >
-        {['en', 'cn' , 'ft'  , 'ru', 'pt' , 'de' , 'sp'].map((lang, i) => {
+        {Lang[process.env.TYPE-1].map((lang, i) => {
           return (
               <Menu.Item key={i} lang={`${lang}`} >
-                {langs[lang]}
+                {langs[process.env.TYPE-1][lang]}
               </Menu.Item>
           );
         })}
       </Menu>
     );
+
+    const logoArr = [logoImg,SoleLTC,soledash,SoleDoKC]
 
     const {users_online} = this.props;
     return (
@@ -56,7 +76,8 @@ export class Header extends React.Component {
         <div className={classes.topBg}>
         	<div className={classes.top}>
         		<div className={classes.logo}>
-              <a href="/"><img src={logoImg} /></a>
+              <a href="/"><img src={logoArr[process.env.TYPE-1]}
+                style={{width: "170px",  height: "59px"}} /></a>
             </div>
         		<div className={classes.language}>
         			<span>{i18n.t('language.language')}<em>|</em></span>

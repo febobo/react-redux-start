@@ -1,4 +1,5 @@
 import store from 'store';
+import BaseConfig from '../BaseConfig';
 export const BTC_WEBSOCKET = 'BTC_WEBSOCKET';
 
 export function btcWebsocket(socketData , getState) {
@@ -22,7 +23,7 @@ let ws ;
 export function getBtcWebsocket(socketData) {
   return (dispatch , getState) => {
     if(ws && ws.readyState <= 1) return;
-    let url = 'wss://solebtc.com/api/v1/websocket';
+    let url = BaseConfig.socketApi;
     ws = new WebSocket(url);
     ws.onopen = (evt) => setInterval(() => ws.send('ping message'), 5); // send ping
     ws.onerror = (evt) => console.log('websocket error ', evt);

@@ -44,10 +44,13 @@ webpackConfig.output = {
 // ------------------------------------
 // Plugins
 // ------------------------------------
+const templateArr = ['index.html','lt-index.html' ,'ds-index.html' ,'gb-index.html']
+// return console.log(process.env)
+console.log('---------------------'+ process.env.TYPE , process.env)
 webpackConfig.plugins = [
   new webpack.DefinePlugin(config.globals),
   new HtmlWebpackPlugin({
-    template: paths.client('index.html'),
+    template: paths.client(templateArr[process.env.TYPE-1]),
     hash: false,
     favicon: paths.client('static/favicon.ico'),
     filename: 'index.html',

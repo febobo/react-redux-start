@@ -16,10 +16,10 @@ import moment from 'moment'
 import request from 'superagent';
 import store from 'store';
 import URI from 'urijs';
-import gs from './gs'
+// import gs from './gs'
 import GoogleAdv from '../GoogleAdv'
-// const v1 = 'https://staging.solebtc.com/api/v1';
-const v1 ='https://solebtc.com/api/v1'
+import BaseConfig from '../../BaseConfig';
+const v1 =BaseConfig.api
 
 type Props = {
 
