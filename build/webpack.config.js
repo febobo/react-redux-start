@@ -46,7 +46,7 @@ webpackConfig.output = {
 // ------------------------------------
 const templateArr = ['index.html','lt-index.html' ,'ds-index.html' ,'gb-index.html']
 // return console.log(process.env)
-console.log('---------------------'+ process.env.TYPE , process.env)
+// console.log('---------------------'+ process.env.TYPE , process.env)
 webpackConfig.plugins = [
   new webpack.DefinePlugin(config.globals),
   new HtmlWebpackPlugin({
