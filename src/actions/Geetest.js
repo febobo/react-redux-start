@@ -78,7 +78,7 @@ export function setDely (dely){
     },1000)
   }
 }
-export function sendLottery(headers){
+export function sendLottery(headers,cb){
   if(!headers) return;
   return ( dispatch , getState ) =>{
     let url = new URI(v1 + '/incomes/rewards');
@@ -89,6 +89,7 @@ export function sendLottery(headers){
         switch (res.statusCode) {
           case 200:
             // message.success('您已成功抽奖一次', 3);
+            cb && cb();
             let res = JSON.parse(res.text);
             dispatch(lotteryData(res));
         }

@@ -72,7 +72,7 @@ export function sendUserEmail(emali){
       .end((err, res) => {
         switch (res.statusCode) {
           case 200:
-            message.success(i18n.t('message.emailTips'), 30);
+            message.success(i18n.t('message.emailTips'), 3);
             dispatch(send_email(res));
         }
       });

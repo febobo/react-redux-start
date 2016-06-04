@@ -8,7 +8,7 @@ export function btcWebsocket(socketData , getState) {
     lottery.latest_incomes = lottery.latest_incomes.length > 12 ? lottery.latest_incomes.slice(0,12) : lottery.latest_incomes;
   }else{
     lottery.latest_incomes = socketData.latest_incomes || lottery.latest_incomes;
-    lottery.latest_incomes = lottery.latest_incomes.length > 12 ? lottery.latest_incomes.slice(0,12) : lottery.latest_incomes;
+    lottery.latest_incomes = lottery && lottery.latest_incomes && lottery.latest_incomes.length > 12 ? lottery.latest_incomes.slice(0,12) : lottery.latest_incomes;
   }
   return {
     type: BTC_WEBSOCKET,

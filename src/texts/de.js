@@ -14,6 +14,13 @@ export const text = {
     "next_reward_time": "Nächste Auszahlungszeit",
     "tips" : "Solange wie Sie mehr als 0.001BTC haben wird das System automatisch an Ihre  BTC Addresse täglich um 0:00 Uhr (UTC) auszahlen"
   },
+  "advantage": {
+    "header": "Unsere Vorteile",
+    "first_adv": "Riesige Boni",
+    "second_adv": "Registrieren Sie so viele Konten, wie Sie wollen",
+    "third_adv": "Täglich sofortige Zahlung",
+    "fourth_adv": "Ehrfürchtig Empfehlungsprogramm"
+  },
   "Vorteil": {
     "header": "Unsere Vorteile",
     "first_adv": "Freie Bitcoins",

@@ -17,6 +17,7 @@ export class Header extends React.Component {
   constructor (props){
     super(props);
     this.changeLanguage = this.props.changeLanguage.bind(this);
+    console.log(process)
   }
 
   _changeLanguage(evt) {
@@ -30,7 +31,7 @@ export class Header extends React.Component {
       'en': 'English',
       'cn': '中文',
       'ft': '繁體中文',
-      'ar': 'العربية',
+      // 'ar': 'العربية',
       'ru': 'Русский',
       'pt' : 'Português',
       'de' : 'Deutsch',
@@ -39,7 +40,7 @@ export class Header extends React.Component {
 
     const menu = (
       <Menu onClick={::this._changeLanguage} >
-        {['en', 'cn' , 'ft' , 'ar' , 'ru', 'pt' , 'de' , 'sp'].map((lang, i) => {
+        {['en', 'cn' , 'ft'  , 'ru', 'pt' , 'de' , 'sp'].map((lang, i) => {
           return (
               <Menu.Item key={i} lang={`${lang}`} >
                 {langs[lang]}
