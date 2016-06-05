@@ -5,8 +5,8 @@ export const SET_DELY = 'SET_DELY';
 import request from 'superagent';
 import URI from 'urijs';
 import { message } from 'antd'
-// const v1 = 'https://staging.solebtc.com/api/v1';
-const v1 = 'https://solebtc.com/api/v1'
+import BaseConfig from '../BaseConfig';
+const v1 = BaseConfig.api
 
 
 // ------------------------------------
@@ -78,7 +78,7 @@ export function setDely (dely){
     },1000)
   }
 }
-export function sendLottery(headers){
+export function sendLottery(headers,cb){
   if(!headers) return;
   return ( dispatch , getState ) =>{
     let url = new URI(v1 + '/incomes/rewards');
@@ -89,6 +89,7 @@ export function sendLottery(headers){
         switch (res.statusCode) {
           case 200:
             // message.success('您已成功抽奖一次', 3);
+            cb && cb();
             let res = JSON.parse(res.text);
             dispatch(lotteryData(res));
         }

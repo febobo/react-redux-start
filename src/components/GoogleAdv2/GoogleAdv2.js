@@ -19,7 +19,7 @@ export default class GoogleAdv2 extends Component {
   }
   render() {
     // console.log(this)
-    console.log('render111')
+    // console.log('render111')
     const { client , slot , style , advBoxStyle } = this.props;
     return (
       <div

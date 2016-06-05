@@ -71,9 +71,16 @@ const mapActionCreators = {
   userAuth
 }
 
+const Lang = [
+  ['en'],
+  ['lt'],
+  ['ds'],
+  ['gb']
+]
+
 const mapStateToProps = (state) => ({
   data : state.login && state.login.user || store.get('user'),
-  language : store.get('language') || 'en',
+  language : store.get('language') || Lang[process.env.TYPE-1],
   isloading : state.nav && state.nav.isloading || false,
   users_online : state.lottery && state.lottery.users_online || 0
 })

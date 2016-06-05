@@ -18,8 +18,8 @@ import store from 'store';
 import URI from 'urijs';
 import gs from './gs'
 import GoogleAdv from '../GoogleAdv'
-// const v1 = 'https://staging.solebtc.com/api/v1';
-const v1 ='https://solebtc.com/api/v1'
+import BaseConfig from '../../BaseConfig';
+const v1 =BaseConfig.api
 
 type Props = {
 
@@ -69,8 +69,9 @@ export class Geetest extends React.Component {
       'Auth-Token' : store.get('auth_token'),
     }
 
-    sendLottery(headers);
-    setDely(5)
+    sendLottery(headers , ()=>{
+      setDely(5)
+    });
     this.state.captchaObj.refresh();
     // 每一次抽奖存一次当前时间
     store.set('prev_time',Math.ceil(new Date().getTime() / 1000))
@@ -88,7 +89,7 @@ export class Geetest extends React.Component {
       gt: data.body && data.body.captcha_id,
       challenge : data.body && data.body.challenge,
       product : 'float',
-      lang : store.get('language') || 'en'
+      lang : store.get('language') == 'cn' ? 'cn': 'en'
     }, ::this.handlerPopup);
 
   }
@@ -101,7 +102,7 @@ export class Geetest extends React.Component {
     const { time , tipsDley} = this.props.geetest;
     const { tips } = this.props;
     const amout = tips && tips.user_lattery && tips.user_lattery.amount ;
-    const description = i18n.t('message.Bonus_display') + amout + i18n.t('message.unit')
+    const description = i18n.t('message.Bonus_tips') + amout + i18n.t('message.unit')
 
     const advProps = {
       style : {display:"inline-block",width:"300px",height:"250px"},
