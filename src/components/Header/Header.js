@@ -55,7 +55,7 @@ export class Header extends React.Component {
     ['ds'],
     ['gb']
   ]
-  console.log(Lang[process.env.TYPE-1])
+  // console.log(Lang[process.env.TYPE-1])
     const menu = (
       <Menu onClick={::this._changeLanguage} >
         {Lang[process.env.TYPE-1].map((lang, i) => {

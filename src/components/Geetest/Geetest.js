@@ -16,7 +16,7 @@ import moment from 'moment'
 import request from 'superagent';
 import store from 'store';
 import URI from 'urijs';
-// import gs from './gs'
+import gs from './gs'
 import GoogleAdv from '../GoogleAdv'
 import BaseConfig from '../../BaseConfig';
 const v1 =BaseConfig.api
