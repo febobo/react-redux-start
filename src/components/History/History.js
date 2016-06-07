@@ -5,7 +5,7 @@ import Adv from '../Adv'
 import moment from 'moment'
 import { Pagination ,  Alert , Tag , Table} from 'antd';
 import {i18n} from '../../util/i18n'
-
+var currentLimit = 10;
 // export const History = () => (
 export class History extends React.Component {
   componentWillMount(){
@@ -16,7 +16,8 @@ export class History extends React.Component {
     const { getHistoryList } = this.props;
     let offset = page || 0;
     let pageSize = limit || 10
-    let param = '?offset=' + offset + '&limit=' + pageSize
+    currentLimit = pageSize;
+    let param = '?offset=' + offset*currentLimit + '&limit=' + pageSize
     getHistoryList(param)
   }
 
@@ -53,7 +54,7 @@ export class History extends React.Component {
           data.push({
             key: `${k}`,
             updated_at:moment(`${v.updated_at}`).format("YYYY-MM-DD HH:mm:ss"),
-            amount:`${v.amount}`,
+            amount:`${v.amount.toFixed(8)}`,
             tx: ( ()=>{
               if(!v.tx_url) return null;
               return  <a href={v.tx_url}>blockchain</a>
@@ -73,14 +74,16 @@ export class History extends React.Component {
       const that = this;
       const pagination = {
         total: historyData && historyData.count,
-        pageSize : 10,
         showSizeChanger: true,
         onShowSizeChange(current, pageSize){
           that._changePage(current -1 ,pageSize);
         },
         onChange(current) {
-          that._changePage(current -1 );
+          that._changePage(current -1,currentLimit );
         },
+        // showTotal(){
+        //   return (<span>总条数：{historyData && historyData.count}</span>)
+        // }
       };
 
     return (

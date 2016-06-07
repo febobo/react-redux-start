@@ -16,17 +16,17 @@ type Props = {
 export class Login extends React.Component {
   props: Props;
 
-  async _userLogin (e){
+  _userLogin (e){
     e.preventDefault();
     const { userLogin , history , getRewards , getUser } = this.props;
     let email = this.refs.email.value;
     let query = {
       "email": email,
     }
-    await userLogin(
+    userLogin(
       '/auth_tokens' ,
       {
-        'method' : 'POST' ,
+        'method' : 'POST',
          body:JSON.stringify(query)
       },  () => {
           getUser(()=>{

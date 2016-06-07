@@ -1,8 +1,9 @@
 // 定义全局api
 import BaseConfig from '../BaseConfig';
 const remoteApi = BaseConfig.api;
+require('es6-promise').polyfill();
+import isomorphicFetch from 'isomorphic-fetch';
 import {i18n} from './i18n'
-import fetch from 'node-fetch'
 function Fetch(url  , obj , cb , header ){
 
 
@@ -14,7 +15,7 @@ function Fetch(url  , obj , cb , header ){
   }
   // console.log(defaultObj)
   const promise = new Promise( (resolve , reject) => {
-    fetch(remoteApi + url , defaultObj).then( (res)=> {
+    fetch( remoteApi + url, defaultObj).then( (res)=> {
       switch (res.status) {
         case 400:
           resolve({code : -110 , message : i18n.t('message.paramWrong')})

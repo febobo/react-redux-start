@@ -98,12 +98,11 @@ export class Geetest extends React.Component {
 
   }
   render () {
-    // console.log(this.props)
-    const { time , tipsDley} = this.props.geetest;
+    const { time , tipsDley , geetest} = this.props.geetest;
     const { tips } = this.props;
-    const amout = tips && tips.user_lattery && tips.user_lattery.amount ;
+    const amout = geetest && geetest.income ;
     const description = i18n.t('message.Bonus_tips') + amout + i18n.t('message.unit')
-
+// console.log(this.props, geetest && geetest.income , tipsDley)
     const advProps = {
       style : {display:"inline-block",width:"300px",height:"250px"},
       client : 'ca-pub-5722932343401905',
@@ -113,7 +112,7 @@ export class Geetest extends React.Component {
     return (
       <div className={classes.wrap}>
         {
-          tips.user_lattery && tips.user_lattery.amount && tipsDley ?
+          geetest && geetest.income && tipsDley ?
           <div style={{paddingTop:'25px'}}>
             <Alert
               message={i18n.t('message.tips')}

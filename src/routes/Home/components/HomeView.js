@@ -63,14 +63,14 @@ export class HomeView extends React.Component {
     			<div className={classes.ad1}>
             <center>
             	<div>
-            		<iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+            		<iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
             	</div>
             </center>
           </div>
     			<div className={classes.ad1}>
           <center>
             <div>
-              <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+              <iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
             </div>
           </center>
           </div>

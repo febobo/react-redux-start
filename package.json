@@ -60,7 +60,7 @@
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*",
-        "TYPE" : 1
+        "TYPE": 1
       }
     },
     "deploy:prodlt": {
@@ -68,7 +68,7 @@
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*",
-        "TYPE" : 2
+        "TYPE": 2
       }
     },
     "deploy:prodds": {
@@ -76,7 +76,7 @@
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*",
-        "TYPE" : 3
+        "TYPE": 3
       }
     },
     "deploy:prodgb": {
@@ -84,7 +84,7 @@
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*",
-        "TYPE" : 4
+        "TYPE": 4
       }
     },
     "deploy:gb": {
@@ -92,7 +92,7 @@
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*",
-        "HOME" : "gb"
+        "HOME": "gb"
       }
     },
     "start": {
@@ -105,7 +105,7 @@
       "command": "babel-node bin/server",
       "env": {
         "DEBUG": "app:*",
-        "TYPE" : "2"
+        "TYPE": "2"
       }
     },
     "test": {
@@ -141,6 +141,7 @@
     "cssnano": "^3.3.2",
     "dateformat": "^1.0.12",
     "debug": "^2.2.0",
+    "es6-promise": "^3.2.1",
     "extract-text-webpack-plugin": "^1.0.0",
     "file-loader": "^0.8.4",
     "fs-extra": "^0.28.0",
@@ -148,6 +149,7 @@
     "history": "^2.0.0",
     "html-webpack-plugin": "^2.7.1",
     "imports-loader": "^0.6.5",
+    "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.4",
     "koa": "^2.0.0-alpha.3",
     "koa-connect-history-api-fallback": "^0.3.0",
