@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 export default class GoogleAdv extends Component {
 
   componentDidMount (){
-      // console.log(adsbygoogle);
-      // (adsbygoogle = window.adsbygoogle || []).push({});
-      // console.log('render2222')
       const script2 = document.createElement("script");
       script2.id="adv_register";
       script2.async = true;
@@ -16,12 +13,9 @@ export default class GoogleAdv extends Component {
     document.body.removeChild(document.getElementById('adv_register'));
     window.adsbygoogle = window.adsbygoogle || [];
     window.adsbygoogle.length = 0;
-    console.log('unmout')
   }
 
   render() {
-    // console.log(this)
-    // console.log('render111')
     const { client , slot , style , advBoxStyle } = this.props;
     return (
       <div

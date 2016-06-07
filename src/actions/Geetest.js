@@ -90,6 +90,7 @@ export function sendLottery(headers,cb){
           case 200:
             // message.success('您已成功抽奖一次', 3);
             cb && cb();
+            // console.log(res)
             let res = JSON.parse(res.text);
             dispatch(lotteryData(res));
         }

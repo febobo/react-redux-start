@@ -60,15 +60,12 @@ export class Lottery extends React.Component {
       title: i18n.t('common.time'),
       dataIndex: 'time'
     }];
-// console.log(moment(new Date()).format("YYYY-MM-DD hh:mm:ss") )
-
-          // amount: <Tag color="blue">`${v.amount}`</Tag>,
     const data = [];
     latest_incomes && latest_incomes.length && latest_incomes.map( (v, k) => {
         data.push({
           key: `${k}`,
           address: `${v.address}`,
-          amount: <Tag color="blue">{v.amount}</Tag>,
+          amount: <Tag color="blue">{v.amount.toFixed(8)}</Tag>,
           time: moment(Date.parse(`${v.time}`)).format("YYYY-MM-DD HH:mm:ss"),
         });
     })

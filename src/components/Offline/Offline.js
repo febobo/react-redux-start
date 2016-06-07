@@ -6,6 +6,8 @@ import {i18n} from '../../util/i18n'
 type Props = {
 
 };
+
+var currentLimit = 10;
 export class Offline extends React.Component {
   props: Props;
 
@@ -14,10 +16,12 @@ export class Offline extends React.Component {
   }
 
   _getData (page , limit){
+
     const { getOfflineList } = this.props;
     let offset = page || 0;
     let pageSize = limit || 10
-    let param = '?offset=' + offset + '&limit=' + pageSize
+    currentLimit = pageSize;
+    let param = '?offset=' + offset*currentLimit + '&limit=' + pageSize
     getOfflineList(param)
   }
 
@@ -29,6 +33,7 @@ export class Offline extends React.Component {
 
   render () {
     const { offlineData } = this.props;
+
     const columns = [{
       title: i18n.t('common.time'),
       dataIndex: 'updated_at',
@@ -50,21 +55,24 @@ export class Offline extends React.Component {
           key: `${k}`,
           updated_at: moment(`${v.created_at}`).format("YYYY-MM-DD HH:mm:ss"),
           address:`${v.address}`,
-          amount:`${v.referer_total_income}`,
+          amount: <Tag color="blue">{v.referer_total_income.toFixed(8)}</Tag>
         });
     })
 
+          // amount:`${v.referer_total_income.toFixed(8)}`,
     const that = this;
     const pagination = {
       total: offlineData && offlineData.count,
-      pageSize : 10,
       showSizeChanger: true,
       onShowSizeChange(current, pageSize){
         that._changePage(current - 1,pageSize);
       },
-      onChange(current) {
-        that._changePage(current -1);
+      onChange(current,pageSize) {
+        that._changePage(current -1,currentLimit);
       },
+      // showTotal(){
+      //   return (<span>总条数：{offlineData && offlineData.count}</span>)
+      // }
     };
     return (
       <div className={classes.offline}>

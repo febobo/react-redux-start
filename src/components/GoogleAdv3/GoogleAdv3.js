@@ -16,7 +16,6 @@ export default class GoogleAdv3 extends Component {
     document.body.removeChild(document.getElementById('adv_login'));
     window.adsbygoogle = window.adsbygoogle || [];
     window.adsbygoogle.length = 0;
-    console.log('unmout')
   }
 
   render() {
