@@ -106,6 +106,7 @@ export function userRegister(url , obj , cb){
 }
 /* 用户认证 */
 export function userAuth(query , cb) {
+  console.log(query,22)
   if(!query.id || !query.token) return ;
   let url = new URI(v1 + `/users/${query.id}/status`);
 
