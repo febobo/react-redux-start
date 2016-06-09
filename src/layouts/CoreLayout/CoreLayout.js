@@ -10,28 +10,40 @@ import { userRegister ,
          logout,
          userAuth
        } from '../../routes/Register/modules/register'
-import { getUser } from '../../routes/Login/modules/login'
+import { getUser , userLogin } from '../../routes/Login/modules/login'
 import { isBoolean } from '../../actions/Nav'
 import { getBtcWebsocket } from '../../actions/Websocket'
 
 import {i18n} from '../../util/i18n'
 import store from 'store';
-import {LocaleProvider} from 'antd'
+import {LocaleProvider , message} from 'antd'
 import enUS from 'antd/lib/locale-provider/en_US';
 
 export class CoreLayout extends React.Component {
 
   componentWillMount() {
-    let {language , getUser , userAuth , location , history}  = this.props;
-
-    // console.log('../../texts/' + language + '.js')
+    let {language , getUser , userAuth , location , history , userLogin}  = this.props;
     i18n.extend(require('../../texts/' + language + '.js').text);
 
     // token && id 同时存在即为认证
-    const query = location.query;
-    if(query.id && query.token){
-      userAuth(query , getUser);
-      history.push('/');
+      const query = location.query;
+      if(query.id && query.token && query.email){
+        userAuth(query);
+        let params = {
+          "email": decodeURIComponent(query.email),
+        }
+        userLogin(
+          '/auth_tokens' ,
+          {
+            'method' : 'POST',
+             body:JSON.stringify(params)
+          },  () => {
+              getUser(()=>{
+                history.push('/');
+                message.success(i18n.t('message.login_success'), 3);
+              });
+          }
+        );
     }else{
       getUser();
     }
@@ -68,7 +80,8 @@ const mapActionCreators = {
   sendUserEmail,
   logout,
   getUser,
-  userAuth
+  userAuth,
+  userLogin
 }
 
 const Lang = [
