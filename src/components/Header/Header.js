@@ -37,6 +37,7 @@ export class Header extends React.Component {
       'ft': '繁體中文',
       // 'ar': 'العربية',
       'ru': 'Русский',
+      'fy': 'Français',
       'pt' : 'Português',
       'de' : 'Deutsch',
       'sp' : 'Español',
@@ -50,7 +51,7 @@ export class Header extends React.Component {
   ];
 
   const Lang = [
-    ['en', 'cn' , 'ft'  , 'ru', 'pt' , 'de' , 'sp'],
+    ['en', 'cn' , 'ft'  , 'ru', 'fy','pt' , 'de' , 'sp'],
     ['lt'],
     ['ds'],
     ['gb']
