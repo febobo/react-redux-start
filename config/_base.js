@@ -3,6 +3,8 @@ import _debug from 'debug'
 import path from 'path'
 import { argv } from 'yargs'
 const debug = _debug('app:config:_base')
+const outputArr = ['dist','ltcdist','dashlist','dogedist']
+console.log(process.env.NODE_ENV )
 const config = {
   env : process.env.NODE_ENV || 'development',
   type : process.env.TYPE || '1',

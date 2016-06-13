@@ -10,9 +10,7 @@ import arrowIco from '../../static/images/arrowIco.png'
 import { Menu, Dropdown, Icon } from 'antd';
 import {i18n} from '../../util/i18n'
 import store from 'store'
-// function handleMenuClick(e) {
-//   console.log('click', e);
-// }
+import fuckadblock from 'fuckadblock';
 
 //process.env.TYPE
 // [1,2,3,4] => [solebtc , SoleLTC , soledash , SoleDoKC]
@@ -37,6 +35,7 @@ export class Header extends React.Component {
       'ft': '繁體中文',
       // 'ar': 'العربية',
       'ru': 'Русский',
+      'fy': 'Français',
       'pt' : 'Português',
       'de' : 'Deutsch',
       'sp' : 'Español',
@@ -50,7 +49,7 @@ export class Header extends React.Component {
   ];
 
   const Lang = [
-    ['en', 'cn' , 'ft'  , 'ru', 'pt' , 'de' , 'sp'],
+    ['en', 'cn' , 'ft'  , 'ru', 'fy','pt' , 'de' , 'sp'],
     ['lt'],
     ['ds'],
     ['gb']

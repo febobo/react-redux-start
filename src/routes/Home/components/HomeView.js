@@ -33,7 +33,7 @@ export class HomeView extends React.Component {
     return (
 
   <div>
-    <Geetest />
+    <Geetest {...this.props}/>
     <GoogleAdv2
       {...advProps}
     />
