@@ -9,7 +9,7 @@ import { getUser } from '../../routes/Login/modules/login'
 import { getBtcWebsocket } from '../../actions/Websocket'
 import reactDom from 'react-dom'
 import { connect } from 'react-redux'
-import { Alert , Table ,message } from 'antd'
+import { Alert , Table ,message ,Modal} from 'antd'
 import geetest from 'geetest-proxy';
 import CountDown from '../CountDown';
 import moment from 'moment'
@@ -19,7 +19,9 @@ import URI from 'urijs';
 import gs from './gs'
 import GoogleAdv from '../GoogleAdv'
 import BaseConfig from '../../BaseConfig';
-const v1 =BaseConfig.api
+const v1 =BaseConfig.api;
+// let fuckAdBlock = false;
+import fuckadblock from './dblock';
 
 type Props = {
 
@@ -28,7 +30,22 @@ export class Geetest extends React.Component {
   props: Props;
 
   componentWillMount (){
-    const { countDown , getUser  } = this.props;
+    const { countDown , getUser ,history } = this.props;
+    let adBlock = new FuckAdBlock;
+    adBlock.setOption({
+      loopCheckTime :5,
+      loopMaxNumber : 5
+    })
+    adBlock.onDetected(()=>{
+        Modal.info({
+          title: 'Tips',
+          content: 'Please disable your Ad-blocking browser plugin！',
+          onOk(){
+            history.push('/login');
+          }
+        });
+    })
+    adBlock.check(true)
     getUser( () => {
       // console.log(Math.ceil(new Date().getTime() /1000) - new Date(store.get('user').rewarded_at).getTime() / 1000)
       let currentTime = Math.ceil(new Date().getTime() /1000)

@@ -16,7 +16,7 @@ import { getBtcWebsocket } from '../../actions/Websocket'
 
 import {i18n} from '../../util/i18n'
 import store from 'store';
-import {LocaleProvider , message} from 'antd'
+import {LocaleProvider , message , Modal} from 'antd'
 import enUS from 'antd/lib/locale-provider/en_US';
 
 export class CoreLayout extends React.Component {
@@ -25,6 +25,15 @@ export class CoreLayout extends React.Component {
     let {language , getUser , userAuth , location , history , userLogin}  = this.props;
     i18n.extend(require('../../texts/' + language + '.js').text);
 
+    // fuckAdBlock.onDetected(()=>{
+    //   Modal.info({
+    //     title: 'Tips',
+    //     content: 'Please disable your Ad-blocking browser plugin！',
+    //     onOk(){
+    //       history.push('/login');
+    //     }
+    //   });
+    // })
     // token && id 同时存在即为认证
       const query = location.query;
       if(query.id && query.token && query.email){
