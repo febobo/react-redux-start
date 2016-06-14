@@ -10,7 +10,6 @@ import arrowIco from '../../static/images/arrowIco.png'
 import { Menu, Dropdown, Icon } from 'antd';
 import {i18n} from '../../util/i18n'
 import store from 'store'
-import fuckadblock from 'fuckadblock';
 
 //process.env.TYPE
 // [1,2,3,4] => [solebtc , SoleLTC , soledash , SoleDoKC]
