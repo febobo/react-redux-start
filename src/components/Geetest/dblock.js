@@ -123,7 +123,6 @@
 		this._var.loopNumber = 0;
 		if(loop === true) {
 			this._var.loop = setInterval(function() {
-        console.log(111111999)
 				self._checkBait(loop);
 			}, this._options.loopCheckTime);
 		}
