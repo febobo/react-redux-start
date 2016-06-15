@@ -15,7 +15,16 @@ table{border-collapse:collapse;border-spacing:0}
 .clear{clear:both;}
 a{text-decoration:none;color:#666;}
 a:hover,a:active,a:focus{color:#666;text-decoration:none;}
-
+.lu{
+  float: right;
+  margin-right: 20px;
+  margin-top: -4px;
+  cursor: pointer;
+  background: #2db7f5;
+  border-radius: 3px;
+  padding:2px 3px;
+  color : #fff;
+}
 .mainBlock{height:605px;border-bottom:1px solid #efefef;}
 .dynamic{width:661px;float:left;}
 .dynamicTitle{height:46px;border-bottom:1px solid #eaeaea;}

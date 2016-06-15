@@ -15,6 +15,7 @@ import navIco1 from '../../static/images/navIco1.png'
 
 import btcIco from '../../static/images/btcIco.png'
 import moneyIco from '../../static/images/moneyIco.png'
+import OfferWow from '../OfferWow'
 const FormItem = Form.Item;
 
 
@@ -45,6 +46,13 @@ type Props = {
 export class NavBar extends React.Component {
   props: Props;
 
+  constructor(props){
+    super(props);
+    this._lu = this._lu.bind(this);
+    this.state = {
+      showLu : false
+    }
+  }
   _sendEmail (){
     const { sendUserEmail , isBoolean } = this.props;
     sendUserEmail();
@@ -57,15 +65,25 @@ export class NavBar extends React.Component {
     history.pushState(null, '/login');
   }
 
+  _lu(){
+    this.setState({
+      showLu : !this.state.showLu
+    });
+  }
+
   render () {
-    const { data , isBoolean , isloading ,sendUserEmail , history } = this.props;
-    // console.log(history.isActive(to , null ,true))
+    const { data , isBoolean , isloading ,sendUserEmail , history , language } = this.props;
     const formItemLayout = {
       labelCol: { span: 4 },
       wrapperCol: { span: 20 },
     };
     return (
       <div className={classes.nav}>
+        {
+          this.state.showLu && language == 'cn' ?
+          <OfferWow user={data}/>
+          : null
+        }
       	<ul>
       		<li>
             <IndexLink to='/' activeClassName={classes.navCur}>
@@ -103,7 +121,22 @@ export class NavBar extends React.Component {
 
       	</ul>
       	<div className={classes.clear}></div>
-      	<p>{i18n.t('navbar.tips')}</p>
+      	<p>
+          {i18n.t('navbar.tips')}
+          {
+            language == 'cn' ?
+              <span className={classes.lu}
+                onClick={this._lu}
+              >
+                  {
+                    this.state.showLu ?
+                    '关闭，不撸了'
+                    : '撸万聪'
+                  }
+              </span>
+              : null
+          }
+        </p>
       	<div className={classes.btc}>
       		<img src={btcIco} />
       		<strong>{i18n.t('common.btcAddress')}：</strong>
