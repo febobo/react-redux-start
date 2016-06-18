@@ -1,15 +1,15 @@
 const apiArr = [
-  'https://solebtc.com/api/v1',
-  'https://soleltc.com/api/v1',
-  'https://soledash.net/api/v1',
-  'https://soledoges.com/api/v1',
+  'http://solebtc.com/api/v1',
+  'http://soleltc.com/api/v1',
+  'http://soledash.net/api/v1',
+  'http://soledoges.com/api/v1',
 ]
 
 const socketApiArr = [
-  'wss://solebtc.com/api/v1/websocket',
-  'wss://soleltc.com/api/v1/websocket',
-  'wss://soledash.net/api/v1/websocket',
-  'wss://soledoges.com/api/v1/websocket',
+  'ws://solebtc.com/api/v1/websocket',
+  'ws://soleltc.com/api/v1/websocket',
+  'ws://soledash.net/api/v1/websocket',
+  'ws://soledoges.com/api/v1/websocket',
 ]
 export default {
     api : apiArr[process.env.TYPE-1],

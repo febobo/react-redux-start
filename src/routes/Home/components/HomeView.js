@@ -46,14 +46,14 @@ export class HomeView extends React.Component {
     			<div className={classes.ad1}>
             <center>
             	<div>
-            		<iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+            		<iframe scrolling="no" src="http://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
             	</div>
             </center>
           </div>
     			<div className={classes.ad1}>
           <center>
             <div>
-              <iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+              <iframe scrolling="no" src="http://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
             </div>
           </center>
           </div>
@@ -74,10 +74,10 @@ export class HomeView extends React.Component {
 }
 
           // <div style={{textAlign:"center"}}>
-          //   <a href="https://coinad.com/?a=BuyAds&id=L05ZQS9VCGVN4" target="_blank">Advertise in this spot</a>
+          //   <a href="http://coinad.com/?a=BuyAds&id=L05ZQS9VCGVN4" target="_blank">Advertise in this spot</a>
           // </div>
 // <div style={{textAlign:"center"}}>
-//   <a href="https://coinad.com/?a=BuyAds&id=3FMLHO8FY55DT" target="_blank">Advertise in this spot</a>
+//   <a href="http://coinad.com/?a=BuyAds&id=3FMLHO8FY55DT" target="_blank">Advertise in this spot</a>
 // </div>
     // <CoinadAdv />
 // )

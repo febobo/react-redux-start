@@ -22,16 +22,16 @@ const FormItem = Form.Item;
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" href="https://solebtc.com">Bitcoin Faucet</a>
+      <a target="_blank" href="http://solebtc.com">Bitcoin Faucet</a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" href="https://soledoges.com">Dogecoin Faucet</a>
+      <a target="_blank" href="http://soledoges.com">Dogecoin Faucet</a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" href="https://soleltc.com">Litecoin Faucet</a>
+      <a target="_blank" href="http://soleltc.com">Litecoin Faucet</a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" href="https://soledash.net">Dash Faucet </a>
+      <a target="_blank" href="http://soledash.net">Dash Faucet </a>
     </Menu.Item>
     <Menu.Item>
       <a target="_blank" href="#">ETHer Faucet (Coming)</a>
