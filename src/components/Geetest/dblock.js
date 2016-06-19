@@ -2,7 +2,7 @@
  * FuckAdBlock 3.2.1
  * Copyright (c) 2015 Valentin Allaire <valentin.allaire@sitexw.fr>
  * Released under the MIT license
- * http://github.com/sitexw/FuckAdBlock
+ * https://github.com/sitexw/FuckAdBlock
  */
 
 (function(window) {
