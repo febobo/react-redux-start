@@ -51,7 +51,8 @@ export class Header extends React.Component {
     ['en', 'cn' , 'ft'  , 'ru', 'fy','pt' , 'de' , 'sp'],
     ['lt'],
     ['ds'],
-    ['gb']
+    ['gb'],
+    ['en', 'cn' , 'ft'  , 'ru', 'fy','pt' , 'de' , 'sp']
   ]
   // console.log(Lang[process.env.TYPE-1])
     const menu = (
