@@ -89,7 +89,7 @@ export class Geetest extends React.Component {
     sendLottery(headers , ()=>{
       setDely(5)
     });
-    this.state.captchaObj.refresh();
+    // this.state.captchaObj.refresh();
     // 每一次抽奖存一次当前时间
     store.set('prev_time',Math.ceil(new Date().getTime() / 1000))
     countDown(store.get('user').reward_interval);
