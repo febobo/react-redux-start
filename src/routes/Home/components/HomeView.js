@@ -13,6 +13,7 @@ import GoogleAdv from '../../../components/GoogleAdv'
 import GoogleAdv2 from '../../../components/GoogleAdv2'
 import CoinadAdv from '../../../components/CoinadAdv'
 import geetest from 'geetest-proxy';
+import config from '../../../BaseConfig'
 // import store from 'store'
 // import gs from './gs'
 // console.log(initGeetest)
@@ -34,9 +35,13 @@ export class HomeView extends React.Component {
 
   <div>
     <Geetest {...this.props}/>
-    <GoogleAdv2
-      {...advProps}
-    />
+    {
+      config.show_google_adv ?
+      <GoogleAdv2
+        {...advProps}
+      />
+      :null
+    }
     <div className={classes.luckMain}>
     	<div className={classes.mainBlock}>
     		<div className={classes.dynamicTitle}><img src="images/dynamicIco.png" /><span><b>{i18n.t('common.dynamic')}</b></span>
@@ -44,28 +49,68 @@ export class HomeView extends React.Component {
         <Lottery isDynamic={true} style={{marginTop:'20px'}}/>
     		<div className={classes.ad}>
     			<div className={classes.ad1}>
-            <center>
-            	<div>
-            		<iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
-            	</div>
-            </center>
+            {
+              config.show_coinad_adv ?
+              <center>
+              	<div>
+              		<iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+              	</div>
+              </center>
+              :null
+            }
+            {
+              config.show_moon_adv ?
+              <center>
+                  <div>
+                    <iframe src="coinmedia.co/new_code_site13705.js" scrolling="no" frameborder="0" width="300px" height="250px"></iframe>
+                  </div>
+              </center>
+              :null
+            }
           </div>
     			<div className={classes.ad1}>
-          <center>
-            <div>
-              <iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
-            </div>
-          </center>
+            {
+              config.show_coinad_adv ?
+              <center>
+                <div>
+                  <iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+                </div>
+              </center>
+              :null
+            }
+            {
+              config.show_moon_adv ?
+              <center>
+                  <div>
+                    <iframe src="//coinmedia.co/new_code_site13705.js" scrolling="no" frameborder="0" width="300px" height="250px"></iframe>
+                  </div>
+              </center>
+              :null
+            }
           </div>
     		</div>
     	</div>
     </div>
     <div className={classes.adv}>
-      <center>
-          <div>
-            <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=QP10TX6B6KV66" style={{overflow:"hidden",width:"728px",height:"90px"}} frameborder="0"></iframe>
-          </div>
-      </center>
+      {
+        config.show_coinad_adv ?
+        <center>
+            <div>
+              <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=QP10TX6B6KV66" style={{overflow:"hidden",width:"728px",height:"90px"}} frameborder="0"></iframe>
+            </div>
+        </center>
+        :null
+      }
+      {
+        config.show_moon_adv ?
+        <center>
+            <div>
+              <iframe src="//coinmedia.co/new_code_site13704.js" scrolling="no" frameborder="0" width="728px" height="120px"></iframe>
+            </div>
+        </center>
+        :null
+      }
+
     </div>
   </div>
 
@@ -73,13 +118,4 @@ export class HomeView extends React.Component {
   }
 }
 
-          // <div style={{textAlign:"center"}}>
-          //   <a href="https://coinad.com/?a=BuyAds&id=L05ZQS9VCGVN4" target="_blank">Advertise in this spot</a>
-          // </div>
-// <div style={{textAlign:"center"}}>
-//   <a href="https://coinad.com/?a=BuyAds&id=3FMLHO8FY55DT" target="_blank">Advertise in this spot</a>
-// </div>
-    // <CoinadAdv />
-// )
-// <Adv />
 export default HomeView;

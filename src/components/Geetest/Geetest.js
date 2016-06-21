@@ -157,9 +157,13 @@ export class Geetest extends React.Component {
           <div ref="geetest"></div>
           </div>
         	<div className={classes.luckCode}  >
-            <GoogleAdv
-              {...advProps}
-            />
+            {
+              BaseConfig.show_google_adv ?
+              <GoogleAdv
+                {...advProps}
+              />
+              :null
+            }
           </div>
         </div>
       </div>

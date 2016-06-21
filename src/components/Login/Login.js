@@ -10,6 +10,7 @@ import {i18n} from '../../util/i18n'
 import Lottery from '../Lottery'
 import About from '../About'
 import GoogleAdv3 from '../GoogleAdv3'
+import config from '../../BaseConfig'
 type Props = {
 
 };
@@ -93,9 +94,13 @@ export class Login extends React.Component {
           }
       	</div>
       </div>
-      <GoogleAdv3
-        {...advProps}
-      />
+      {
+        config.show_google_adv ?
+        <GoogleAdv3
+          {...advProps}
+        />
+        :null
+      }
       <div className={classes.main}>
       	<div className={classes.mainBlock}>
           <Lottery />

@@ -16,6 +16,7 @@ import navIco1 from '../../static/images/navIco1.png'
 import btcIco from '../../static/images/btcIco.png'
 import moneyIco from '../../static/images/moneyIco.png'
 import OfferWow from '../OfferWow'
+import config from '../../BaseConfig'
 const FormItem = Form.Item;
 
 
@@ -80,8 +81,8 @@ export class NavBar extends React.Component {
     return (
       <div className={classes.nav}>
         {
-          this.state.showLu && language == 'cn' ?
-          <OfferWow user={data}/>
+          this.state.showLu ?
+          <OfferWow user={data} config={config}/>
           : null
         }
       	<ul>
@@ -124,7 +125,20 @@ export class NavBar extends React.Component {
       	<p>
           {i18n.t('navbar.tips')}
           {
-            language == 'cn' ?
+            language == 'cn' && config.show_btc_task ?
+              <span className={classes.lu}
+                onClick={this._lu}
+              >
+                  {
+                    this.state.showLu ?
+                    '关闭，不撸了'
+                    : '撸万聪'
+                  }
+              </span>
+              : null
+          }
+          {
+            config.show_moon_task ?
               <span className={classes.lu}
                 onClick={this._lu}
               >

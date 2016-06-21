@@ -2,14 +2,11 @@ import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import NavBar from '../NavBar'
 import classes from './Header.scss'
-import logoImg from '../../static/images/logo.png'
-import soledash from '../../static/images/soledash.png'
-import SoleDoKC from '../../static/images/SoleDoKC.png'
-import SoleLTC from '../../static/images/SoleLTC.png'
 import arrowIco from '../../static/images/arrowIco.png'
 import { Menu, Dropdown, Icon } from 'antd';
 import {i18n} from '../../util/i18n'
 import store from 'store'
+import config from '../../BaseConfig'
 
 //process.env.TYPE
 // [1,2,3,4] => [solebtc , SoleLTC , soledash , SoleDoKC]
@@ -28,31 +25,9 @@ export class Header extends React.Component {
   };
 
   render (){
-    const langs = [{
-      'en': 'English',
-      'cn': '中文',
-      'ft': '繁體中文',
-      // 'ar': 'العربية',
-      'ru': 'Русский',
-      'fy': 'Français',
-      'pt' : 'Português',
-      'de' : 'Deutsch',
-      'sp' : 'Español',
-    },{
-      'lt': 'English',
-    },{
-      'ds': 'English',
-    },{
-      'gb': 'English',
-    },
-  ];
+    const langs = config.language;
 
-  const Lang = [
-    ['en', 'cn' , 'ft'  , 'ru', 'fy','pt' , 'de' , 'sp'],
-    ['lt'],
-    ['ds'],
-    ['gb']
-  ]
+    const Lang = config.langs;
   // console.log(Lang[process.env.TYPE-1])
     const menu = (
       <Menu onClick={::this._changeLanguage} >
@@ -66,15 +41,13 @@ export class Header extends React.Component {
       </Menu>
     );
 
-    const logoArr = [logoImg,SoleLTC,soledash,SoleDoKC]
-
     const {users_online} = this.props;
     return (
       <div>
         <div className={classes.topBg}>
         	<div className={classes.top}>
         		<div className={classes.logo}>
-              <a href="/"><img src={logoArr[process.env.TYPE-1]}
+              <a href="/"><img src={config.logo}
                 style={{width: "170px",  height: "59px"}} /></a>
             </div>
         		<div className={classes.language}>
