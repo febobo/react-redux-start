@@ -11,6 +11,7 @@ import Lottery from '../../../components/Lottery'
 import Geetest from '../../../components/Geetest'
 import GoogleAdv from '../../../components/GoogleAdv'
 import GoogleAdv2 from '../../../components/GoogleAdv2'
+import GoogleAdv4 from '../../../components/GoogleAdv4'
 import CoinadAdv from '../../../components/CoinadAdv'
 import geetest from 'geetest-proxy';
 import config from '../../../BaseConfig'
@@ -31,9 +32,22 @@ export class HomeView extends React.Component {
       slot : '1843492278',
       advBoxStyle : { paddingTop:"22px", textAlign : "center"}
     }
+    const topAdvProps = {
+      style : {display:"inline-block",width:"970px",height:"90px"},
+      client : 'ca-pub-5722932343401905',
+      slot : '3422043073',
+      advBoxStyle : { paddingTop:"22px", textAlign : "center"}
+    }
     return (
 
   <div>
+    {
+      config.show_home_top_adv ?
+      <GoogleAdv4
+        {...topAdvProps}
+      />
+      :null
+    }
     <Geetest {...this.props}/>
     {
       config.show_google_adv ?
