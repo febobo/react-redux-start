@@ -73,6 +73,7 @@ export default {
     language : language,
     langs : langs,
     logo : logoArr[process.env.TYPE-1],
+    show_home_top_adv : process.env.TYPE == 4 ? true : false,
     show_google_adv : process.env.TYPE != 5 ? true : false,
     show_coinad_adv : process.env.TYPE != 5 ? true : false,
     show_moon_adv : process.env.TYPE == 5 ? true : false,

@@ -82,7 +82,11 @@ export class NavBar extends React.Component {
       <div className={classes.nav}>
         {
           this.state.showLu ?
-          <OfferWow user={data} config={config}/>
+          <OfferWow
+            user={data}
+            config={config}
+            lu={this._lu}
+          />
           : null
         }
       	<ul>
@@ -131,7 +135,7 @@ export class NavBar extends React.Component {
               >
                   {
                     this.state.showLu ?
-                    '关闭，不撸了'
+                    null
                     : '撸万聪'
                   }
               </span>
@@ -144,8 +148,8 @@ export class NavBar extends React.Component {
               >
                   {
                     this.state.showLu ?
-                    '关闭，不撸了'
-                    : '撸万聪'
+                    null
+                    : 'Earned By Task'
                   }
               </span>
               : null
