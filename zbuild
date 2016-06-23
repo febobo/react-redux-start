@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+require('shelljs/global');
+
+exec('rm -rf btc.tar.gz')
+exec('rm -rf ltc.tar.gz')
+exec('rm -rf dash.tar.gz')
+exec('rm -rf dogo.tar.gz')
+exec('rm -rf moon.tar.gz')
+
+console.info('build btc begin');
+exec('export TYPE=1');
+exec('npm run deploy:prod');
+exec('cp  cbq.html dist');
+exec('tar -czvf btc.tar.gz dist');
+console.info('build btc end');
+
+exec('export TYPE=2');
+exec('npm run deploy:prodlt');
+exec('cp  cbq.html dist');
+exec('tar -czvf ltc.tar.gz dist');
+
+exec('export TYPE=3');
+exec('npm run deploy:prodds');
+exec('cp  cbq.html dist');
+exec('tar -czvf dash.tar.gz dist');
+
+exec('export TYPE=4');
+exec('npm run deploy:prodgb');
+exec('cp  cbq.html dist');
+exec('tar -czvf doge.tar.gz dist');
+
+exec('export TYPE=5');
+exec('npm run deploy:prodmn');
+exec('cp  cbq.html dist');
+exec('tar -czvf moon.tar.gz dist');
+
+
+console.info('build success');
