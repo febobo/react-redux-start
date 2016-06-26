@@ -12,39 +12,39 @@ import Geetest from '../../../components/Geetest'
 import GoogleAdv from '../../../components/GoogleAdv'
 import GoogleAdv2 from '../../../components/GoogleAdv2'
 import GoogleAdv4 from '../../../components/GoogleAdv4'
+import BtcHomeTopAdv from '../../../components/Advs/BtcHomeTopAdv'
 import CoinadAdv from '../../../components/CoinadAdv'
 import geetest from 'geetest-proxy';
 import config from '../../../BaseConfig'
-// import store from 'store'
-// import gs from './gs'
-// console.log(initGeetest)
+
 
 export class HomeView extends React.Component {
 
-  componentWillMount (){
-
+  renderAdvProps(advProps){
+    const defaultProps =  {
+      style : {display:"inline-block",width:"970px",height:"90px"},
+      client : 'ca-pub-5722932343401905',
+      slot : 1843492278,
+      advBoxStyle : { paddingTop:"22px", textAlign : "center"}
+    }
+    return Object.assign({},defaultProps,advProps)
   }
 
   render (){
-    const advProps = {
-      style : {display:"inline-block",width:"970px",height:"90px"},
-      client : 'ca-pub-5722932343401905',
-      slot : '1843492278',
-      advBoxStyle : { paddingTop:"22px", textAlign : "center"}
-    }
-    const topAdvProps = {
-      style : {display:"inline-block",width:"970px",height:"90px"},
-      client : 'ca-pub-5722932343401905',
-      slot : '3422043073',
-      advBoxStyle : { paddingTop:"22px", textAlign : "center"}
-    }
     return (
 
   <div>
     {
       config.show_home_top_adv ?
       <GoogleAdv4
-        {...topAdvProps}
+        {...this.renderAdvProps({slot:3422043073})}
+      />
+      :null
+    }
+    {
+      config.show_btc_home_top_adv ?
+      <BtcHomeTopAdv
+        {...this.renderAdvProps({slot:8465861479})}
       />
       :null
     }
@@ -52,7 +52,7 @@ export class HomeView extends React.Component {
     {
       config.show_google_adv ?
       <GoogleAdv2
-        {...advProps}
+        {...this.renderAdvProps({slot:1843492278})}
       />
       :null
     }
