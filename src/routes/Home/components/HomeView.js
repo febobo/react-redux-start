@@ -20,13 +20,14 @@ import config from '../../../BaseConfig'
 
 export class HomeView extends React.Component {
 
-  renderAdvProps(slot){
-    return {
+  renderAdvProps(advProps){
+    const defaultProps =  {
       style : {display:"inline-block",width:"970px",height:"90px"},
       client : 'ca-pub-5722932343401905',
-      slot : slot,
+      slot : 1843492278,
       advBoxStyle : { paddingTop:"22px", textAlign : "center"}
     }
+    return Object.assign({},defaultProps,advProps)
   }
 
   render (){
@@ -36,14 +37,14 @@ export class HomeView extends React.Component {
     {
       config.show_home_top_adv ?
       <GoogleAdv4
-        {...this.renderAdvProps(3422043073)}
+        {...this.renderAdvProps({slot:3422043073})}
       />
       :null
     }
     {
       config.show_btc_home_top_adv ?
       <BtcHomeTopAdv
-        {...this.renderAdvProps(8465861479)}
+        {...this.renderAdvProps({slot:8465861479})}
       />
       :null
     }
@@ -51,7 +52,7 @@ export class HomeView extends React.Component {
     {
       config.show_google_adv ?
       <GoogleAdv2
-        {...this.renderAdvProps(1843492278)}
+        {...this.renderAdvProps({slot:1843492278})}
       />
       :null
     }
