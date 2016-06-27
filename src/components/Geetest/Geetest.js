@@ -119,12 +119,10 @@ export class Geetest extends React.Component {
     const { tips } = this.props;
     const amout = geetest && geetest.income ;
     const description = i18n.t('message.Bonus_tips') + amout + i18n.t('message.unit')
-// console.log(this.props, geetest && geetest.income , tipsDley)
     const advProps = {
       style : {display:"inline-block",width:"300px",height:"250px"},
       client : 'ca-pub-5722932343401905',
       slot : '9366759071',
-      // advBoxStyle : { paddingTop:"25px", textAlign : "center"}
     }
     return (
       <div className={classes.wrap}>
