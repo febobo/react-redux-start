@@ -218,15 +218,3 @@
     }
   }
 }
-.test{
-  animation:myfirst 2s infinite;
-  overflow: hidden
-}
-@keyframes myfirst
-{
-from {
-  height: 0;
-  overflow: hidden;
-}
-to {height:18px; }
-}

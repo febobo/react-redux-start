@@ -139,7 +139,7 @@ export class Geetest extends React.Component {
           :null
         }
         <div className={classes.luck}>
-        	<div className={classes.block + ' nn'}>
+        	<div className={classes.block}>
           {
             time && time.count ?
               <a className={classes.luckBtn2}
