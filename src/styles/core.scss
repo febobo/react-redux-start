@@ -23,11 +23,8 @@
 
   .lottery0{
     td {
-      height : 10px;
-      overflow: hidden;
-      padding : 1px  !important;
       >div {
-        background: red;
+        // background: red;
         animation:autoHeight 2s infinite;
         -webkit-animation:autoHeight 2s infinite;
       }

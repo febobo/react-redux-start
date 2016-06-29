@@ -16,12 +16,22 @@ export class Lottery extends React.Component {
   props: Props;
 
   componentWillMount (){
+    // this._stream()
     const { getBtcWebsocket , btcWebsocket } = this.props;
     getBtcWebsocket()
+    // btcWebsocket({name : 1})
   }
 
   componentDidMount (){
-
+    // let warp = document.getElementById('listScroll');
+    // console.log(warp.scrollTop)
+    // setInterval( () =>{
+    //   if(warp.scrollTop >= 105){
+    //     warp.scrollTop =0;
+    //   }else {
+    //     warp.scrollTop ++ ;
+    //   }
+    // },100)
   }
   render () {
 
@@ -40,6 +50,9 @@ export class Lottery extends React.Component {
     const columns = [{
       title: i18n.t('common.btcAddress'),
       dataIndex: 'address',
+      render(text) {
+        return <a href="#">{text}</a>;
+      }
     }, {
       title: i18n.t('common.amount'),
       dataIndex: 'amount'
@@ -51,17 +64,9 @@ export class Lottery extends React.Component {
     latest_incomes && latest_incomes.length && latest_incomes.map( (v, k) => {
         data.push({
           key: `${k}`,
-          address: (()=>{
-            return (
-              <div>{v.address}</div>
-            )
-          })(),
+          address: `${v.address}`,
           amount: <Tag color="blue">{v.amount.toFixed(8)}</Tag>,
-          time: (()=>{
-            return (
-              <div>{moment(Date.parse(v.time)).format("YYYY-MM-DD HH:mm:ss")}</div>
-            )
-          })(),
+          time: moment(Date.parse(`${v.time}`)).format("YYYY-MM-DD HH:mm:ss"),
         });
     })
     return (
