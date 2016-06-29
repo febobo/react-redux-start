@@ -21,24 +21,15 @@
     height: 100%;
   }
 
-  .lottery0{
-    td {
-      height : 10px;
-      overflow: hidden;
-      padding : 1px  !important;
-      >div {
-        background: red;
-        animation:autoHeight 2s infinite;
-        -webkit-animation:autoHeight 2s infinite;
-      }
-    }
-  }
+  // .lottery0{
+  //   td {
+  //     // padding : 1px  !important;
+  //     >div {
+  //       animation:myfirst 5s;
+  //     }
+  //   }
+  // }
 
-  @keyframes autoHeight
-  {
-    from {height:0px;}
-    to {height:39px;}
-  }
 
 
   *,
