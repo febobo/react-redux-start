@@ -74,13 +74,14 @@
     overflow: hidden;
     position: fixed;
     top : 110px;
+    display: none;
   }
-  .globalRightAdv{
+  /*.globalRightAdv{
     right : 20px;
   }
   .globalLeftAdv {
     left : 20px;
-  }
+  }*/
   </style>
 </head>
 <body style="background: #f0f0f0 url(./static/images/bg.png) top center no-repeat">
@@ -137,7 +138,24 @@
       if(child){
         document.getElementById('spinnerWrap').removeChild(document.getElementById('removeBox'))
       }
+      var advOffset = (getWidthInfo().width - 1000) / 2 + 1020
+      document.querySelector('.globalLeftAdv').style.right = advOffset + 'px'
+      document.querySelector('.globalLeftAdv').style.display = 'block'
+      document.querySelector('.globalRightAdv').style.left = advOffset + 'px'
+      document.querySelector('.globalRightAdv').style.display = 'block'
     }
   }
+
+  function getWidthInfo (){
+    var width,height;
+    width = document.body.clientWidth;
+    height = document.body.clientHeight;
+    return {
+      width : width,
+      height : height
+    }
+  }
+
+
 </script>
 <script type="text/javascript">CRISP_WEBSITE_ID = "c8432ad9-1514-41f7-beac-2cb5a5f8a9a6";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.im/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>

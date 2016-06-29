@@ -99,6 +99,7 @@ const Lang = [
   ['ds'],
   ['gb'],
   ['me'],
+  ['at'],
 ]
 
 const mapStateToProps = (state) => ({

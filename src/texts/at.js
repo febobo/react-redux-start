@@ -39,7 +39,7 @@ export const text = {
     "go_home": "Back Home"
   },
   "about" : {
-    "about" : "        *WOW* much Dogecoin! Such Auto payment AutoDOGE pays out up to 6K DOGE every 5 minutes and is automatically withdrawn to your wallet every half an hour, no matter the ammount of Dogecoin you have, there is no minimum payout. AutoDOGE also has an advanced referral program so you can earn even more DOGE just invite your friends and you'll make earn 30% of what they make. AutoDOGE is part of the Sole Faucets Network, try our  Bitcoin, Litecoin, Dash and Ethereum faucets! We will continue to innovate and to create new ways of earning more cryptocurrencies for free. ",
+    "about" : "        *WOW* much Dogecoin! Such Auto payment AutoDOGE pays out up to 6K DOGE every 5 minutes and is automatically withdrawn to your wallet every half an hour, no matter the ammount of Dogecoin you have, there is no minimum payout. AutoDOGE also has an advanced referral program so you can earn even more DOGE just invite your friends and you'll make earn 50% of what they make. AutoDOGE is part of the Sole Faucets Network, try our  Bitcoin, Litecoin, Dash and Ethereum faucets! We will continue to innovate and to create new ways of earning more cryptocurrencies for free. ",
     "title" : "About Autodoge"
   },
   "common" : {
