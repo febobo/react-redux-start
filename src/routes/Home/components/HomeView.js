@@ -13,6 +13,8 @@ import GoogleAdv from '../../../components/GoogleAdv'
 import GoogleAdv2 from '../../../components/GoogleAdv2'
 import GoogleAdv4 from '../../../components/GoogleAdv4'
 import BtcHomeTopAdv from '../../../components/Advs/BtcHomeTopAdv'
+import AutoHomeTopLeftAdv from '../../../components/Advs/AutoHomeTopLeftAdv'
+// import AutoHomeTopRightAdv from '../../../components/Advs/AutoHomeTopRightAdv'
 import CoinadAdv from '../../../components/CoinadAdv'
 import geetest from 'geetest-proxy';
 import config from '../../../BaseConfig'
@@ -46,6 +48,29 @@ export class HomeView extends React.Component {
       <BtcHomeTopAdv
         {...this.renderAdvProps({slot:8465861479})}
       />
+      :null
+    }
+    {
+      config.show_auto_home_top_adv ?
+      <div style={{width:'1000px',margin:'0 auto',overflow:'hidden',padding:'0 20px'}}>
+        <div style={{float:'left'}}>
+          <AutoHomeTopLeftAdv
+            {...this.renderAdvProps({
+              style : {display:"inline-block",width:"468px",height:"60px"},
+              client : 'ca-pub-5722932343401905',
+              slot : 3046293077,
+              advBoxStyle : { paddingTop:"22px", textAlign : "center"}
+            })}
+          />
+        </div>
+        <div style={{float:'right',paddingTop : '22px'}}>
+          <center>
+            <div>
+              <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=4XD7CSC96NFAP&b=3Y7FCLUKXK5ZR" style={{overflow:"hidden",width:"468px",height:"60px"}} frameborder="0"></iframe>
+            </div>
+          </center>
+        </div>
+      </div>
       :null
     }
     <Geetest {...this.props}/>

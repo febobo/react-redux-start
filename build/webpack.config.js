@@ -44,7 +44,7 @@ webpackConfig.output = {
 // ------------------------------------
 // Plugins
 // ------------------------------------
-const templateArr = ['index.html','lt-index.html' ,'ds-index.html' ,'gb-index.html','bt-index.html']
+const templateArr = ['index.html','lt-index.html' ,'ds-index.html' ,'gb-index.html','bt-index.html','at-index.html']
 // return console.log(process.env)
 // console.log('---------------------'+ process.env.TYPE , process.env)
 webpackConfig.plugins = [

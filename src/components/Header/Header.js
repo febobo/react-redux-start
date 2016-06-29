@@ -48,7 +48,7 @@ export class Header extends React.Component {
         	<div className={classes.top}>
         		<div className={classes.logo}>
               <a href="/"><img src={config.logo}
-                style={{width: "170px",  height: "59px"}} /></a>
+                style={{ height: "59px"}} /></a>
             </div>
         		<div className={classes.language}>
         			<span>{i18n.t('language.language')}<em>|</em></span>

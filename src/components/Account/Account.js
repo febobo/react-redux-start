@@ -4,10 +4,7 @@ import accountIco1 from '../../static/images/accountIco1.png'
 import accountIco2 from '../../static/images/accountIco2.png'
 import accountIco3 from '../../static/images/accountIco3.png'
 import {i18n} from '../../util/i18n'
-import ad6 from '../../static/images/ad6.gif'
-import ad7 from '../../static/images/ad7.gif'
-import ad8 from '../../static/images/ad8.gif'
-import ad9 from '../../static/images/ad9.gif'
+import config from '../../BaseConfig'
 type Props = {
 
 };
@@ -23,10 +20,10 @@ export class Account extends React.Component {
   render () {
     const { user , host} = this.props;
     const hosts = 'https://' + window.location.host;
-    const ad6_link = `<a href="${host}" target="_blank"><img src="${hosts}${ad6}"></a>`;
-    const ad7_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + ad7 + '"></a>';
-    const ad8_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + ad8 + '"></a>';
-    const ad9_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + ad9 + '"></a>';
+    const ad6_link = `<a href="${host}" target="_blank"><img src="${hosts}${config.refererObj.size_200}"></a>`;
+    const ad7_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + config.refererObj.size_200 + '"></a>';
+    const ad8_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + config.refererObj.size_200 + '"></a>';
+    const ad9_link = '<a href="'+host+'" target="_blank"><img src="'+ hosts + config.refererObj.size_200 + '"></a>';
 
 
     // console.log(str)
@@ -52,16 +49,16 @@ export class Account extends React.Component {
       		<div className={classes.accountRight}>
       			<p className={classes.accountTitle}>{i18n.t('account.banners')}</p>
       			<em>200*200</em>
-      			<img src={ad6} />
+      			<img src={config.refererObj.size_200} />
       			<span>{ad6_link}</span>
-      			<em>200*200</em>
-      			<img src={ad7} />
+      			<em>300*300</em>
+      			<img src={config.refererObj.size_300} />
       			<span>{ad7_link}</span>
       			<em>468*60</em>
-      			<img src={ad8} />
+      			<img src={config.refererObj.size_468} />
       				<span>{ad8_link}</span>
       			<em>728*90</em>
-      			<img src={ad9} />
+      			<img src={config.refererObj.size_728} />
       			<span>{ad9_link}</span>
       		</div>
       	</div>
