@@ -29,6 +29,7 @@
     "deploy:prodds": "better-npm-run deploy:prodds",
     "deploy:prodgb": "better-npm-run deploy:prodgb",
     "deploy:prodmn": "better-npm-run deploy:prodmn",
+    "deploy:prodat": "better-npm-run deploy:prodat",
     "flow:check": "babel-node bin/flow-check",
     "codecov": "cat coverage/*/lcov.info | codecov"
   },
@@ -97,6 +98,14 @@
         "NODE_ENV": "production",
         "DEBUG": "app:*",
         "TYPE": 5
+      }
+    },
+    "deploy:prodat": {
+      "command": "npm run deploy",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*",
+        "TYPE": 6
       }
     },
     "deploy:gb": {
