@@ -60,7 +60,7 @@ export const text = {
     "emailTips" : " We have sent an email to your address, please verify your email in order to you could withdraw. ",
     "emptyInfo" : " Enter complete information ",
     "login_success" : " Login Successfully ",
-	"Bonus_tips" : "Congratulation!",
+	"Bonus_tips" : "Congratulations! You won ",
 	"Bonus_display" : " You won  ",
 	"verify_email" : " Verification ",
 	"verifyEmailInfo" : " Please check your eamil box and verify email address ASAP .",
