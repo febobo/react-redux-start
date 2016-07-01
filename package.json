@@ -207,6 +207,7 @@
     "chai-enzyme": "^0.4.0",
     "cheerio": "^0.20.0",
     "codecov": "^1.0.1",
+    "colors": "^1.1.2",
     "enzyme": "^2.0.0",
     "eslint": "^2.4.0",
     "eslint-config-standard": "^5.1.0",
