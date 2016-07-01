@@ -1,11 +1,80 @@
 #!/usr/bin/env node
 require('shelljs/global');
+var argv = require('yargs').argv;
 
-exec('rm -rf btc.tar.gz')
-exec('rm -rf ltc.tar.gz')
-exec('rm -rf dash.tar.gz')
-exec('rm -rf dogo.tar.gz')
-exec('rm -rf moon.tar.gz')
+var config = [{
+  tarName : 'btc.tar.gz',
+  staticPage : 'cbq.html',
+  type : 1,
+  buildCli : 'npm run deploy:prod'
+},{
+  tarName : 'ltc.tar.gz',
+  staticPage : 'cbq.html',
+  type : 2,
+  buildCli : 'npm run deploy:prodlt'
+},{
+  tarName : 'dash.tar.gz',
+  staticPage : 'cbq.html',
+  type : 3,
+  buildCli : 'npm run deploy:prodds'
+},{
+  tarName : 'doge.tar.gz',
+  staticPage : 'cbq.html',
+  type : 4,
+  buildCli : 'npm run deploy:prodgb'
+},{
+  tarName : 'moon.tar.gz',
+  staticPage : 'cbq.html',
+  type : 5,
+  buildCli : 'npm run deploy:prodmn'
+},{
+  tarName : 'auto.tar.gz',
+  staticPage : 'gbq.html',
+  type : 6,
+  buildCli : 'npm run deploy:prodat'
+}]
+
+// console.log(argv.type)
+// function checkType(){
+//   if(argv.type){
+//     return true
+//   }
+//   return false
+// }
+var ssh = 'scp '+config[0].tarName+' root@123.56.129.175:/data/www/solebtc';
+console.log(ssh)
+exec(ssh);
+return
+if(argv.type){
+  build(config[argv.type-1].type,config[argv.type-1].buildCli,config[argv.type-1].tarName);
+}else{
+  buildAll()
+}
+
+function buildAll(){
+  for(var i=0,l=config.length ; i<l ; i++){
+    var _this = config[i];
+    rm('-rf',_this.tarName);
+    build(_this.type,_this.buildCli,_this.tarName);
+  }
+}
+
+function build(type,buildCli,name,staticPage){
+  console.info('build '+name+' begin');
+  exec('export TYPE='+type);
+  exec(buildCli);
+  exec('cp  '+staticPage+' dist');
+  exec('tar -czvf '+name+' dist');
+  console.info('build '+name+' end');
+}
+// process.stdout.write(2)
+
+// exec('rm -rf btc.tar.gz')
+// exec('rm -rf ltc.tar.gz')
+// exec('rm -rf dash.tar.gz')
+// exec('rm -rf dogo.tar.gz')
+// exec('rm -rf moon.tar.gz')
+// exec('rm -rf auto.tar.gz')
 
 console.info('build btc begin');
 exec('export TYPE=1');
@@ -14,25 +83,41 @@ exec('cp  cbq.html dist');
 exec('tar -czvf btc.tar.gz dist');
 console.info('build btc end');
 
+
+console.info('build ltc begin');
 exec('export TYPE=2');
 exec('npm run deploy:prodlt');
 exec('cp  cbq.html dist');
 exec('tar -czvf ltc.tar.gz dist');
+console.info('build ltc end');
 
+console.info('build dash begin');
 exec('export TYPE=3');
 exec('npm run deploy:prodds');
 exec('cp  cbq.html dist');
 exec('tar -czvf dash.tar.gz dist');
+console.info('build dash end');
 
+console.info('build doge begin');
 exec('export TYPE=4');
 exec('npm run deploy:prodgb');
 exec('cp  cbq.html dist');
 exec('tar -czvf doge.tar.gz dist');
+console.info('build doge end');
 
+console.info('build moon end');
 exec('export TYPE=5');
 exec('npm run deploy:prodmn');
 exec('cp  cbq.html dist');
 exec('tar -czvf moon.tar.gz dist');
+console.info('build moon end');
+
+console.info('build auto end');
+exec('export TYPE=6');
+exec('npm run deploy:prodat');
+exec('cp  gbq.html dist');
+exec('tar -czvf auto.tar.gz dist');
+console.info('build auto end');
 
 
 console.info('build success');
