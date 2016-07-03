@@ -12,7 +12,7 @@ export const text = {
     "banned": "Banned",
     "balance": "Balance",
     "next_reward_time": "Next reward time",
-    "tips" : "As long as you have over 500 DOGE, the system will pay to your DOGE address automatically at 0:00(UTC) every day."
+    "tips" : "As long as you have over 2K DOGE, the system will pay to your DOGE address automatically at 0:00(UTC) every day."
   },
   "advantage": {
     "header": "Our Advantages",

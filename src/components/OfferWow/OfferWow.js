@@ -8,7 +8,7 @@ export default class OfferWow extends Component {
   renderBtcWow (){
 
     const { user , lu} = this.props;
-    const url = `http://www.offer-wow.com/affiliate/wall/open.do?websiteid=2626&styleIndex=1&memberid=${user && user.id}`
+    const url = `https://www.offer-wow.com/affiliate/wall/open.do?websiteid=2626&styleIndex=1&memberid=${user && user.id}`
     return(
       // <div style={{paddingLeft:'140px',zIndex:99999999999999999, position:'fixed'}}>
       //       <iframe src={url} style={{width:'720px',height:'560px'}} scrolling='auto' frameborder='no' border='0' allowTransparency='true'>

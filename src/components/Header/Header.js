@@ -50,6 +50,10 @@ export class Header extends React.Component {
               <a href="/"><img src={config.logo}
                 style={{ height: "59px"}} /></a>
             </div>
+            {config.show_moon_adv ?
+            <p className={classes.webdir}>Solemoon is just test mode! We are finding more OfferWalls and still testing it. Do not claim here!</p>
+            : null
+            }
         		<div className={classes.language}>
         			<span>{i18n.t('language.language')}<em>|</em></span>
               <Dropdown overlay={menu} trigger={['click']}>

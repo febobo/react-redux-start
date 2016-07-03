@@ -67,6 +67,16 @@
       -webkit-transform: scale(1.0);
     }
   }
+
+  .globalAdv > div {
+    width : 120px;
+    height : 600px;
+    overflow: hidden;
+    position: fixed;
+    top : 110px;
+    display: none;
+  }
+
   </style>
 </head>
 <body style="background: #f0f0f0 url(./static/images/bg.png) top center no-repeat">
@@ -84,6 +94,32 @@
       </div>
     </div>
   </div>
+
+  <div class="globalAdv">
+    <div class="globalLeftAdv">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- autodoge160 -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:120px;height:600px"
+           data-ad-client="ca-pub-5722932343401905"
+           data-ad-slot="9124362679"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div class="globalRightAdv">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- autodoge160 -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:120px;height:600px"
+           data-ad-client="ca-pub-5722932343401905"
+           data-ad-slot="9124362679"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
 </body>
 
 <!-- <script src="https://static.geetest.com/static/tools/gt.js"></script> -->
@@ -102,6 +138,23 @@
       if(child){
         document.getElementById('spinnerWrap').removeChild(document.getElementById('removeBox'))
       }
+
+      var advOffset = (getWidthInfo().width - 1000) / 2 + 1020
+      document.querySelector('.globalLeftAdv').style.right = advOffset + 'px'
+      document.querySelector('.globalLeftAdv').style.display = 'block'
+      document.querySelector('.globalRightAdv').style.left = advOffset + 'px'
+      document.querySelector('.globalRightAdv').style.display = 'block'
+    }
+  }
+
+
+  function getWidthInfo (){
+    var width,height;
+    width = document.body.clientWidth;
+    height = document.body.clientHeight;
+    return {
+      width : width,
+      height : height
     }
   }
 </script>
