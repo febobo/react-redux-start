@@ -12,7 +12,7 @@ export const text = {
     "banned": "Banned",
     "balance": "Balance",
     "next_reward_time": "Next reward time",
-    "tips" : "There is no minimum payout, the system will pay to your Doge address automatically every 30 min."
+    "tips" : "There is no minimum payout, the system will pay to your Doge address automatically every 1 hour."
   },
   "advantage": {
     "header": "Our Advantages",
