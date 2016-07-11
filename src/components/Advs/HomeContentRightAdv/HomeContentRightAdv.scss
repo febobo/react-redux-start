@@ -1,0 +1,26 @@
+.buttonWrap{
+  width : 300px;
+  height:250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ccc;
+  border-radius: 15px;
+  >div{
+    text-align: center;
+    span{
+      display: inline-block;
+      width: 150px;
+      font-size: 20px;
+      // padding : 5px 15px;
+      height : 36px;
+      line-height: 36px;
+      text-align: center;
+      border-radius:4px;
+      background : #118146;
+      color : #fff;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+  }
+}
