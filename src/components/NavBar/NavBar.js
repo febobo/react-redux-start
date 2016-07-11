@@ -141,19 +141,7 @@ export class NavBar extends React.Component {
               </span>
               : null
           }
-          {
-            config.show_moon_task ?
-              <span className={classes.lu}
-                onClick={this._lu}
-              >
-                  {
-                    this.state.showLu ?
-                    null
-                    : 'Earned By Task'
-                  }
-              </span>
-              : null
-          }
+
         </p>
       	<div className={classes.btc}>
       		<img src={btcIco} />
@@ -211,18 +199,18 @@ export class NavBar extends React.Component {
     )
   }
 }
-// <Modal title="邮箱认证"
-//   visible={isloading}
-//   onOk={ ()=> {isBoolean(false)} } >
-//   <Form horizontal form={this.props.form}>
-//     <FormItem
-//       {...formItemLayout}
-//       validateStatus="error"
-//       help="请输入正确的邮箱"
-//       hasFeedback
-//       label="邮箱：">
-//       <Input  type="text" autoComplete="off" />
-//     </FormItem>
-//   </Form>
-//   </Modal>
+
+// {
+//   config.show_moon_task ?
+//     <span className={classes.lu}
+//       onClick={this._lu}
+//     >
+//         {
+//           this.state.showLu ?
+//           null
+//           : 'Earned By Task'
+//         }
+//     </span>
+//     : null
+// }
 export default NavBar

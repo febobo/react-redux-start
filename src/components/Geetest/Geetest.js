@@ -158,7 +158,9 @@ export class Geetest extends React.Component {
           <div ref="geetest"></div>
           </div>
         	<div className={classes.luckCode}  >
-            <HomeContentRightAdv />
+            <HomeContentRightAdv
+              user={this.props.user}
+            />
           </div>
         </div>
       </div>
@@ -182,7 +184,8 @@ const mapActionCreators = {
 const mapStateToProps = (state)=>
 ({
   geetest : state.geetest,
-  tips : state.lottery
+  tips : state.lottery,
+  user : state.login || store.get('user')
 })
 
 export default connect(mapStateToProps, mapActionCreators)(Geetest)
