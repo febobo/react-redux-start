@@ -19,6 +19,7 @@ import URI from 'urijs';
 import gs from './gs'
 import GoogleAdv from '../GoogleAdv'
 import BaseConfig from '../../BaseConfig';
+import HomeContentRightAdv from '../Advs/HomeContentRightAdv'
 const v1 =BaseConfig.api;
 // let fuckAdBlock = false;
 import fuckadblock from './dblock';
@@ -157,13 +158,7 @@ export class Geetest extends React.Component {
           <div ref="geetest"></div>
           </div>
         	<div className={classes.luckCode}  >
-            {
-              BaseConfig.show_google_adv ?
-              <GoogleAdv
-                {...advProps}
-              />
-              :null
-            }
+            <HomeContentRightAdv />
           </div>
         </div>
       </div>
