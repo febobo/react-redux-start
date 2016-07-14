@@ -10,6 +10,7 @@ import {i18n} from '../../util/i18n'
 import Lottery from '../Lottery'
 import GoogleAdv from '../GoogleAdv'
 import About from '../About'
+import config from '../../BaseConfig'
 type Props = {
 
 };
@@ -74,6 +75,13 @@ export class Register extends React.Component {
                 {i18n.t('login.login')}
               </Link>
             </li>
+            {
+              config.show_Lottery_link ?
+              <li>
+                <a href="http://solejack.com" target="_blank">Lottery</a>
+              </li>
+              : null
+            }
     			</ul>
     		</div>
     		<div className={classes.clear}></div>

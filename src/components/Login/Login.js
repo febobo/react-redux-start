@@ -63,6 +63,13 @@ export class Login extends React.Component {
                 {i18n.t('login.login')}
               </Link>
             </li>
+            {
+              config.show_Lottery_link ?
+              <li>
+                <a href="http://solejack.com" target="_blank">Lottery</a>
+              </li>
+              : null
+            }
       			</ul>
       		</div>
       		<div className={classes.clear}></div>
