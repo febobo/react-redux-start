@@ -141,6 +141,11 @@ export class NavBar extends React.Component {
               </span>
               : null
           }
+          {
+            config.show_Lottery_link ?
+            <a className={classes.lu} href="http://solejack.com" target="_blank">DogeCoin JackPot</a>
+            : null
+          }
 
         </p>
       	<div className={classes.btc}>
