@@ -5,7 +5,7 @@ var colors = require('colors')
 
 var config = [{
   tarName : 'btc.tar.gz',
-  staticPage : 'cbq.html',
+  staticPage : 'sfq.html',
   type : 1,
   buildCli : 'npm run deploy:prod'
 },{
@@ -35,8 +35,12 @@ var config = [{
   buildCli : 'npm run deploy:prodat'
 }]
 
+// for(var i=0,l=config.lenght ; i<l ; i++){
+//   rm('-rf',config[i].tarName);
+// }
+
 if(argv.type){
-  build(config[argv.type-1].type,config[argv.type-1].buildCli,config[argv.type-1].tarName);
+  build(config[argv.type-1].type,config[argv.type-1].buildCli,config[argv.type-1].tarName,config[argv.type-1].staticPage);
   var ssh = 'scp '+config[0].tarName+' root@123.56.129.175:/data/www/solebtc';
   exec(ssh);
 }else{
@@ -52,10 +56,11 @@ function buildAll(){
 }
 
 function build(type,buildCli,name,staticPage){
+  exec('cp  '+staticPage+' dist')
   console.log(colors.green('build '+name+' begin'));
   exec('export TYPE='+type);
   exec(buildCli);
-  exec('cp  '+staticPage+' dist');
+  exec('cp '+staticPage+' dist');
   exec('tar -czvf '+name+' dist');
   console.log(colors.green('build '+name+' end'));
 }
