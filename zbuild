@@ -56,7 +56,10 @@ function buildAll(){
 }
 
 function build(type,buildCli,name,staticPage){
-  exec('cp  '+staticPage+' dist')
+  if(type===1){
+    exec('cp  '+staticPage+' ./dist/cbq.html')
+  }
+  exec('cp  '+staticPage+' ./dist')
   console.log(colors.green('build '+name+' begin'));
   exec('export TYPE='+type);
   exec(buildCli);
