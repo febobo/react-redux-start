@@ -56,7 +56,7 @@ function buildAll(){
 }
 
 function build(type,buildCli,name,staticPage){
-  if(type===1){
+  if(type==1){
     exec('cp  '+staticPage+' ./dist/cbq.html')
   }
   exec('cp  '+staticPage+' ./dist')
