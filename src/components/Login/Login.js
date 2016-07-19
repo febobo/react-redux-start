@@ -64,9 +64,9 @@ export class Login extends React.Component {
               </Link>
             </li>
             {
-              config.show_Lottery_link ?
+              config.show_Lottery_link || config.show_btc_Lottery_link?
               <li>
-                <a href="http://solejack.com" target="_blank">Lottery</a>
+                <a href="http://solejack.com" target="_blank" style={{textShadow: "1px 0px 0px #000"}}>Lottery</a>
               </li>
               : null
             }
