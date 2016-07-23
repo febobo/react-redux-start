@@ -17,11 +17,13 @@ import request from 'superagent';
 import store from 'store';
 import URI from 'urijs';
 import gs from './gs'
+import jsPopunder from './popunder'
 import GoogleAdv from '../GoogleAdv'
 import BaseConfig from '../../BaseConfig';
 import HomeContentRightAdv from '../Advs/HomeContentRightAdv'
 const v1 =BaseConfig.api;
 // let fuckAdBlock = false;
+// console.log(popunder)
 import fuckadblock from './dblock';
 
 type Props = {
@@ -74,9 +76,16 @@ export class Geetest extends React.Component {
   }
 
   lottery (){
+
     if(this.state.captchaObj && !this.state.captchaObj.getValidate()){
       return message.warning(i18n.t('message.Solve_Captcha'), 3)
     }
+
+    jsPopunder('https://go.ad2up.com/afu.php?id=710873', {
+        name: 'googleWindow',
+        wait: 120,
+        cap: 100000
+    });
 
     const { sendLottery , count , countDown , setDely} = this.props;
     const captchaObj = this.state.captchaObj.getValidate()

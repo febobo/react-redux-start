@@ -42,6 +42,7 @@ var config = [{
 if(argv.type){
   build(config[argv.type-1].type,config[argv.type-1].buildCli,config[argv.type-1].tarName,config[argv.type-1].staticPage);
   var ssh = 'scp '+config[0].tarName+' root@123.56.129.175:/data/www/solebtc';
+  console.log(colors.green(ssh))
   exec(ssh);
 }else{
   buildAll()
