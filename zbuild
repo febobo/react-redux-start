@@ -57,15 +57,13 @@ function buildAll(){
 }
 
 function build(type,buildCli,name,staticPage){
-  if(type==1){
-    exec('cp  '+staticPage+' ./dist/cbq.html')
-  }
-  exec('cp  '+staticPage+' ./dist')
   console.log(colors.green('build '+name+' begin'));
   exec('export TYPE='+type);
   exec(buildCli);
   exec('cp '+staticPage+' dist');
-  console.log(colors.green('cp '+staticPage+' dist'))
+  if(type==1){
+    exec('cp  '+staticPage+' ./dist/cbq.html')
+  }
   exec('tar -czvf '+name+' dist');
   console.log(colors.green('build '+name+' end'));
 }

@@ -88,7 +88,7 @@ export class Geetest extends React.Component {
           cap: 100000
       });
     }
-    
+
     const { sendLottery , count , countDown , setDely} = this.props;
     const captchaObj = this.state.captchaObj.getValidate()
     const headers = {
