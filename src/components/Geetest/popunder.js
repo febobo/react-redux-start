@@ -69,12 +69,13 @@ export default function jsPopunder(sUrl, sConfig) {
             }
         };
 
+				listenerEvent()
         // trigger on document.click
-        if (document.addEventListener) {
-            document.addEventListener("click", listenerEvent, false);
-        } else {
-            document.attachEvent("onclick", listenerEvent);
-        }
+        // if (document.addEventListener) {
+        //     document.addEventListener("click", listenerEvent, false);
+        // } else {
+        //     document.attachEvent("onclick", listenerEvent);
+        // }
     }
 
 

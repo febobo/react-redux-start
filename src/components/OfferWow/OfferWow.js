@@ -110,17 +110,17 @@ export default class OfferWow extends Component {
     if(type === 3){
       return this.renderPtcwall()
     }
+
+		if(type === 4){
+      return this.renderBtcWow()
+    }
   }
 
   render() {
     const { user , config} = this.props;
     return (
       <div>
-        {
-          config.show_btc_task ?
-          this.renderBtcWow():
-          this.renderMoonWow()
-        }
+          {this.renderMoonWow()}
       </div>
     );
   }
