@@ -41,7 +41,7 @@ var config = [{
 
 if(argv.type){
   build(config[argv.type-1].type,config[argv.type-1].buildCli,config[argv.type-1].tarName,config[argv.type-1].staticPage);
-  var ssh = 'scp '+config[0].tarName+' root@123.56.129.175:/data/www/solebtc';
+  var ssh = 'scp '+config[argv.type-1].tarName+' root@123.56.129.175:/data/www/solebtc';
   console.log(colors.green(ssh))
   exec(ssh);
 }else{
@@ -52,7 +52,7 @@ function buildAll(){
   for(var i=0,l=config.length ; i<l ; i++){
     var _this = config[i];
     rm('-rf',_this.tarName);
-    build(_this.type,_this.buildCli,_this.tarName);
+    build(_this.type,_this.buildCli,_this.tarName,_this.staticPage);
   }
 }
 
@@ -65,6 +65,7 @@ function build(type,buildCli,name,staticPage){
   exec('export TYPE='+type);
   exec(buildCli);
   exec('cp '+staticPage+' dist');
+  console.log(colors.green('cp '+staticPage+' dist'))
   exec('tar -czvf '+name+' dist');
   console.log(colors.green('build '+name+' end'));
 }
