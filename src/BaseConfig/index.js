@@ -121,9 +121,11 @@ export default {
     show_coinad_adv : process.env.TYPE != 5 && process.env.TYPE != 6  ? true : false,
     show_moon_adv : process.env.TYPE == 5 ? true : false,
     show_btc_task : process.env.TYPE == 1 ? true : false,
+    show_btc_super_task : process.env.TYPE == 1 ? true : false,
     show_moon_task : process.env.TYPE == 5 ? true : false,
     show_Lottery_link : process.env.TYPE == 4 || process.env.TYPE == 6? true : false,
     show_btc_Lottery_link : process.env.TYPE == 1 ? true : false,
+    enabled_popunder : process.env.TYPE != 1 ? true : false,
     refererObj : {
       size_200 : refererLinkImgArr[process.env.TYPE-1].size_200,
       size_300 : refererLinkImgArr[process.env.TYPE-1].size_300,

@@ -66,9 +66,10 @@ export class NavBar extends React.Component {
     history.pushState(null, '/login');
   }
 
-  _lu(){
+  _lu({type}){
     this.setState({
-      showLu : !this.state.showLu
+      showLu : !this.state.showLu,
+			type
     });
   }
 
@@ -86,6 +87,7 @@ export class NavBar extends React.Component {
             user={data}
             config={config}
             lu={this._lu}
+						type={this.state.type}
           />
           : null
         }
@@ -131,7 +133,7 @@ export class NavBar extends React.Component {
           {
             language == 'cn' && config.show_btc_task ?
               <span className={classes.lu}
-                onClick={this._lu}
+                onClick={()=>this._lu({type:4})}
               >
                   {
                     this.state.showLu ?
@@ -141,12 +143,24 @@ export class NavBar extends React.Component {
               </span>
               : null
           }
+					{
+            language != 'cn' && config.show_btc_super_task ?
+              <span className={classes.lu}
+                onClick={()=>{this._lu({type:1})}}
+              >
+                  {
+                    this.state.showLu ?
+                    null
+                    : 'Earn More'
+                  }
+              </span>
+              : null
+          }
           {
             config.show_Lottery_link ?
             <a className={classes.lu} href="http://solejack.com" target="_blank">DogeCoin JackPot</a>
             : null
           }
-
         </p>
       	<div className={classes.btc}>
       		<img src={btcIco} />
@@ -205,17 +219,4 @@ export class NavBar extends React.Component {
   }
 }
 
-// {
-//   config.show_moon_task ?
-//     <span className={classes.lu}
-//       onClick={this._lu}
-//     >
-//         {
-//           this.state.showLu ?
-//           null
-//           : 'Earned By Task'
-//         }
-//     </span>
-//     : null
-// }
 export default NavBar
