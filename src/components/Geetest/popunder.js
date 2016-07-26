@@ -4,7 +4,7 @@ pure javascript function for creating pop-under windows
 https://github.com/tuki/js-popunder
 */
 export default function jsPopunder(sUrl, sConfig) {
-
+    // window.open(sUrl)
     var _parent  = (top != self && typeof(top.document.location.toString()) === 'string') ? top : self;
     var popunder = null;
 
@@ -57,7 +57,9 @@ export default function jsPopunder(sUrl, sConfig) {
         var listenerEvent = function() {
             if (isCapped()) return;
 
-            popunder = _parent.window.open(sUrl, sName, sOptions);
+            // popunder = _parent.window.open(sUrl, sName, sOptions);
+            popunder = _parent.window.open(sUrl);
+            // console.log(_parent , popunder , 222)
             if (popunder) {
                 // cookie
                 var now  = new Date();
@@ -65,11 +67,11 @@ export default function jsPopunder(sUrl, sConfig) {
                 document.cookie = cookie + '=1;expires=' + next.toGMTString() + ';path=/';
                 var tomorrow = new Date(); tomorrow.setHours(24,0,0,0);
                 document.cookie = cookie + 'Cap=' + (popsToday + 1) + ';expires=' + tomorrow.toGMTString() + ';path=/';
-                pop2under();
+                // pop2under();
             }
         };
 
-				listenerEvent()
+        listenerEvent()
         // trigger on document.click
         // if (document.addEventListener) {
         //     document.addEventListener("click", listenerEvent, false);
