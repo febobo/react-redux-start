@@ -54,6 +54,19 @@ export class NavBar extends React.Component {
       showLu : false
     }
   }
+
+	componentWillMount(){
+		if(this.props.routes[1].path){
+			return
+		}
+		if(this.props.language != 'cn' && config.show_btc_super_task && this.props.data ){
+			this.setState({
+	      showLu : !this.state.showLu,
+				type : 1
+	    });
+		}
+	}
+
   _sendEmail (){
     const { sendUserEmail , isBoolean } = this.props;
     sendUserEmail();
@@ -74,6 +87,7 @@ export class NavBar extends React.Component {
   }
 
   render () {
+		// console.log(this.props)
     const { data , isBoolean , isloading ,sendUserEmail , history , language } = this.props;
     const formItemLayout = {
       labelCol: { span: 4 },
