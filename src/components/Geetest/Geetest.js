@@ -81,13 +81,13 @@ export class Geetest extends React.Component {
       return message.warning(i18n.t('message.Solve_Captcha'), 3)
     }
 
-    if(BaseConfig.enabled_popunder){
-      jsPopunder('https://go.ad2up.com/afu.php?id=710873', {
-          name: 'googleWindow',
-          wait: 1,
-          cap: 100000
-      });
-    }
+    // if(BaseConfig.enabled_popunder){
+    //   jsPopunder('https://go.ad2up.com/afu.php?id=710873', {
+    //       name: 'googleWindow',
+    //       wait: 1,
+    //       cap: 100000
+    //   });
+    // }
 
     const { sendLottery , count , countDown , setDely} = this.props;
     const captchaObj = this.state.captchaObj.getValidate()
