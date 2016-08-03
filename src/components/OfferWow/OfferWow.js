@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
+import classes from './offerWow.scss'
 export default class OfferWow extends Component {
 
   constructor(props){
     super(props)
+		this.changeType = this.changeType.bind(this);
+		this.state = {};
   }
+
+	shouldComponentUpdate (nextProps ,nextState){
+			if(nextProps.type === this.props.type &&
+				nextState === this.state
+			){
+				return false
+			}
+			return true
+	}
 
   renderBtcWow (){
 
@@ -97,8 +109,8 @@ export default class OfferWow extends Component {
   }
 
   renderMoonWow (){
-    const { user , lu , type} = this.props;
-
+    let { user , lu , type} = this.props;
+		type = this.state.type || type;
     if(type === 1){
       return this.renderSupreWow()
     }
@@ -116,11 +128,51 @@ export default class OfferWow extends Component {
     }
   }
 
+	changeType (type){
+		this.setState({
+			type
+		})
+
+	}
+
+	renderItem (){
+		let { user , lu , type} = this.props;
+		type = this.state.type || type;
+		const itmes= [{
+			type : 1,
+			name : 'Superrewards'
+		},{
+			type : 2,
+			name : 'clixwall'
+		}]
+		let itemsNodeArr = []
+		itmes.map( (v,k)=>{
+			console.log(v.type == type )
+			let active = v.type == type ? classes.active : null
+			itemsNodeArr.push(
+				<li
+					key={'itemNode' + k}
+					onClick={ ()=> {this.changeType(v.type)}}
+					className={active}
+				>
+					{v.name}
+				</li>
+			)
+		})
+		return itemsNodeArr;
+
+	}
+
   render() {
     const { user , config} = this.props;
     return (
       <div>
           {this.renderMoonWow()}
+					<div className={classes.slider}>
+						<ul>
+							{this.renderItem()}
+						</ul>
+					</div>
       </div>
     );
   }
