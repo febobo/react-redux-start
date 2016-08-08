@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './offerWow.scss'
+import config from '../../BaseConfig'
 export default class OfferWow extends Component {
 
   constructor(props){
@@ -108,6 +109,28 @@ export default class OfferWow extends Component {
     )
   }
 
+	renderPersonaly (){
+    const { user , lu } = this.props;
+    const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
+    const offsetTop = '120px';
+    const url = `https://persona.ly/widget/?appid=e1b975360db62a8a6324880ea107b109&userid=${user && user.id}`
+    return(
+      <div style={{left:offsetLeft , top :offsetTop ,zIndex:999999, position:'fixed'}}>
+        <div style={{position:'fixed',top:0,bottom:0,right:0,left:0,backgroundColor:'#000',opacity:0.6}}></div>
+        <div style={{backgroundColor:'#ccc',zIndex:99999999999999999,position:'relative'}}>
+            <div style={{textAlign:'right'}}>
+              <span
+                style={{display:'inline-block',padding:'12px 25px',cursor:'pointer',backgroundColor:'rgb(0, 174, 239)',color:'#fff',fontSize:'16px'}}
+                onClick={lu}
+              >Close</span>
+            </div>
+            <iframe src={url} frameborder="1" width="728" height="560" scrolling="auto" >
+            </iframe>
+        </div>
+      </div>
+    )
+  }
+
   renderMoonWow (){
     let { user , lu , type} = this.props;
 		type = this.state.type || type;
@@ -126,6 +149,10 @@ export default class OfferWow extends Component {
 		if(type === 4){
       return this.renderBtcWow()
     }
+
+		if(type === 5){
+      return this.renderPersonaly()
+    }
   }
 
 	changeType (type){
@@ -142,12 +169,11 @@ export default class OfferWow extends Component {
 			type : 1,
 			name : 'Superrewards'
 		},{
-			type : 2,
-			name : 'clixwall'
+			type : 5,
+			name : 'Personaly'
 		}]
 		let itemsNodeArr = []
 		itmes.map( (v,k)=>{
-			console.log(v.type == type )
 			let active = v.type == type ? classes.active : null
 			itemsNodeArr.push(
 				<li
@@ -164,15 +190,21 @@ export default class OfferWow extends Component {
 	}
 
   render() {
-    const { user , config} = this.props;
+		console.log(this.props)
+    const { user , config , showSlider} = this.props;
+		const offsetL = (document.body.clientWidth-728)/2 + 728 + 'px'
     return (
       <div>
           {this.renderMoonWow()}
-					<div className={classes.slider}>
-						<ul>
-							{this.renderItem()}
-						</ul>
-					</div>
+					{
+						showSlider ?
+						<div className={classes.slider} style={{left:offsetL}}>
+							<ul>
+								{this.renderItem()}
+							</ul>
+						</div>
+						: null 
+					}
       </div>
     );
   }

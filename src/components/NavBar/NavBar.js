@@ -62,6 +62,7 @@ export class NavBar extends React.Component {
 		if(this.props.language != 'cn' && config.show_btc_super_task && this.props.data ){
 			this.setState({
 	      showLu : !this.state.showLu,
+				showSlider : true,
 				type : 1
 	    });
 		}
@@ -79,9 +80,10 @@ export class NavBar extends React.Component {
     history.pushState(null, '/login');
   }
 
-  _lu({type}){
+  _lu({type,showSlider}){
     this.setState({
       showLu : !this.state.showLu,
+			showSlider,
 			type
     });
   }
@@ -102,6 +104,7 @@ export class NavBar extends React.Component {
             config={config}
             lu={this._lu}
 						type={this.state.type}
+						showSlider={this.state.showSlider}
           />
           : null
         }
@@ -160,7 +163,7 @@ export class NavBar extends React.Component {
 					{
             language != 'cn' && config.show_btc_super_task ?
               <span className={classes.lu}
-                onClick={()=>{this._lu({type:1})}}
+                onClick={()=>{this._lu({type:1,showSlider:true})}}
               >
                   {
                     this.state.showLu ?
