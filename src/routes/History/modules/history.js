@@ -61,12 +61,40 @@ export const actions = {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [GET_HISTORY_LIST] : (state , action) => {
-    console.log(action)
-    return Object.assign({} , state , {
-      rewardList : action.res.data,
-      count : action.res.count,
-      type : action.dataType
-    })
+
+    console.log(2222)
+    // return Object.assign({} , state , {
+    //   rewardList : action.res.data,
+    //   count : action.res.count,
+    //   type : action.dataType
+    // })
+    if(action.dataType == 'withdrawals'){
+      return Object.assign({} , state , {
+        withdrawals : {
+          rewardList : action.res.data,
+          count : action.res.count,
+          type : action.dataType
+        }
+      })
+    }
+    if(action.dataType == 'withdrawals'){
+      return Object.assign({} , state , {
+        rewards : {
+          rewardList : action.res.data,
+          count : action.res.count,
+          type : action.dataType
+        }
+      })
+    }
+    if(action.dataType == 'withdrawals'){
+      return Object.assign({} , state , {
+        offerwall : {
+          rewardList : action.res.data,
+          count : action.res.count,
+          type : action.dataType
+        }
+      })
+    }
   }
 }
 
