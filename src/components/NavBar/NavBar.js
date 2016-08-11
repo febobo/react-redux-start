@@ -54,6 +54,20 @@ export class NavBar extends React.Component {
       showLu : false
     }
   }
+
+	componentWillMount(){
+		if(this.props.routes[1].path){
+			return
+		}
+		if(this.props.language != 'cn' && config.show_btc_super_task && this.props.data ){
+			this.setState({
+	      showLu : !this.state.showLu,
+				showSlider : true,
+				type : 1
+	    });
+		}
+	}
+
   _sendEmail (){
     const { sendUserEmail , isBoolean } = this.props;
     sendUserEmail();
@@ -66,14 +80,16 @@ export class NavBar extends React.Component {
     history.pushState(null, '/login');
   }
 
-  _lu({type}){
+  _lu({type,showSlider}){
     this.setState({
       showLu : !this.state.showLu,
+			showSlider,
 			type
     });
   }
 
   render () {
+		// console.log(this.props)
     const { data , isBoolean , isloading ,sendUserEmail , history , language } = this.props;
     const formItemLayout = {
       labelCol: { span: 4 },
@@ -88,6 +104,7 @@ export class NavBar extends React.Component {
             config={config}
             lu={this._lu}
 						type={this.state.type}
+						showSlider={this.state.showSlider}
           />
           : null
         }
@@ -146,7 +163,7 @@ export class NavBar extends React.Component {
 					{
             language != 'cn' && config.show_btc_super_task ?
               <span className={classes.lu}
-                onClick={()=>{this._lu({type:1})}}
+                onClick={()=>{this._lu({type:1,showSlider:true})}}
               >
                   {
                     this.state.showLu ?

@@ -1,0 +1,29 @@
+.slider{
+	background: #fff;
+	position: fixed;
+	// left: 965px;
+	top: 168px;
+	z-index: 1000000000;
+	ul{
+		width : auto;
+		li{
+			&.active{
+				background: #df5e5e;
+				color: #fff;
+				font-weight: bold;
+				text-shadow: 1px 1px 1px #ccc;
+			}
+			float: none;
+			line-height: normal;
+			width : auto;
+			text-align:center;
+			height : auto;
+			padding:20px 15px;
+			border: none;
+			border-bottom: 1px solid #ccc;
+			margin: 0;
+			cursor: pointer;
+			font-size :16px;
+		}
+	}
+}
