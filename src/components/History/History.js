@@ -18,7 +18,7 @@ export class History extends React.Component {
     let pageSize = limit || 10
     currentLimit = pageSize;
     let param = '?offset=' + offset*currentLimit + '&limit=' + pageSize
-    getHistoryList(param)
+    getHistoryList(`/withdrawals${param}` , 'withdrawals')
   }
 
   _changePage (page , limit){
@@ -27,8 +27,7 @@ export class History extends React.Component {
     this._getData(page , limit)
   }
 
-  render (){
-    // console.log(this._getData)
+  renderWithDrawals (){
     const { historyData } = this.props;
 
       const columns = [{
@@ -85,15 +84,31 @@ export class History extends React.Component {
         //   return (<span>总条数：{historyData && historyData.count}</span>)
         // }
       };
-
-    return (
-      <div className={classes.history}>
+      return (
         <Table
           columns={columns}
           dataSource={data}
           pagination={pagination}
           bordered={true}
         />
+      )
+  }
+  render (){
+    // console.log(this._getData)
+
+
+    return (
+      <div className={classes.history}>
+        <div>
+          <ul className={classes.tabs}>
+            <li className={classes.active}>withdrawals</li>
+            <li>rewards</li>
+            <li>offerwall</li>
+          </ul>
+        </div>
+        <div className={classes.bg}>
+          {this.renderWithDrawals()}
+        </div>
       </div>
     )
   }
