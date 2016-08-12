@@ -87,9 +87,9 @@ const ACTION_HANDLERS = {
         }
       })
     }
-    if(action.dataType == 'offerwall'){
+    if(action.dataType == 'offerwalls'){
       return Object.assign({} , state , {
-        offerwall : {
+        offerwalls : {
           rewardList : action.res.data,
           count : action.res.count,
           type : action.dataType

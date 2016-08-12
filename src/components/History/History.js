@@ -28,8 +28,8 @@ export class History extends React.Component {
 		if(url.indexOf('rewards')>=0){
 			type = 'rewards'
 		}
-		if(url.indexOf('offerwall')>=0){
-			type = 'offerwall'
+		if(url.indexOf('offerwalls')>=0){
+			type = 'offerwalls'
 		}
     getHistoryList(`/${url}${param}` , type)
   }
@@ -41,7 +41,6 @@ export class History extends React.Component {
   }
 
   changeType(type){
-    console.log(type)
     this.setState({
       type
     })
@@ -59,7 +58,6 @@ export class History extends React.Component {
   renderWithDrawals (){
     let { historyData} = this.props;
 		historyData = historyData.withdrawals;
-    console.log(historyData)
       const columns = [{
         title: i18n.t('common.time'),
         dataIndex: 'updated_at',
@@ -207,11 +205,11 @@ export class History extends React.Component {
           data.push({
             key: `${k}`,
             created_at:moment(`${v.created_at}`).format("YYYY-MM-DD HH:mm:ss"),
-            income:`${v.income}`,
+            income:`${v.income.toFixed(8)}`,
             type:(() => {
-              if(`${v.type}` == 'offerwall'){
+              if(`${v.type}` == "personaly"){
                 return  <Tag color="green">{v.type}</Tag>
-              }else if(`${v.status}` == 'rewards'){
+              }else if(`${v.status}` == "superrewards"){
                 return  <Tag  color="yellow">{v.type}</Tag>
               }else{
                 return  <Tag  color="red">{v.type}</Tag>
