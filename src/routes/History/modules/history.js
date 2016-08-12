@@ -7,6 +7,8 @@ import store from 'store';
 import URI from 'urijs';
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
 export const GET_HISTORY_LIST = 'GET_HISTORY_LIST'
+export const GET_WITHDRAWALS_LIST = 'GET_WITHDRAWALS_LIST'
+export const GET_OFFERWALL_LIST = 'GET_OFFERWALL_LIST'
 // const v1 = BaseConfig'.api;
 import BaseConfig from '../../../BaseConfig';
 const v1 = BaseConfig.api
@@ -23,16 +25,17 @@ const v1 = BaseConfig.api
     NOTE: There is currently a bug with babel-eslint where a `space-infix-ops`
     error is incorrectly thrown when using arrow functions, hence the oddity.  */
 
-export function historyList(res){
+export function historyList(res,dataType){
   return {
     type : GET_HISTORY_LIST ,
-    res
+    res,
+    dataType : dataType
   }
 }
 
-export function getHistoryList(param) {
+export function getHistoryList(param,type) {
   return (dispatch) => {
-    let url = new URI(v1 + '/withdrawals' + param);
+    let url = new URI(v1 + param);
     request
       .get(url.toString())
       .set('Auth-Token', store.get('auth_token'))
@@ -41,7 +44,7 @@ export function getHistoryList(param) {
           case 200:
           // console.log(res)
             let res = JSON.parse(res.text);
-            dispatch(historyList(res));
+            dispatch(historyList(res,type));
         }
       });
   };
@@ -58,10 +61,41 @@ export const actions = {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [GET_HISTORY_LIST] : (state , action) => {
-    return Object.assign({} , state , {
-      rewardList :action.res.data,
-      count : action.res.count
-    })
+
+    // console.log(action)
+    // return Object.assign({} , state , {
+    //   rewardList : action.res.data,
+    //   count : action.res.count,
+    //   type : action.dataType
+    // })
+
+    if(action.dataType == 'withdrawals'){
+      return Object.assign({} , state , {
+        withdrawals : {
+          rewardList : action.res.data,
+          count : action.res.count,
+          type : action.dataType
+        }
+      })
+    }
+    if(action.dataType == 'rewards'){
+      return Object.assign({} , state , {
+        rewards : {
+          rewardList : action.res.data,
+          count : action.res.count,
+          type : action.dataType
+        }
+      })
+    }
+    if(action.dataType == 'offerwalls'){
+      return Object.assign({} , state , {
+        offerwalls : {
+          rewardList : action.res.data,
+          count : action.res.count,
+          type : action.dataType
+        }
+      })
+    }
   }
 }
 
