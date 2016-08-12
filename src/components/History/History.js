@@ -9,28 +9,57 @@ var currentLimit = 10;
 // export const History = () => (
 export class History extends React.Component {
   componentWillMount(){
-    this._getData()
+    this.state = {
+      type : 'withdrawals'
+    }
+    this._getData('withdrawals')
   }
 
-  _getData (page , limit){
+  _getData (url , page , limit){
     const { getHistoryList } = this.props;
     let offset = page || 0;
     let pageSize = limit || 10
     currentLimit = pageSize;
     let param = '?offset=' + offset*currentLimit + '&limit=' + pageSize
-    getHistoryList(param)
+		let type = null;
+		if(url.indexOf('withdrawals')>=0){
+			type = 'withdrawals'
+		}
+		if(url.indexOf('rewards')>=0){
+			type = 'rewards'
+		}
+		if(url.indexOf('offerwall')>=0){
+			type = 'offerwall'
+		}
+    getHistoryList(`/${url}${param}` , type)
   }
 
-  _changePage (page , limit){
+  _changePage (url,page , limit){
     // if(page==1) return;
     const { historyData } = this.props;
-    this._getData(page , limit)
+    this._getData(url , page , limit)
   }
 
-  render (){
-    // console.log(this._getData)
-    const { historyData } = this.props;
+  changeType(type){
+    console.log(type)
+    this.setState({
+      type
+    })
+    if(type === 'withdrawals'){
+      return this._getData('/withdrawals')
+    }
+    if(type === 'rewards'){
+      return this._getData('/incomes/rewards')
+    }
+    if(type === 'offerwall'){
+      return this._getData('/incomes/offerwalls')
+    }
+  }
 
+  renderWithDrawals (){
+    let { historyData} = this.props;
+		historyData = historyData.withdrawals;
+    console.log(historyData)
       const columns = [{
         title: i18n.t('common.time'),
         dataIndex: 'updated_at',
@@ -49,6 +78,7 @@ export class History extends React.Component {
       }];
 
       const data = [];
+
       historyData && historyData.rewardList &&
       historyData.rewardList.length && historyData.rewardList.map( (v, k) => {
           data.push({
@@ -76,24 +106,195 @@ export class History extends React.Component {
         total: historyData && historyData.count,
         showSizeChanger: true,
         onShowSizeChange(current, pageSize){
-          that._changePage(current -1 ,pageSize);
+          that._changePage('withdrawals' ,current -1 ,pageSize);
         },
         onChange(current) {
-          that._changePage(current -1,currentLimit );
+          that._changePage('withdrawals' , current -1,currentLimit );
         },
         // showTotal(){
         //   return (<span>总条数：{historyData && historyData.count}</span>)
         // }
       };
-
-    return (
-      <div className={classes.history}>
+      return (
         <Table
           columns={columns}
           dataSource={data}
           pagination={pagination}
           bordered={true}
         />
+      )
+  }
+
+  renderRewards (){
+    let { historyData } = this.props;
+		historyData = historyData.rewards;
+      const columns = [{
+        title: i18n.t('common.time'),
+        dataIndex: 'created_at',
+        render(text) {
+          return <a href="#">{text}</a>;
+        }
+      }, {
+        title: i18n.t('common.amount'),
+        dataIndex: 'income'
+      }
+      // , {
+      //   title: i18n.t('history.transaction'),
+      //   dataIndex: 'tx'
+      // }, {
+      //   title: i18n.t('history.status'),
+      //   dataIndex: 'status'
+      // }
+    ];
+
+      const data = [];
+      historyData && historyData.rewardList &&
+      historyData.rewardList.length && historyData.rewardList.map( (v, k) => {
+          data.push({
+            key: `${k}`,
+            created_at:moment(`${v.created_at}`).format("YYYY-MM-DD HH:mm:ss"),
+            income:`${v.income}`,
+          });
+      })
+
+      const that = this;
+      const pagination = {
+        total: historyData && historyData.count,
+        showSizeChanger: true,
+        onShowSizeChange(current, pageSize){
+          that._changePage('/incomes/rewards' ,current -1 ,pageSize);
+        },
+        onChange(current) {
+          that._changePage('/incomes/rewards',current -1,currentLimit );
+        },
+      };
+      return (
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={pagination}
+          bordered={true}
+        />
+      )
+  }
+
+  renderOfferwall (){
+    let { historyData } = this.props;
+		historyData = historyData.offerwalls;
+      const columns = [{
+        title: i18n.t('common.time'),
+        dataIndex: 'created_at',
+        render(text) {
+          return <a href="#">{text}</a>;
+        }
+      }, {
+        title: i18n.t('common.amount'),
+        dataIndex: 'income'
+      }
+      , {
+        title: 'type',
+        dataIndex: 'type'
+      }
+      // , {
+      //   title: i18n.t('history.status'),
+      //   dataIndex: 'status'
+      // }
+    ];
+
+      const data = [];
+      historyData && historyData.rewardList &&
+      historyData.rewardList.length && historyData.rewardList.map( (v, k) => {
+          data.push({
+            key: `${k}`,
+            created_at:moment(`${v.created_at}`).format("YYYY-MM-DD HH:mm:ss"),
+            income:`${v.income}`,
+            type:(() => {
+              if(`${v.type}` == 'offerwall'){
+                return  <Tag color="green">{v.type}</Tag>
+              }else if(`${v.status}` == 'rewards'){
+                return  <Tag  color="yellow">{v.type}</Tag>
+              }else{
+                return  <Tag  color="red">{v.type}</Tag>
+              }
+            })(),
+          });
+      })
+
+      const that = this;
+      const pagination = {
+        total: historyData && historyData.count,
+        showSizeChanger: true,
+        onShowSizeChange(current, pageSize){
+          that._changePage('/incomes/offerwall' ,current -1 ,pageSize);
+        },
+        onChange(current) {
+          that._changePage('/incomes/offerwall',current -1,currentLimit );
+        },
+      };
+      return (
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={pagination}
+          bordered={true}
+        />
+      )
+  }
+
+  renderItem (){
+    // let { user , lu , type} = this.props;
+    let type = this.state.type;
+    const itmes= [{
+      type : 'withdrawals',
+      name : 'withdrawals'
+    },{
+      type : 'rewards',
+      name : 'rewards'
+    },{
+      type : 'offerwall',
+      name : 'offerwall'
+    }]
+    let itemsNodeArr = []
+    itmes.map( (v,k)=>{
+      let active = v.type == type ? classes.active : null
+      itemsNodeArr.push(
+        <li
+          key={'itemNode' + k}
+          onClick={ ()=> {this.changeType(v.type)}}
+          className={active}
+        >
+          {v.name}
+        </li>
+      )
+    })
+    return itemsNodeArr;
+  }
+
+  renderBody(){
+    if(this.state.type === 'withdrawals'){
+      return this.renderWithDrawals()
+    }
+    if(this.state.type === 'rewards'){
+      return this.renderRewards()
+    }
+    if(this.state.type === 'offerwall'){
+      return this.renderOfferwall()
+    }
+  }
+  render (){
+    console.log(this.props)
+    return (
+      <div className={classes.history}>
+        <div>
+          <ul className={classes.tabs}>
+            {this.renderItem()}
+          </ul>
+        </div>
+        <div className={classes.bg}>
+          {
+            this.renderBody()
+          }
+        </div>
       </div>
     )
   }
