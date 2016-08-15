@@ -109,6 +109,28 @@ export default class OfferWow extends Component {
     )
   }
 
+	renderKiwi (){
+		const { user , lu } = this.props;
+		const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
+		const offsetTop = '120px';
+		const url = `https://www.kiwiwall.com/wall/ZVXe9ZXsr4P4vMdFSvrtgumjaIfpzl8E/${user && user.id}`
+		return(
+			<div style={{left:offsetLeft , top :offsetTop ,zIndex:999999, position:'fixed'}}>
+				<div style={{position:'fixed',top:0,bottom:0,right:0,left:0,backgroundColor:'#000',opacity:0.6}}></div>
+				<div style={{backgroundColor:'#ccc',zIndex:99999999999999999,position:'relative'}}>
+						<div style={{textAlign:'right'}}>
+							<span
+								style={{display:'inline-block',padding:'12px 25px',cursor:'pointer',backgroundColor:'rgb(0, 174, 239)',color:'#fff',fontSize:'16px'}}
+								onClick={lu}
+							>Close</span>
+						</div>
+						<iframe src={url} frameborder="1" width="728" height="560" scrolling="auto" >
+						</iframe>
+				</div>
+			</div>
+		)
+	}
+
 	renderPersonaly (){
     const { user , lu } = this.props;
     const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
@@ -153,6 +175,10 @@ export default class OfferWow extends Component {
 		if(type === 5){
       return this.renderPersonaly()
     }
+
+		if(type === 6){
+      return this.renderKiwi()
+    }
   }
 
 	changeType (type){
@@ -171,6 +197,9 @@ export default class OfferWow extends Component {
 		},{
 			type : 5,
 			name : 'Personaly'
+		},{
+			type : 6,
+			name : 'Kiwiwall'
 		}]
 		let itemsNodeArr = []
 		itmes.map( (v,k)=>{
@@ -203,7 +232,7 @@ export default class OfferWow extends Component {
 								{this.renderItem()}
 							</ul>
 						</div>
-						: null 
+						: null
 					}
       </div>
     );

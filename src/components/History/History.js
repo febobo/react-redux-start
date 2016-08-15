@@ -190,7 +190,7 @@ export class History extends React.Component {
         dataIndex: 'income'
       }
       , {
-        title: 'type',
+        title: 'Type',
         dataIndex: 'type'
       }
       // , {
@@ -244,13 +244,13 @@ export class History extends React.Component {
     let type = this.state.type;
     const itmes= [{
       type : 'withdrawals',
-      name : 'withdrawals'
+      name : 'Payment'
     },{
       type : 'rewards',
-      name : 'rewards'
+      name : 'Claim'
     },{
       type : 'offerwall',
-      name : 'offerwall'
+      name : 'Offerwall'
     }]
     let itemsNodeArr = []
     itmes.map( (v,k)=>{
