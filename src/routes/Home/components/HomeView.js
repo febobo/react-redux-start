@@ -92,7 +92,7 @@ export class HomeView extends React.Component {
               config.show_coinad_adv ?
               <center>
               	<div>
-              		<iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+              		<iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=4XD7CSC96NFAP&b=JQB17YW307U7Y" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
               	</div>
               </center>
               :null
@@ -121,7 +121,7 @@ export class HomeView extends React.Component {
               config.show_coinad_adv ?
               <center>
                 <div>
-                  <iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=DNXGITSPBPYNI" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
+                  <iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=4XD7CSC96NFAP&b=JQB17YW307U7Y" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
                 </div>
               </center>
               :null
@@ -153,7 +153,7 @@ export class HomeView extends React.Component {
         config.show_coinad_adv ?
         <center>
             <div>
-              <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=QP10TX6B6KV66" style={{overflow:"hidden",width:"728px",height:"90px"}} frameborder="0"></iframe>
+              <iframe scrolling="no" src="//coinad.com/ads/show/show.php?a=4XD7CSC96NFAP&b=CQE94BMJIJCKA" style={{overflow:"hidden",width:"728px",height:"90px"}} frameborder="0"></iframe>
             </div>
         </center>
         :null

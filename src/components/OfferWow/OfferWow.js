@@ -87,6 +87,27 @@ export default class OfferWow extends Component {
     )
   }
 
+	renderAdwall(){
+    const { user , lu } = this.props;
+    const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
+    const offsetTop = '120px';
+    const url = `https://adscendmedia.com/adwall/publisher/106615/profile/6903?subid1=${user && user.id}`
+    return(
+      <div style={{left:offsetLeft , top :offsetTop ,zIndex:999999, position:'fixed'}}>
+        <div style={{position:'fixed',top:0,bottom:0,right:0,left:0,backgroundColor:'#000',opacity:0.6}}></div>
+        <div style={{backgroundColor:'#ccc',zIndex:99999999999999999,position:'relative'}}>
+            <div style={{textAlign:'right'}}>
+              <span
+                style={{display:'inline-block',padding:'12px 25px',cursor:'pointer',backgroundColor:'rgb(0, 174, 239)',color:'#fff',fontSize:'16px'}}
+                onClick={lu}
+              >Close</span>
+            </div>
+            <iframe src={url} frameborder="1" width="728" height="560" scrolling="auto" >
+            </iframe>
+        </div>
+      </div>
+    )
+  }
   renderSupreWow (){
     const { user , lu } = this.props;
     const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
@@ -179,6 +200,11 @@ export default class OfferWow extends Component {
 		if(type === 6){
       return this.renderKiwi()
     }
+
+		if(type === 7){
+      return this.renderAdwall()
+    }
+
   }
 
 	changeType (type){
@@ -200,6 +226,9 @@ export default class OfferWow extends Component {
 		},{
 			type : 6,
 			name : 'Kiwiwall'
+		},{
+			type : 7,
+			name : 'Adscend'
 		}]
 		let itemsNodeArr = []
 		itmes.map( (v,k)=>{
@@ -219,7 +248,6 @@ export default class OfferWow extends Component {
 	}
 
   render() {
-		console.log(this.props)
     const { user , config , showSlider} = this.props;
 		const offsetL = (document.body.clientWidth-728)/2 + 728 + 'px'
     return (
