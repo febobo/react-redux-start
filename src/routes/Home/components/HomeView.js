@@ -77,7 +77,10 @@ export class HomeView extends React.Component {
     {
       config.show_google_adv ?
       <GoogleAdv2
-        {...this.renderAdvProps({slot:1843492278})}
+        {...this.renderAdvProps({
+					slot:1843492278,
+					advBoxStyle : { paddingTop:"25px", textAlign : "center" , width : "996px" , margin:"0 auto"}
+				})}
       />
       :null
     }

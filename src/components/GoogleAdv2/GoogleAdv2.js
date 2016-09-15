@@ -26,7 +26,7 @@ export default class GoogleAdv2 extends Component {
         id="application"
         style={advBoxStyle}
       >
-				<div class="adbit-display-ad" data-adspace-id="37053B1EB0"></div>
+				<div class="adbit-display-ad" data-adspace-id="56F350EFCA"></div>
 
       </div>
     );
