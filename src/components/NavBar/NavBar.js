@@ -63,7 +63,7 @@ export class NavBar extends React.Component {
 			this.setState({
 	      showLu : !this.state.showLu,
 				showSlider : true,
-				type : 1
+				type : 7
 	    });
 		}
 	}

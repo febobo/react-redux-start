@@ -26,13 +26,15 @@ export default class GoogleAdv2 extends Component {
         id="application"
         style={advBoxStyle}
       >
-        <ins
-            className="adsbygoogle"
-            style={style}
-            data-ad-client={client}
-            data-ad-slot={slot}
-        />
+				<div class="adbit-display-ad" data-adspace-id="37053B1EB0"></div>
+
       </div>
     );
   }
 }
+// <ins
+// 		className="adsbygoogle"
+// 		style={style}
+// 		data-ad-client={client}
+// 		data-ad-slot={slot}
+// />
