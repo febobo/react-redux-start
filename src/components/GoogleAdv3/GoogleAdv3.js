@@ -23,17 +23,21 @@ export default class GoogleAdv3 extends Component {
     // console.log('render111')
     const { client , slot , style , advBoxStyle } = this.props;
     return (
+
       <div
         id="application"
         style={advBoxStyle}
       >
-        <ins
-            className="adsbygoogle"
-            style={style}
-            data-ad-client={client}
-            data-ad-slot={slot}
-        />
+				<div class="adbit-display-ad" data-adspace-id="37053B1EB0"></div>
+
       </div>
     );
   }
 }
+
+// <ins
+// 		className="adsbygoogle"
+// 		style={style}
+// 		data-ad-client={client}
+// 		data-ad-slot={slot}
+// />

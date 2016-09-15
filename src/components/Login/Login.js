@@ -45,7 +45,7 @@ export class Login extends React.Component {
       style : {display:"inline-block",width:"970px",height:"90px"},
       client : 'ca-pub-5722932343401905',
       slot : '7890025877',
-      advBoxStyle : { paddingTop:"25px", textAlign : "center"}
+      advBoxStyle : { paddingTop:"25px", textAlign : "center" , width : "996px" , margin:"0 auto"}
     }
     return (
     <div>
@@ -108,6 +108,7 @@ export class Login extends React.Component {
         />
         :null
       }
+
       <div className={classes.main}>
       	<div className={classes.mainBlock}>
           <Lottery />
