@@ -5,17 +5,18 @@ export default class GoogleAdv3 extends Component {
       // console.log(adsbygoogle);
       // (adsbygoogle = window.adsbygoogle || []).push({});
       // console.log('render2222')
-      const script2 = document.createElement("script");
-      script2.id="adv_login";
-      script2.async = true;
-      document.body.appendChild(script2);
-      document.getElementById('adv_login').innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({});'
+      // const script2 = document.createElement("script");
+      // script2.id="adv_login";
+      // script2.async = true;
+			// script2.src = 'https://adbit.co/js/show_ads.js';
+      // document.body.appendChild(script2);
+      // document.getElementById('adv_login').innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({});'
   }
   componentWillUnmount() {
     // IMPORTANT! Allow us to push new slot on other pages
-    document.body.removeChild(document.getElementById('adv_login'));
-    window.adsbygoogle = window.adsbygoogle || [];
-    window.adsbygoogle.length = 0;
+    // document.body.removeChild(document.getElementById('adv_login'));
+    // window.adsbygoogle = window.adsbygoogle || [];
+    // window.adsbygoogle.length = 0;
   }
 
   render() {
@@ -28,13 +29,14 @@ export default class GoogleAdv3 extends Component {
         id="application"
         style={advBoxStyle}
       >
-				<div class="adbit-display-ad" data-adspace-id="37053B1EB0"></div>
+			<script data-cfasync="false" src="https://cdn.avrti.xyz/s.js#id=239097&size=728x90"></script>
+
 
       </div>
     );
   }
 }
-
+// <div class="adbit-display-ad" data-adspace-id="37053B1EB0"></div>
 // <ins
 // 		className="adsbygoogle"
 // 		style={style}

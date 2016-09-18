@@ -163,7 +163,7 @@ export class NavBar extends React.Component {
 					{
             language != 'cn' && config.show_btc_super_task ?
               <span className={classes.lu}
-                onClick={()=>{this._lu({type:1,showSlider:true})}}
+                onClick={()=>{this._lu({type:7,showSlider:true})}}
               >
                   {
                     this.state.showLu ?

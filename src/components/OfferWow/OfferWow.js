@@ -47,7 +47,7 @@ export default class OfferWow extends Component {
 	const { user , lu } = this.props;
 	const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
 	const offsetTop = '120px';
-	const url = `http://offertoro.com/ifr/show/3047/USER_ID/${user && user.id}`
+	const url = `https://offertoro.com/ifr/show/3047/${user && user.id}/1727`
 	return(
 		<div style={{left:offsetLeft , top :offsetTop ,zIndex:999999, position:'fixed'}}>
 			<div style={{position:'fixed',top:0,bottom:0,right:0,left:0,backgroundColor:'#000',opacity:0.6}}></div>
@@ -68,7 +68,7 @@ export default class OfferWow extends Component {
     const { user , lu } = this.props;
     const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
     const offsetTop = '120px';
-    const url = `http://www.ptcwall.com/index.php?view=ptcwall&pubid=p268ps11dq34z8d16t&usrid=${user && user.id}`
+    const url = `https://www.ptcwall.com/index.php?view=ptcwall&pubid=p268ps11dq34z8d16t&usrid=${user && user.id}`
     return(
       <div style={{left:offsetLeft , top :offsetTop ,zIndex:999999, position:'fixed'}}>
         <div style={{position:'fixed',top:0,bottom:0,right:0,left:0,backgroundColor:'#000',opacity:0.6}}></div>
@@ -90,7 +90,7 @@ export default class OfferWow extends Component {
     const { user , lu } = this.props;
     const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
     const offsetTop = '120px';
-    const url = `http://wall.adgaterewards.com/oauc/${user && user.id}`
+    const url = `https://wall.adgaterewards.com/oauc/${user && user.id}`
     return(
       <div style={{left:offsetLeft , top :offsetTop ,zIndex:999999, position:'fixed'}}>
         <div style={{position:'fixed',top:0,bottom:0,right:0,left:0,backgroundColor:'#000',opacity:0.6}}></div>
@@ -112,7 +112,7 @@ export default class OfferWow extends Component {
     const { user , lu } = this.props;
     const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
     const offsetTop = '120px';
-    const url = `http://www.clixwall.com/wall.php?p=RHWQ7-D9G18-VJ1EP&u=${user && user.id}`
+    const url = `https://www.clixwall.com/wall.php?p=RHWQ7-D9G18-VJ1EP&u=${user && user.id}`
     return(
       <div style={{left:offsetLeft , top :offsetTop ,zIndex:999999, position:'fixed'}}>
         <div style={{position:'fixed',top:0,bottom:0,right:0,left:0,backgroundColor:'#000',opacity:0.6}}></div>
