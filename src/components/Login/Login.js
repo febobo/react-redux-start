@@ -42,7 +42,7 @@ export class Login extends React.Component {
   render () {
     const { data } = this.props;
     const advProps = {
-      style : {display:"inline-block",width:"970px",height:"90px"},
+      style : {display:"inline-block",width:"768px",height:"90px"},
       client : 'ca-pub-5722932343401905',
       slot : '7890025877',
       advBoxStyle : { paddingTop:"25px", textAlign : "center" , width : "996px" , margin:"0 auto"}

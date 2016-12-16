@@ -108,6 +108,27 @@ export default class OfferWow extends Component {
     )
   }
 
+  renderPtc (){
+    const { user , lu } = this.props;
+    const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
+    const offsetTop = '120px';
+    const url = `http://www.ptcwall.com/index.php?view=ptcwall&pubid=5p88t967d0qtmd6q36&usrid=${user && user.id}`
+    return(
+      <div style={{left:offsetLeft , top :offsetTop ,zIndex:999999, position:'fixed'}}>
+        <div style={{position:'fixed',top:0,bottom:0,right:0,left:0,backgroundColor:'#000',opacity:0.6}}></div>
+        <div style={{backgroundColor:'#ccc',zIndex:99999999999999999,position:'relative'}}>
+            <div style={{textAlign:'right'}}>
+              <span
+                style={{display:'inline-block',padding:'12px 25px',cursor:'pointer',backgroundColor:'rgb(0, 174, 239)',color:'#fff',fontSize:'16px'}}
+                onClick={lu}
+              >Close</span>
+            </div>
+            <iframe src={url} frameborder="1" width="728" height="560" scrolling="auto" >
+            </iframe>
+        </div>
+      </div>
+    )
+  }
   renderClixwall (){
     const { user , lu } = this.props;
     const offsetLeft = (document.body.clientWidth - 728) / 2 + 'px';
@@ -250,9 +271,11 @@ export default class OfferWow extends Component {
 		if(type === 8){
       return this.renderAdGate()
     }
-
 		if(type === 9){
       return this.renderOffertoro()
+    }
+    if(type === 10){
+      return this.renderPtc()
     }
 
 
@@ -287,6 +310,9 @@ export default class OfferWow extends Component {
 		},{
 			type : 9,
 			name : 'Offertoro'
+		},{
+			type : 10,
+			name : 'PTC'
 		}]
 
 		let itemsNodeArr = []

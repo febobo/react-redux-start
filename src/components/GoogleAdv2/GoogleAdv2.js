@@ -27,7 +27,11 @@ export default class GoogleAdv2 extends Component {
         id="application"
         style={advBoxStyle}
       >
-				<script data-cfasync="false" src="https://cdn.avrti.xyz/s.js#id=239097&size=728x90"></script>
+			<center>
+			<div>
+				<iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=3FMLHO8FY55DT&b=QAJCZO2RSCH65" style={{overflow:"hidden",width:"468px",height:"60px"}} frameborder="0"></iframe>
+			</div>
+			</center>
       </div>
     );
   }

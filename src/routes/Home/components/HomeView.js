@@ -33,6 +33,12 @@ export class HomeView extends React.Component {
   }
 
   render (){
+		const advProps = {
+      style : {display:"inline-block",width:"300px",height:"250px"},
+      client : 'ca-pub-5722932343401905',
+      slot : '9366759071',
+      // advBoxStyle : { paddingTop:"25px", textAlign : "center"}
+    }
     return (
 
   <div>
@@ -91,13 +97,20 @@ export class HomeView extends React.Component {
         <Lottery isDynamic={true} style={{marginTop:'20px'}}/>
     		<div className={classes.ad}>
     			<div className={classes.ad1}>
-            {
+            {/*
               config.show_coinad_adv ?
               <center>
               	<div>
               		<iframe scrolling="no" src="https://coinad.com/ads/show/show.php?a=4XD7CSC96NFAP&b=JQB17YW307U7Y" style={{overflow:"hidden",width:"300px",height:"250px"}} frameborder="0"></iframe>
               	</div>
               </center>
+              :null
+            */}
+						{
+              config.show_coinad_adv ?
+							<GoogleAdv
+				        {...advProps}
+				      />
               :null
             }
             {
