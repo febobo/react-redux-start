@@ -11,6 +11,7 @@
     "zbuild": "zbuild"
   },
   "scripts": {
+    "ssh":"scp ./btc.tar.gz root@123.56.129.175:/data/www/solebtc/",
     "clean": "rimraf dist",
     "compile": "better-npm-run compile",
     "lint": "eslint .",
